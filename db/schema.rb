@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614103242) do
+ActiveRecord::Schema.define(version: 20140614142508) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,9 +60,81 @@ ActiveRecord::Schema.define(version: 20140614103242) do
     t.datetime "updated_at"
   end
 
+  create_table "contact_items", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "contact_type_id"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_items", ["contact_type_id"], name: "index_contact_items_on_contact_type_id"
+  add_index "contact_items", ["shop_id"], name: "index_contact_items_on_shop_id"
+
+  create_table "contact_types", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contact_urls", force: true do |t|
+    t.string   "title"
+    t.string   "text"
+    t.string   "value"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_urls", ["shop_id"], name: "index_contact_urls_on_shop_id"
+
+  create_table "emails", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_emails", force: true do |t|
+    t.integer  "email_id"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_phones", force: true do |t|
+    t.integer  "phone_id"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_urls", force: true do |t|
+    t.integer  "url_id"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shops", force: true do |t|
     t.string   "name"
     t.string   "domain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "urls", force: true do |t|
+    t.string   "name"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

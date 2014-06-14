@@ -45,9 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #gem 'activeadmin', github: 'gregbell/active_admin'
-# Gemfile in Rails >= 3.1
-#  gem 'activeadmin'
-#  gem 'sass-rails'
-#  gem "meta_search",    '>= 1.1.0.pre'
 gem 'activeadmin', github: 'gregbell/active_admin'#, branch: 'rails4'
 gem 'devise'
