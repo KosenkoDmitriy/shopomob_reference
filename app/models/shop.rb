@@ -1,6 +1,6 @@
 class Shop < ActiveRecord::Base
   #has_many :category_shops
   #has_many :categories, :through => :category_shops
-  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :categories # should use has_many :through if you need validations, callbacks, or extra attributes on the join model.
 
 end
