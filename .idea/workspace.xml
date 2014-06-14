@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="category.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/category.rb">
+      <file leaf-file-name="contact_item.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/contact_item.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="44" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+            <state line="1" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140614160223_create_categories_shops.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140614160223_create_categories_shops.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -41,6 +50,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="20140614074255_create_shops.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140614074255_create_shops.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="30" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shop.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/shop.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="category_item.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/category_item.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,19 +77,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140614074213_create_categories.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20140614074213_create_categories.rb">
+      <file leaf-file-name="20140614142508_create_contact_items.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140614142508_create_contact_items.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="20" selection-start="118" selection-end="118" vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
+            <state line="9" column="7" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140614151424_create_category_items.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20140614151424_create_category_items.rb">
+      <file leaf-file-name="contact_type.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/contact_type.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="23" selection-start="105" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140614142323_create_contact_types.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140614142323_create_contact_types.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="98" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.48465267" vertical-offset="0" max-vertical-offset="619">
               <folding />
             </state>
           </provider>
@@ -98,13 +143,15 @@
         <option value="$PROJECT_DIR$/app/admin/category_shop.rb" />
         <option value="$PROJECT_DIR$/app/admin/category.rb" />
         <option value="$PROJECT_DIR$/app/admin/shop.rb" />
-        <option value="$PROJECT_DIR$/app/models/shop.rb" />
         <option value="$PROJECT_DIR$/app/models/category_item.rb" />
         <option value="$PROJECT_DIR$/app/admin/category_item.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140614151424_create_category_items.rb" />
         <option value="$PROJECT_DIR$/app/models/category.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140614153148_add_parent_to_category.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140614074213_create_categories.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140614160223_create_categories_shops.rb" />
+        <option value="$PROJECT_DIR$/app/models/shop.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
   </component>
@@ -456,20 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614142508_create_contact_items.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="7" selection-start="257" selection-end="257" vertical-scroll-proportion="0.2180937" vertical-offset="0" max-vertical-offset="619">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614142323_create_contact_types.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140614103242_create_active_admin_comments.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
@@ -491,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614074255_create_shops.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="30" selection-start="87" selection-end="87" vertical-scroll-proportion="0.04360465" vertical-offset="0" max-vertical-offset="688">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140614103234_devise_create_admin_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
@@ -512,51 +538,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/shop.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/category_item.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="451" selection-end="451" vertical-scroll-proportion="0.38345864" vertical-offset="0" max-vertical-offset="665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/category_shop.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.37063953" vertical-offset="0" max-vertical-offset="688">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614145052_create_category_shops.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/contact_item.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.021802325" vertical-offset="0" max-vertical-offset="688">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/contact_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/category_shop.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
           <folding />
         </state>
       </provider>
@@ -568,23 +552,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/category_item.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614074213_create_categories.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="18" selection-start="133" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+        <state line="3" column="20" selection-start="118" selection-end="118" vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140614151424_create_category_items.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="23" selection-start="105" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614153148_add_parent_to_category.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+        <state line="3" column="23" selection-start="105" selection-end="145" vertical-scroll-proportion="0.06540698" vertical-offset="0" max-vertical-offset="688">
           <folding />
         </state>
       </provider>
@@ -596,9 +573,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140614074213_create_categories.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614142323_create_contact_types.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="20" selection-start="118" selection-end="118" vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614142508_create_contact_items.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="7" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614153148_add_parent_to_category.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/category_item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="133" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/contact_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614160223_create_categories_shops.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140614074255_create_shops.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="30" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/shop.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/contact_item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="98" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.48465267" vertical-offset="0" max-vertical-offset="619">
           <folding />
         </state>
       </provider>
