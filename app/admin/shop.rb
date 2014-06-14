@@ -1,6 +1,6 @@
 ActiveAdmin.register Shop do
 
-  permit_params :name, :domain
+  permit_params :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614160223) do
+ActiveRecord::Schema.define(version: 20140614195614) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -51,13 +51,20 @@ ActiveRecord::Schema.define(version: 20140614160223) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.integer  "_id"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
 
+  create_table "categories_category_items", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "category_item_id"
+  end
+
   create_table "categories_shops", id: false, force: true do |t|
     t.integer "category_id"
     t.integer "shop_id"
+    t.integer "_id"
   end
 
   create_table "category_items", force: true do |t|
@@ -65,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140614160223) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "_id"
   end
 
   add_index "category_items", ["parent_id"], name: "index_category_items_on_parent_id"
@@ -93,6 +101,17 @@ ActiveRecord::Schema.define(version: 20140614160223) do
     t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "postal_code"
+    t.string   "address"
+    t.string   "time_work"
+    t.string   "email"
+    t.string   "www"
+    t.integer  "favorite"
+    t.integer  "rated"
+    t.integer  "_id"
   end
+
+  add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"
 
 end

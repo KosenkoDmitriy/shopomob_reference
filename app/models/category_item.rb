@@ -3,4 +3,7 @@ class CategoryItem < ActiveRecord::Base
   #         foreign_key: "parent_id"
 
   belongs_to :parent, class_name: "CategoryItem"
+
+  has_and_belongs_to_many :categories
+
 end
