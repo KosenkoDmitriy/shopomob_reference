@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614142508) do
+ActiveRecord::Schema.define(version: 20140614145052) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,11 +54,14 @@ ActiveRecord::Schema.define(version: 20140614142508) do
   end
 
   create_table "category_shops", force: true do |t|
-    t.integer  "category_id"
     t.integer  "shop_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "category_shops", ["category_id"], name: "index_category_shops_on_category_id"
+  add_index "category_shops", ["shop_id"], name: "index_category_shops_on_shop_id"
 
   create_table "contact_items", force: true do |t|
     t.string   "name"
@@ -79,62 +82,9 @@ ActiveRecord::Schema.define(version: 20140614142508) do
     t.datetime "updated_at"
   end
 
-  create_table "contact_urls", force: true do |t|
-    t.string   "title"
-    t.string   "text"
-    t.string   "value"
-    t.integer  "shop_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contact_urls", ["shop_id"], name: "index_contact_urls_on_shop_id"
-
-  create_table "emails", force: true do |t|
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "phones", force: true do |t|
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shop_emails", force: true do |t|
-    t.integer  "email_id"
-    t.integer  "shop_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shop_phones", force: true do |t|
-    t.integer  "phone_id"
-    t.integer  "shop_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shop_urls", force: true do |t|
-    t.integer  "url_id"
-    t.integer  "shop_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "shops", force: true do |t|
     t.string   "name"
     t.string   "domain"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "urls", force: true do |t|
-    t.string   "name"
-    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
