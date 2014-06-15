@@ -57,7 +57,6 @@ ActiveAdmin.register Shop do
 
       #f.input :categories, as: :check_boxes, :multiple => true, member_label: :name
       f.input :categories, :multiple => true, member_label: :name
-
     end
     f.actions
   end

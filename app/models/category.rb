@@ -8,5 +8,5 @@ class Category < ActiveRecord::Base
   has_one :image, as: :imageable
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  accepts_nested_attributes_for :shops
+  accepts_nested_attributes_for :shops, :allow_destroy => false
 end
