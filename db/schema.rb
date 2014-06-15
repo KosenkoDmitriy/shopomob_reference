@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614195614) do
+ActiveRecord::Schema.define(version: 20140615064424) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140614195614) do
   create_table "categories_shops", id: false, force: true do |t|
     t.integer "category_id"
     t.integer "shop_id"
-    t.integer "_id"
   end
 
   create_table "category_items", force: true do |t|
@@ -78,12 +77,13 @@ ActiveRecord::Schema.define(version: 20140614195614) do
   add_index "category_items", ["parent_id"], name: "index_category_items_on_parent_id"
 
   create_table "contact_items", force: true do |t|
-    t.string   "name"
+    t.string   "department"
     t.string   "value"
     t.integer  "contact_type_id"
     t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fio"
   end
 
   add_index "contact_items", ["contact_type_id"], name: "index_contact_items_on_contact_type_id"

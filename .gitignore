@@ -16,3 +16,5 @@
 /tmp
 db/csv/.~lock.cats.csv#
 db/csv/.~lock.phones.csv#
+.idea
+.idea/*

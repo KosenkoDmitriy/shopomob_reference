@@ -20,10 +20,12 @@
 #ci = ContactItem.create(name:'Website (Official)', value:'www.ex.com', shop:s, contact_type:ct_url)
 #ci = ContactItem.create(name:'Facebook', value:'www.facebook.com/ex', shop:s, contact_type:ct_url)
 
+AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
 
 
 require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
+
 
 file_path = "#{path_to_app}tcats.csv"
 puts file_path
@@ -91,6 +93,28 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
       c.category_items.append( ci )
       c.save
       puts "#{c.name} | #{ci.name} "
+    end
+  end
+end
+
+
+ct_mail = ContactType.create(name:'email', value:'Email Address')
+ct_url = ContactType.create(name:'url', value:'Website or other link')
+ct_phone = ContactType.create(name:'phone', value:'Phone Number')
+file_path = "#{path_to_app}phones.csv"
+puts file_path
+#_id	id_org	ord	phone	owner	owner_fio
+CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
+  s = Shop.find_by(_id: row['id_org'].to_i)
+  if s
+    #ci = ContactItem.find_by(_id: row['id_trubr'].to_i)
+    ci = ContactItem.create(fio: row['owner_fio'], department:row['owner'], value:row['phone'], shop:s, contact_type:ct_phone)
+
+    if ci
+      #c.category_item_ids.append( ci.id )
+      s.contact_items.append( ci )
+      s.save
+      puts "#{s.name} | #{ci.department} | #{ci.value} "
     end
   end
 end
