@@ -1,6 +1,5 @@
 ActiveAdmin.register CategoryItem do
-
-  permit_params :parent_id, :name
+  permit_params :parent_id
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

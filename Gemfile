@@ -47,3 +47,5 @@ end
 #gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'activeadmin', github: 'gregbell/active_admin'#, branch: 'rails4'
 gem 'devise'
+gem "paperclip", "~> 4.1"
+

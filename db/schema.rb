@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615064424) do
+ActiveRecord::Schema.define(version: 20140615141834) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20140615064424) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.integer  "_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
@@ -72,6 +76,10 @@ ActiveRecord::Schema.define(version: 20140615064424) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "category_items", ["parent_id"], name: "index_category_items_on_parent_id"
@@ -94,6 +102,24 @@ ActiveRecord::Schema.define(version: 20140615064424) do
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "path"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "shops", force: true do |t|
@@ -110,6 +136,10 @@ ActiveRecord::Schema.define(version: 20140615064424) do
     t.integer  "favorite"
     t.integer  "rated"
     t.integer  "_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"

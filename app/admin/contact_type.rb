@@ -1,5 +1,4 @@
 ActiveAdmin.register ContactType do
-
   permit_params :name, :value
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
