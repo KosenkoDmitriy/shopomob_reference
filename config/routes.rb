@@ -7,6 +7,7 @@ Shopomob::Application.routes.draw do
       resources :category
       resources :t_category
       resources :shops
+      resources :images
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
