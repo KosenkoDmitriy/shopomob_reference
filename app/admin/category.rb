@@ -1,8 +1,15 @@
 ActiveAdmin.register Category do
   permit_params :name
 
+
   controller do
+    #before_filter :initialize_categories, :only => [:new, :edit]
+
     def create
+      #@cat = Category.create (category_params)
+      #@cat = Category.create (category_params)
+      #@cat.shops = shop_params
+
       @cat = Category.new (category_params)
       ids = params[:category][:shop_ids]
       ids.shift
@@ -21,12 +28,15 @@ ActiveAdmin.register Category do
       else
         render "new"
       end
+      #redirect_to action: "index"
+
     end
 
     def update
-      #@cat = Category.find (params['id'])
-      #@cat.attributes = category_params
       @cat = Category.update(params['id'], category_params)
+
+      @cat = Category.find (params['id'])
+      @cat.attributes = category_params
       ids = params[:category][:shop_ids]
       @cat.shops.delete_all
       #@cat.shops.destroy
@@ -46,12 +56,26 @@ ActiveAdmin.register Category do
       else
         render "edit"
       end
+      #redirect_to action: "index"
+
     end
 
     private
     def category_params
       params.require(:category).permit(:parent_id, :image, :name, :created_at, :updated_at, image_attributes: [:id, :image, :_destroy], shop_ids: [:id, :name, :category_id, :_destroy])
     end
+
+    def shop_params
+      params.require(:category).permit(shops_attributes: [:id, :name, :_destroy])
+    end
+
+    #def initialize_categories
+    #  shops = if @cat.shops.present?
+    #
+    #          else
+    #
+    #          end
+    #end
   end
 
 
@@ -66,6 +90,12 @@ ActiveAdmin.register Category do
 
     f.inputs "Shops" do
       f.input :shops, :multiple => true, member_label: :name
+      #f.has_many :shops, :heading => 'Categories' do |c|
+      #  #if !c.object.nil?
+      #  c.input :id, :as => :select, :collection => Shop.all.map{|u| ["#{u.name}", u.id]}
+      #  c.input :_destroy, :as => :boolean, :required => false, :label => 'Remove'
+      #  #end
+      #end
     end
 
     f.inputs "Images" do
