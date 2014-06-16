@@ -23,6 +23,31 @@ ActiveAdmin.register Category do
       end
     end
 
+    def update
+      #@cat = Category.find (params['id'])
+      #@cat.attributes = category_params
+      @cat = Category.update(params['id'], category_params)
+      ids = params[:category][:shop_ids]
+      @cat.shops.delete_all
+      #@cat.shops.destroy
+      ids.shift
+      ids.each do |id|
+        if id.to_i > 0
+          s = Shop.find(id.to_i)
+          if s
+            @cat.shops.append(s)
+          end
+        end
+      end
+
+      if @cat.save
+        redirect_to action: "index"
+        #redirect_to({ action: 'index' }, alert: "Something serious happened")
+      else
+        render "edit"
+      end
+    end
+
     private
     def category_params
       params.require(:category).permit(:parent_id, :image, :name, :created_at, :updated_at, image_attributes: [:id, :image, :_destroy], shop_ids: [:id, :name, :category_id, :_destroy])

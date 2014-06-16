@@ -5,7 +5,29 @@ ActiveAdmin.register Shop do
     def create
       #@shop = Shop.create(shop_params)
       @shop = Shop.new (shop_params)
-      #@shop.categories.delete_all
+      cat_ids = params[:shop][:category_ids]
+      cat_ids.shift
+      cat_ids.each do |ci|
+        #@shop.categories << Category.find(ci.to_i)
+        if ci.to_i > 0
+          c = Category.find(ci.to_i)
+          if c
+            @shop.categories.append(c)
+          end
+        end
+      end
+      if @shop.save
+        redirect_to action: "index"
+      else
+        render "new"
+      end
+      #redirect_to({ action: 'index' }, alert: "Something serious happened")
+    end
+
+    def update
+      @shop = Shop.find(params['id']) #update (params['id'], shop_params)
+      @shop.attributes = shop_params
+      @shop.categories.delete_all
       cat_ids = params[:shop][:category_ids]
       cat_ids.shift
       cat_ids.each do |ci|
@@ -17,7 +39,6 @@ ActiveAdmin.register Shop do
             @shop.categories.append(c)
           end
         end
-
       end
       if @shop.save
         redirect_to action: "index"
@@ -45,8 +66,8 @@ ActiveAdmin.register Shop do
       f.has_many :contact_items, :heading => 'Contact Items' do |ci|
         ci.input :value
         ci.input :contact_type
-        #ff.input :value, :label => "category_item"
-        #ff.input :destroy, :as=>:boolean, :required => false, :label => 'Remove '
+        #ci.input :value, :label => "category_item"
+        ci.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove'
       end
       #f.belongs_to :categories, :heading => 'Categories' do |c|
       #  c.input :name

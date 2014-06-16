@@ -5,10 +5,10 @@ class Shop < ActiveRecord::Base
   belongs_to :parent, class_name: "Shop"
   accepts_nested_attributes_for :categories, :allow_destroy => false
 
-  has_many :contact_items
+  has_many :contact_items, dependent: :destroy
   accepts_nested_attributes_for :contact_items, :allow_destroy => true
 
-  has_many :images, as: :imageable
+  has_many :images, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true
 
 end
