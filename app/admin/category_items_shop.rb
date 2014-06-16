@@ -1,5 +1,6 @@
 ActiveAdmin.register CategoryItemsShop do
-  #category_items_shop
+  menu :parent => "Category"
+
   permit_params :shop_id, :category_item_id
   
   # See permitted parameters documentation:

@@ -1,6 +1,6 @@
 ActiveAdmin.register Category do
   permit_params :name
-
+  menu :parent => "Category"
 
   controller do
     #before_filter :initialize_categories, :only => [:new, :edit]

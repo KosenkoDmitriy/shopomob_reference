@@ -1,8 +1,7 @@
-ActiveAdmin.register ContactItem do
-  menu :parent => "Contact"
+ActiveAdmin.register CategoriesShop do
+  menu :parent => "Category"
 
-  permit_params :contact_item, :contact_type_id, :fio, :department, :shop_id, :value
-
+  permit_params :category_id, :shop_id
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

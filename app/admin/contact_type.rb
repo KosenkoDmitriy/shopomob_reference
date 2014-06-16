@@ -1,4 +1,5 @@
 ActiveAdmin.register ContactType do
+  menu :parent => "Contact"
 
   permit_params :name, :value, image_attributes: [:id, :image, :_destroy]
 
