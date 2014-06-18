@@ -1,9 +1,13 @@
 class Api::V1::ShopsController < ApplicationController
   def index
     cid = params['category_id']
+    tcid = params['tcategory_id']
     if (cid)
       @items = Category.find(cid.to_i).shops.order(favorite: :desc, rated: :desc, name: :asc)
+    elsif (tcid)
+      @items = CategoryItem.find(tcid.to_i).shops.order(favorite: :desc, rated: :desc, name: :asc)
     else
+
       #@items = Shop.all.order_by()#[0..3]
       @items = Shop.order(favorite: :desc, rated: :desc, name: :asc)
     end
