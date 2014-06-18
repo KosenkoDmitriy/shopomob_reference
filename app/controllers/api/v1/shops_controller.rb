@@ -1,10 +1,16 @@
 class Api::V1::ShopsController < ApplicationController
   def index
-    #@items = Shop.all.order_by()#[0..3]
-    @items = Shop.order(favorite: :desc, rated: :desc, name: :asc)
+    cid = params['category_id']
+    if (cid)
+      @items = Category.find(cid.to_i).shops.order(favorite: :desc, rated: :desc, name: :asc)
+    else
+      #@items = Shop.all.order_by()#[0..3]
+      @items = Shop.order(favorite: :desc, rated: :desc, name: :asc)
+    end
     respond_to do |format|
       format.json { render :json => @items } #.to_json(include: :contact_items) }
     end
+
   end
 
   def show

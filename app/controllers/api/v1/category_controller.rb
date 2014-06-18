@@ -4,7 +4,7 @@ class Api::V1::CategoryController < ApplicationController
     if params['parent_id']
       @items = Category.where(parent_id: params['parent_id'].to_i).all
     else
-      @items = Category.all
+      @items = Category.joins(:shops).order(name: :asc).distinct(:name)
     end
     respond_to do |format|
       format.json { render :json => @items }
