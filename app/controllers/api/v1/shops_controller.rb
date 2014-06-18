@@ -1,6 +1,7 @@
 class Api::V1::ShopsController < ApplicationController
   def index
-    @items = Shop.all#[0..3]
+    #@items = Shop.all.order_by()#[0..3]
+    @items = Shop.order(favorite: :desc, rated: :desc, name: :asc)
     respond_to do |format|
       format.json { render :json => @items } #.to_json(include: :contact_items) }
     end
