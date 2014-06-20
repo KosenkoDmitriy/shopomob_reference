@@ -7,7 +7,8 @@ class Api::V1::CategoryController < ApplicationController
       @items = Category.joins(:shops).order(name: :asc).distinct(:name)
     end
     respond_to do |format|
-      format.json { render :json => @items }
+      #format.json { render :json => @items }
+      format.json { render :json => @items.to_json(include: {:image => {:only => [:image_file_name], :methods => [:image_url]}}, :only => [:id, :name, :parent_id] )}
     end
   end
 
