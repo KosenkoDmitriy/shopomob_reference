@@ -76,7 +76,7 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+      params.require(:shop).permit(:tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
     end
   end
 

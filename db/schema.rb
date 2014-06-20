@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616170242) do
+ActiveRecord::Schema.define(version: 20140620170034) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20140616170242) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "tags"
   end
 
   add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"
