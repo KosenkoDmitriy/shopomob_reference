@@ -5,4 +5,10 @@ class Api::V1::ImagesController < ApplicationController
       format.json { render :json => @item }
     end
   end
+  def index
+    @item = Image.all
+    respond_to do |format|
+      format.json { render :json => @item }
+    end
+  end
 end

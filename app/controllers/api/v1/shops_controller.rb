@@ -16,7 +16,8 @@ class Api::V1::ShopsController < ApplicationController
       @items = @items.count;
     end
     respond_to do |format|
-      format.json { render :json => @items.to_json(include: {:images => {:only => [:image_file_name], :methods => [:image_url]}}, :except => [:updated_at, :created_at, :image_file_name, :image_content_type, :image_file_size, :image_updated_at]) }
+      #format.json { render :json => @items.to_json(include: {:images => {:only => [:image_file_name], :methods => [:image_url]}}, :except => [:updated_at, :created_at, :image_file_name, :image_content_type, :image_file_size, :image_updated_at]) }
+      format.json { render :json => @items.to_json(include: [{:images => {:only => [:image_file_name], :methods => [:image_url]}}, {:contact_items => {include: [:contact_type => {:only => [:name]}], :only => [:department, :value]}}, {:category_items => {:only=> [:id, :parent_id]}}, {:categories => {:only=> [:id, :parent_id]}}  ] )}
     end
   end
 
@@ -33,5 +34,12 @@ class Api::V1::ShopsController < ApplicationController
       #format.json { render :json => @item.to_json(include: [{categories: {include: :category_items}}, contact_items: {include: :contact_type}] )}
       format.json { render :json => @item.to_json(include: [{:images => {:only => [:image_file_name], :methods => [:image_url]}}, {:contact_items => {include: [:contact_type => {:only => [:name]}], :only => [:department, :value]}} ] )}
     end
+  end
+
+  def online
+    respond_to do |format|
+      format.json { render :json => 'true'}
+    end
+    #respond_with  # { render :json =>"true"}
   end
 end
