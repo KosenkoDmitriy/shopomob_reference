@@ -65,7 +65,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 
-
+=begin
 file_path = "#{path_to_app}company_cats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
@@ -96,7 +96,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
     end
   end
 end
-
+=end
 
 ct_mail = ContactType.create(name:'email', value:'Email Address')
 ct_url = ContactType.create(name:'url', value:'Website or other link')
