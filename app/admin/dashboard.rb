@@ -1,4 +1,5 @@
 ActiveAdmin.register_page "Dashboard" do
+  menu :label => proc{ I18n.t("home") }
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 

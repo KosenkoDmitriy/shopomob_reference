@@ -1,6 +1,13 @@
 ActiveAdmin.register Shop do
   #permit_params :shop, :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
+  menu :label => proc{ I18n.t("companies") }
+  #menu :priority => 2, url: ->{ app_customers_path(locale: I18n.locale) } # Pass the locale to the menu link
+  #
+  #action_item do
+  #  link_to I18n.t("shops"), new_app_customer_path(locale: I18n.locale) # Pass the locale to the new button
+  #end
+
   controller do
     def create
       #@shop = Shop.create(shop_params)
@@ -82,11 +89,18 @@ ActiveAdmin.register Shop do
 
 
   form do |f|
-    f.inputs "shop" do
-      f.inputs
+    f.inputs I18n.t("company") do
+      f.input :name, label: I18n.t("company.name")
+      f.input :postal_code, label: I18n.t("company.postal_code")
+      f.input :address, label: I18n.t("company.address")
+      f.input :time_work, label: I18n.t("company.time_work")
+      f.input :email, label: I18n.t("company.email")
+      f.input :www, label: I18n.t("company.www")
+      f.input :rated, label: I18n.t("company.rated")
+      f.input :tags, label: I18n.t("company.tags"), hint: I18n.t("company.keywords_space")
     end
 
-    f.inputs "Categories" do
+    f.inputs I18n.t("cats") + "/" + I18n.t("tcats") do
       #f.has_many :category_items, :heading => 'TCategories' do |c|
       #  c.input :id, :as => :select, :collection => CategoryItem.all.map{|u| ["#{u.name}", u.id]}
       #  c.input :_destroy, :as => :boolean, :required => false, :label => 'Remove'
@@ -105,25 +119,58 @@ ActiveAdmin.register Shop do
       #f.input :categories, as: :check_boxes, :multiple => true, member_label: :name
     end
 
-    f.inputs "contacts" do
-      f.has_many :contact_items, :heading => 'Contact Items' do |ci|
+    f.inputs I18n.t("contacts") do
+      #f.has_many :contact_items, :heading => I18n.t("contacts") do |c|
+      #    #if !c.object.nil?
+      #      c.input :id, :as => :select, :collection => ContactItem.where(shop_id:params['id']).map{|u| ["#{u.value}", u.id]}
+      #      c.input :_destroy, :as => :boolean, :required => false, :label => 'Remove'
+      #    #end
+      #end
+
+      #f.has_many :contact_items, :heading => I18n.t("contacts") do |ci|
+      f.has_many :contact_items do |ci|
         ci.input :value
         ci.input :contact_type
         #ci.input :value, :label => "category_item"
-        ci.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove'
+        ci.input :_destroy, :as=>:boolean, :required => false, :label => I18n.t('remove')
       end
     end
 
-    f.inputs "images" do
+    f.inputs I18n.t("images") do
       f.has_many :images, :heading => 'Images' do |ff|
         ff.input :image, :label => "Image", :hint => ff.template.image_tag(ff.object.image.url(:thumb))
-        ff.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove image'
+        ff.input :_destroy, :as=>:boolean, :required => false, :label => I18n.t('remove')
       end
     end
 
     f.actions
   end
 
+  index do
+    column I18n.t("company.id"), :id do |shop|
+      link_to shop.id, admin_shop_path(shop)
+    end
+    column I18n.t("company.name"), :name
+    column I18n.t("contacts"), :id do |shop|
+      ci = ContactItem.where(shop_id:shop.id).map{|u| ["#{u.value}", "#{u.contact_type.name if u.contact_type}" ]}
+      ci.each do |item|
+        if item[0]
+          div "#{item[1]}: #{item[0]}, "
+        end
+      end
+    end
+    
+    column I18n.t("company.address"), :address
+    column I18n.t("company.time_work"), :time_work
+    column I18n.t("company.email"), :email
+    column I18n.t("company.website"), :www
+
+    column I18n.t("company.tags"), :tags
+    column I18n.t("company.postal_code"), :postal_code
+    column I18n.t("company.rated"), :rated
+
+    actions
+  end
 
   #show do |ad|
   #  attributes_table do |i|
@@ -138,5 +185,54 @@ ActiveAdmin.register Shop do
   #    #end
   #  end
   #end
+
+  show :title =>  I18n.t('shop') do |f|
+    attributes_table do
+      row I18n.t("company.name") do
+        f.name
+      end
+      row I18n.t("company.postal_code") do
+        f.postal_code
+      end
+      row I18n.t("company.address") do
+        f.address
+      end
+      row I18n.t("company.time_work") do
+        f.time_work
+      end
+      row I18n.t("company.email") do
+        f.email
+      end
+      row I18n.t("company.website") do
+        f.www
+      end
+      row I18n.t("company.rated") do
+        f.rated
+      end
+      row I18n.t("company.tags") do
+        f.tags
+      end
+      row I18n.t("contacts") do
+        ci = ContactItem.where(shop_id:params["id"]).map{|u| ["#{u.value}", "#{u.contact_type.name if u.contact_type}" ]}
+        ci.each do |book|
+          if book[0]
+            h4 "#{book[1]}: #{book[0]}"
+          end
+        end
+      end
+      row :image do
+        image_tag(Image.first.image.url)
+      end
+    end
+    #f.images
+    #f.has_many :contact_items, :heading => I18n.t("contacts") do |ci|
+    #  ci.input :value
+    #  ci.input :contact_type
+    #  #ci.input :value, :label => "category_item"
+    #  ci.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove'
+    #end
+  end
+
+
 
 end

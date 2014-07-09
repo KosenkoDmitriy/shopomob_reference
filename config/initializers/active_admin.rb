@@ -1,12 +1,29 @@
 ActiveAdmin.setup do |config|
 
+  config.before_filter do
+    I18n.locale = 'ru'
+  end
+
+  #config.namespace :admin do |admin|
+  #  admin.build_menu :utility_navigation do |menu|
+  #    menu.add :label => "Languages" do |lang|
+  #      lang.add :label => "English",:url => proc { url_for(:locale => 'en') }, id: 'i18n-en', :priority => 2
+  #      lang.add :label => "Русский",:url => proc {  url_for(:locale => 'ru') }, id: 'i18n-ru', :priority => 1
+  #    end
+  #    menu.add :label => proc{ display_name current_active_admin_user},
+  #             :url => '#',
+  #             :id => 'current_user',
+  #             :if => proc{ current_active_admin_user? }
+  #    admin.add_logout_button_to_menu menu
+  #  end
+  #end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
   config.site_title = "Shopomob"
-
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -118,7 +135,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  # config.allow_comments = false
+  config.allow_comments = false
   #
   # You can disable the menu item for the comments index page:
   # config.show_comments_in_menu = false

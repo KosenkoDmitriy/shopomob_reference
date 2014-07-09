@@ -52,3 +52,5 @@ gem 'activeadmin', github: 'gregbell/active_admin'#, branch: 'rails4'
 gem 'devise'
 gem "paperclip", "~> 4.1"
 gem 'formtastic'
+gem 'russian', '~> 0.6.0'
+

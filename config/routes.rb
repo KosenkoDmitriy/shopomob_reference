@@ -1,6 +1,10 @@
 Shopomob::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
+  #scope ":locale", :path_prefix => '/:locale' do
+  #  ActiveAdmin.routes(self)
+  #end
 
   namespace :api, :defaults => {:format => :json}  do
     namespace :v1 do
@@ -11,6 +15,8 @@ Shopomob::Application.routes.draw do
       get 'online' => 'shops#online'
     end
   end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,5 @@
 ActiveAdmin.register Image do
+  menu :label => proc{ I18n.t("images") }
 
   #permit_params :name, :url, :path, :imageable_id, :imageable_type
 

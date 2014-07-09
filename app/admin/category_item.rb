@@ -1,5 +1,7 @@
 ActiveAdmin.register CategoryItem do
-  menu :parent => "Category"
+  #menu :parent => "Category"
+  #menu :label => proc{ I18n.t("tcats") }
+  menu :label => proc{ I18n.t("tcats") } , :parent => I18n.t("cats")
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

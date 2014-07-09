@@ -1,5 +1,6 @@
 ActiveAdmin.register ContactType do
-  menu :parent => "Contact"
+  #menu :parent => "Contact"
+  menu :label => proc{ I18n.t("contact_types") } , :parent => I18n.t("contacts")
 
   permit_params :name, :value, image_attributes: [:id, :image, :_destroy]
 

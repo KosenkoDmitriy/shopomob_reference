@@ -1,5 +1,6 @@
 ActiveAdmin.register CategoryItemsShop do
-  menu :parent => "Category"
+  #menu :parent => "Category"
+  menu :label => proc{ I18n.t("tcat_shops") } , :parent => I18n.t("cats")
 
   permit_params :shop_id, :category_item_id
   

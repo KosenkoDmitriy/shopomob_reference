@@ -137,6 +137,8 @@ GEM
     ref (1.0.5)
     responders (1.1.0)
       railties (>= 3.2, < 5)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -191,6 +193,7 @@ DEPENDENCIES
   libv8 (>= 3.11.8)
   paperclip (~> 4.1)
   rails (= 4.0.1)
+  russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
