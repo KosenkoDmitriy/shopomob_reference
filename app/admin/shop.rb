@@ -159,7 +159,7 @@ ActiveAdmin.register Shop do
         end
       end
     end
-    
+
     column I18n.t("company.address"), :address
     column I18n.t("company.time_work"), :time_work
     column I18n.t("company.email"), :email
@@ -221,7 +221,7 @@ ActiveAdmin.register Shop do
         end
       end
       row :image do
-        image_tag(Image.first.image.url)
+        image_tag(f.images.first.image_url) if f.images.first !=nil #? f.images.first !=nil : image_tag(Image.first.image.url)
       end
     end
     #f.images
