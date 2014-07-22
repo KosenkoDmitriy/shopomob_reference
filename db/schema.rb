@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722150958) do
+ActiveRecord::Schema.define(version: 20140722185839) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -142,8 +142,8 @@ ActiveRecord::Schema.define(version: 20140722150958) do
     t.string   "time_work"
     t.string   "email"
     t.string   "www"
-    t.integer  "favorite"
-    t.integer  "rated"
+    t.integer  "favorite",           default: 0, null: false
+    t.integer  "rated",              default: 0, null: false
     t.integer  "_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
