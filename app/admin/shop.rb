@@ -83,13 +83,13 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+      params.require(:shop).permit(:description, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
     end
   end
 
 
   form do |f|
-    f.inputs I18n.t("company") do
+    f.inputs I18n.t("company.label") do
       f.input :name, label: I18n.t("company.name")
       f.input :postal_code, label: I18n.t("company.postal_code")
       f.input :address, label: I18n.t("company.address")
@@ -97,6 +97,7 @@ ActiveAdmin.register Shop do
       f.input :email, label: I18n.t("company.email")
       f.input :www, label: I18n.t("company.www")
       f.input :rated, label: I18n.t("company.rated")
+      f.input :description, label: I18n.t("company.description")
       f.input :tags, label: I18n.t("company.tags"), hint: I18n.t("company.keywords_space")
     end
 
@@ -190,6 +191,9 @@ ActiveAdmin.register Shop do
     attributes_table do
       row I18n.t("company.name") do
         f.name
+      end
+      row I18n.t("company.description") do
+        f.description
       end
       row I18n.t("company.postal_code") do
         f.postal_code

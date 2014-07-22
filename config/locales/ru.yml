@@ -37,18 +37,19 @@ ru:
   delete: "Удалить"
 
   company:
+    label: "Компания"
     id: "#"
-    name: "имя"
-    postal_code: "почтовый индекс"
-    address: "адрес"
-    time_work: "часы работы"
+    name: "Название"
+    postal_code: "Почтовый индекс"
+    address: "Адрес"
+    time_work: "Часы работы"
     email: "@ почта"
-    website: "вебсайт"
+    website: "Веб-сайт"
     rated: "Топ"
     tags: "Ключевые слова"
     keywords_space: "ключевые слова чере пробел "
     www: "Сайт"
-
+    description: "Описание"
   time:
     formats:
       long: ""
