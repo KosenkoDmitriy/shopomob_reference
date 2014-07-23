@@ -78,8 +78,18 @@ SimpleNavigation::Configuration.run do |navigation|
 
     end
     primary.item :shops, 'Компании', shops_path
-    primary.item :tcats, 'Рубрики', tcats_path #t_category_index_path
-    primary.item :cats, 'Категории', cats_path #category_index_path
+    primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
+      CategoryItem.where(parent_id:0).each do |item|
+        sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s
+      end
+    end
+
+    primary.item :cats, 'Категории', cats_path do |sub_nav|
+      Category.all.each do |item|
+        sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s
+      end
+    end
+
     primary.item :contacts, 'Контакты', contacts_path
 
     primary.item :services, 'Услуги', services_path do |sub_nav|
