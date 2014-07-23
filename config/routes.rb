@@ -23,9 +23,10 @@ Shopomob::Application.routes.draw do
   #resources :shops
   get 'services' => 'home#services'
   get 'contacts' => 'home#contacts'
-  get 'adv' => 'home#adv'
+  get 'services/adv' => 'home#services_adv'
 
   get 'shops' => 'home#shops'
+  get 'shops/:id' => 'home#shops'
   get 'tcats' => 'home#tcats'
   get 'cats' => 'home#cats'
 

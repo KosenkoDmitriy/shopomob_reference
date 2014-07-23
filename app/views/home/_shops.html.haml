@@ -1,0 +1,8 @@
+%ul
+  %li
+    -@shops.each do |item|
+      %a{:href=>"../shops/#{item.id}"}=item.name
+-#render_navigation do |primary|
+-#  primary.item do |sub_nav|
+-#    sub_nav.item :shop1, 'Shop1', 'shop1'
+-#<ul><li class="selected simple-navigation-active-leaf" id="service_1"><a class="selected" href="/services/adv">Реклама в справочнике Владикавказа</a></li><li id="service_2"><a href="/services/rent_app">Аренда мобильного приложения</a></li><li id="service_3"><a href="/services/rent_shop">Аренда интернет-магазина</a></li><li id="service_4"><a href="/services/sms">СМС-рассылка</a></li></ul>

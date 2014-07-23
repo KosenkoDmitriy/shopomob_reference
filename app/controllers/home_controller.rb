@@ -15,12 +15,11 @@ class HomeController < ApplicationController
 
   end
 
-  def adv
-
-  end
-
   def shops
-
+    if (params['id'])
+      @shop = Shop.find(params['id'])
+    end
+    @shops = Shop.all#[0..3]
   end
 
   def cats
@@ -40,6 +39,10 @@ class HomeController < ApplicationController
   end
 
   def services_rent_app
+
+  end
+
+  def services_adv
 
   end
 end

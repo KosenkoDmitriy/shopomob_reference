@@ -1,23 +1,25 @@
--##example
--#  #example_3.example_content
--#    #top_navigation= render_navigation(:level => 1)
--#    .clear_float
--#    .content_wrapper
--#      #sub_navigation= render_navigation(:level => 2)
--#      .content
--#        .breadcrumbs
--#          = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'breadcrumbs: ')
--#      .clear_float
+-##main_content
+.example
+  #example_3.example_content
+    #top_navigation= render_navigation(:level => 1)
+    .clear_float
+    .content_wrapper
+      #sub_navigation= render :partial => "home/shops"
+      -#-render_navigation do |primary| primary.item do |sub_nav| sub_nav.item :shop1, 'Shop1', 'shop1' end end
+      -#(:level => 2)
+      .content
 
-#main_content
-  .example
-    #example_3.example_content
-      #top_navigation= render_navigation(:level => 1)
+        -#.breadcrumbs
+        -#  .title breadcrumbs:
+        -#  = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+        %br
+          %h1=@shop.try(:name)
+          %p=@shop.try(:address)
+          %p=@shop.try(:postal_code)
+          %p=@shop.try(:www)
+          %p=@shop.try(:time_work)
+          %p=@shop.try(:description)
+          %p=@shop.try(:contact_items).try(:first).try(:value)
+
+
       .clear_float
-      .content_wrapper
-        #sub_navigation= render_navigation(:level => 2)
-        .content
-          .breadcrumbs
-            .title breadcrumbs:
-            = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
-        .clear_float

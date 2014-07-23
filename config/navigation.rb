@@ -75,14 +75,15 @@ SimpleNavigation::Configuration.run do |navigation|
     ## primary.auto_highlight = false
 
     primary.item :home, 'Главная', root_path do |sub_nav|
-      sub_nav.item :shops, 'Компании', shops_path
-      sub_nav.item :tcats, 'Рубрики', tcats_path #t_category_index_path
-      sub_nav.item :cats, 'Категории', cats_path #category_index_path
-      sub_nav.item :contacts, 'Контакты', contacts_path
+
     end
+    primary.item :shops, 'Компании', shops_path
+    primary.item :tcats, 'Рубрики', tcats_path #t_category_index_path
+    primary.item :cats, 'Категории', cats_path #category_index_path
+    primary.item :contacts, 'Контакты', contacts_path
 
     primary.item :services, 'Услуги', services_path do |sub_nav|
-      sub_nav.item :service_1, 'Реклама в справочнике Владикавказа', adv_path
+      sub_nav.item :service_1, 'Реклама в справочнике Владикавказа', services_adv_path
       sub_nav.item :service_2, 'Аренда мобильного приложения', services_rent_app_path
       sub_nav.item :service_3, 'Аренда интернет-магазина', services_rent_shop_path
       sub_nav.item :service_4, 'СМС-рассылка', services_sms_path
