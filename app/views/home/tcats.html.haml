@@ -8,8 +8,11 @@
         .breadcrumbs
           .title breadcrumbs:
           = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
-          %br
-          %h1=@item.try(:name)
+          -#%br
+          -#%h1=@item.try(:name)
+        #sub_navigation=render_navigation(:level => 3)
+        .content
+          -#%h1=@item.try(:name)
       .clear_float
 
 -#.example

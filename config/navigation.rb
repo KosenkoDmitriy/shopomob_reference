@@ -80,7 +80,12 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :shops, 'Компании', shops_path
     primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
       CategoryItem.where(parent_id:0).each do |item|
-        sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s
+        sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
+          CategoryItem.where(parent_id:item.id).each do |item2|
+            sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do
+          end
+          end
+        end
       end
     end
 
