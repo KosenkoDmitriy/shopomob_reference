@@ -71,6 +71,8 @@ GEM
     execjs (2.2.0)
     formtastic (2.3.0.rc3)
       actionpack (>= 3.0)
+    haml (4.0.5)
+      tilt
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -148,6 +150,8 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -188,6 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   formtastic
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   libv8 (>= 3.11.8)
@@ -196,6 +201,7 @@ DEPENDENCIES
   russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc
+  simple-navigation
   sqlite3
   therubyracer (>= 0.11.0)
   turbolinks

@@ -148,6 +148,7 @@ ActiveAdmin.register Shop do
   end
 
   index do
+    actions
     column I18n.t("company.id"), :id do |shop|
       link_to shop.id, admin_shop_path(shop)
     end
@@ -170,7 +171,6 @@ ActiveAdmin.register Shop do
     column I18n.t("company.postal_code"), :postal_code
     column I18n.t("company.rated"), :rated
 
-    actions
   end
 
   #show do |ad|

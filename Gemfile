@@ -54,3 +54,5 @@ gem "paperclip", "~> 4.1"
 gem 'formtastic'
 gem 'russian', '~> 0.6.0'
 
+gem "simple-navigation"
+gem 'haml'

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopomob</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1><%= active_navigation_item_name(:level => 1) %></h1>
+<%= render_navigation %>
+<%#= yield %>
+
+
+</body>
+</html>

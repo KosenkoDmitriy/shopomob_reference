@@ -1,0 +1,14 @@
+!!! Strict
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}/
+    %title Shopomob
+    = stylesheet_link_tag 'home/navigation', 'home/style', media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag 'jquery', 'application', 'jquery.superfish', "data-turbolinks-track" => true
+  %body
+
+    -#= render :partial => 'structure/header'
+
+    #main_content
+    = render :partial => 'home/index'
+
