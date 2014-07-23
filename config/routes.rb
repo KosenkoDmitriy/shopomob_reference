@@ -28,7 +28,9 @@ Shopomob::Application.routes.draw do
   get 'shops' => 'home#shops'
   get 'shops/:id' => 'home#shops'
   get 'tcats' => 'home#tcats'
+  get 'tcats/:id' => 'home#tcats'
   get 'cats' => 'home#cats'
+  get 'cats/:id' => 'home#cats'
 
   get 'services/rent_shop' => 'home#services_rent_shop'
   get 'services/rent_app' => 'home#services_rent_app'

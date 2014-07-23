@@ -4,7 +4,9 @@
     #top_navigation= render_navigation(:level => 1)
     .clear_float
     .content_wrapper
-      #sub_navigation= render :partial => "home/shops"
+      #sub_navigation= render_navigation &shops
+
+      -#render :partial => "home/shops"
       -#-render_navigation do |primary| primary.item do |sub_nav| sub_nav.item :shop1, 'Shop1', 'shop1' end end
       -#(:level => 2)
       .content

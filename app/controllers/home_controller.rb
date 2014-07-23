@@ -23,11 +23,17 @@ class HomeController < ApplicationController
   end
 
   def cats
-
+    if (params['id'])
+      @item = Category.find(params['id'])
+    end
+    @items = Category.all
   end
 
   def tcats
-
+    if (params['id'])
+      @item = CategoryItem.find(params['id'])
+    end
+    @items = CategoryItem.all
   end
 
   def services_sms
