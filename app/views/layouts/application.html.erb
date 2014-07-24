@@ -11,7 +11,11 @@
   <div class="title">ШопоМоб/ShopoMob</div>
   <div class="sub">Электронный справочник Владикавказа</div>
 </div>
-<%= yield %>
-
+<div id="main_content">
+    <%= yield %>
+<div class="sponsored" style="font-size: 12px">
+  Adec LLC. All Rights Reserved <%=Date.today.year%>. ShopoMob Project.
+</div>
+</div>
 </body>
 </html>
