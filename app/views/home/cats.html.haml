@@ -1,15 +1,33 @@
+-#.example
+-#  #example_3.example_content
+-#    #top_navigation= render_navigation(:level => 1)
+-#    .clear_float
+-#    .content_wrapper
+-#      #sub_navigation= render_navigation(:level => 2)
+-#      -#render_navigation &cats
+-#      -#render_navigation(:level => 2)
+-#      .content
+-#        .breadcrumbs
+-#          .title breadcrumbs:
+-#          = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+-#        %br
+-#        %h1=@item.try(:name)
+-#      .clear_float
+
 .example
   #example_3.example_content
     #top_navigation= render_navigation(:level => 1)
     .clear_float
     .content_wrapper
-      #sub_navigation= render_navigation(:level => 2)
-      -#render_navigation &cats
-      -#render_navigation(:level => 2)
+      #sub_navigation= render_navigation(:level => 2) #render_navigation &tcats
       .content
         .breadcrumbs
           .title breadcrumbs:
           = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
-        %br
-        %h1=@item.try(:name)
+        .clear_float
+        .content_wrapper
+        #sub_navigation=render_navigation(:level => 3)
+        .content2
+          -#%h1=@item.try(:name)
+          = render partial: 'shop_details'
       .clear_float

@@ -8,11 +8,16 @@
         .breadcrumbs
           .title breadcrumbs:
           = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
-          -#%br
-          -#%h1=@item.try(:name)
+        .clear_float
+        .content_wrapper
         #sub_navigation=render_navigation(:level => 3)
-        .content
+        .content2
           -#%h1=@item.try(:name)
+          #sub_navigation=render_navigation(:level => 4)
+          .content3
+            = render partial: 'shop_details'
+          -#-@shops.each do |item|
+            %a{:href=>"#{shops_path}/#{item.id.to_s}"}=item.name
       .clear_float
 
 -#.example

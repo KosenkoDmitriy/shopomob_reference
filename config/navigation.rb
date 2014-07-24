@@ -82,7 +82,13 @@ SimpleNavigation::Configuration.run do |navigation|
       CategoryItem.where(parent_id:0).each do |item|
         sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
           CategoryItem.where(parent_id:item.id).each do |item2|
-            sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do
+            sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do |shop_nav|
+              CategoryItem.find(item2.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
+                shop_nav.item "tcat_shops_#{shop.id}", shop.name, "#{tcats_path}/#{item2.id}?shop_id=#{shop.id}" do |shop_detail_nav|
+                  shop_detail = Shop.find(shop.id)
+                  shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
+                end
+              end
           end
           end
         end
@@ -91,7 +97,14 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :cats, 'Категории', cats_path do |sub_nav|
       Category.all.each do |item|
-        sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s
+        sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s do |shop_nav|
+          Category.find(item.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
+            shop_nav.item "cat_shops_#{shop.id}", shop.name, "#{cats_path}/#{item.id}?shop_id=#{shop.id}" do |shop_detail_nav|
+              shop_detail = Shop.find(shop.id)
+              shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
+            end
+          end
+        end
       end
     end
 

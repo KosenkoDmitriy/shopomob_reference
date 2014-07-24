@@ -1,0 +1,7 @@
+%h1=@shop.try(:name)
+%p=@shop.try(:address)
+%p=@shop.try(:postal_code)
+%p=@shop.try(:www)
+%p=@shop.try(:time_work)
+%p=@shop.try(:description)
+%p=@shop.try(:contact_items).try(:first).try(:value)

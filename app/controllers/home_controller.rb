@@ -23,15 +23,27 @@ class HomeController < ApplicationController
   end
 
   def cats
-    if (params['id'])
-      @item = Category.find(params['id'])
+    cid = params['id'].to_i
+    shop_id = params[:shop_id].to_i
+    if (shop_id > 0)
+      @shop = Shop.find(shop_id)
+    end
+    if (cid > 0)
+      @item = Category.find(cid)
+      #@shops = Category.find(cid).shops.order(favorite: :desc, rated: :desc, name: :asc)
     end
     @items = Category.all
   end
 
   def tcats
-    if (params['id'])
-      @item = CategoryItem.find(params['id'])
+    tcid = params[:id].to_i
+    shop_id = params[:shop_id].to_i
+    if (shop_id > 0)
+      @shop = Shop.find(shop_id)
+    end
+    if (tcid > 0)
+      @item = CategoryItem.find(tcid)
+      #@shops = CategoryItem.find(tcid).shops.order(favorite: :desc, rated: :desc, name: :asc)
     end
     @items = CategoryItem.all
   end
