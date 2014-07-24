@@ -9,8 +9,8 @@
     padding: 10px;
     background-color: #fffad9;
     min-height: 100px;
-    margin: 10px 10px 10px 0px;
-    width: 540px; }
+    margin: 8px 10px 10px 0px;
+    width: 520px; }
 #example_3.example_content #top_navigation {
     float: left;
     width: 100%;
@@ -47,20 +47,20 @@
 #example_3.example_content #sub_navigation {
     float: left;
     background-color: #2f3c4c;
-    min-height: 100px;
+    min-height: 103px;
     width: 100px;
-    padding-left: 10px; }
+    padding-left: 23px; }
 #example_3.example_content #sub_navigation li {
     list-style-type: none;
-    margin: 0;
+    margin: 17;
     padding: 0; }
 #example_3.example_content #sub_navigation li a {
     float: right;
     font-size: 10pt;
     font-weight: normal;
     margin: 0;
-    padding: 2px 8px 4px;
-    margin: 2px 0px 2px;
+    padding: 0px 18px 4px;
+    margin: 8px -24px -4px 0px;
     background-color: #afc0a4;
     border-color: #f4fcf2;
     border-style: solid;
