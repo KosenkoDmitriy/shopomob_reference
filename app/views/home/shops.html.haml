@@ -1,44 +1,45 @@
--##main_content
-.example
-  #example_3.example_content
-    #top_navigation= render_navigation(:level => 1)
-    .clear_float
-    .content_wrapper
-      #sub_navigation= render_navigation &shops
-
-      -#render :partial => "home/shops"
-      -#-render_navigation do |primary| primary.item do |sub_nav| sub_nav.item :shop1, 'Shop1', 'shop1' end end
-      -#(:level => 2)
-      .content
-
-        -#.breadcrumbs
-        -#  .title breadcrumbs:
-        -#  = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
-        %br
-          = render partial: 'shop_details'
-
-
-      .clear_float
+-#-##main_content
 -#.example
 -#  #example_3.example_content
 -#    #top_navigation= render_navigation(:level => 1)
 -#    .clear_float
 -#    .content_wrapper
--#      #sub_navigation= render_navigation(:level => 2) #render_navigation &tcats
+-#      #sub_navigation= render_navigation(:level => 2)
+-#      -#= render_navigation &shops
+-#
+-#      -#render :partial => "home/shops"
+-#      -#-render_navigation do |primary| primary.item do |sub_nav| sub_nav.item :shop1, 'Shop1', 'shop1' end end
+-#      -#(:level => 2)
 -#      .content
--#        .breadcrumbs
--#          .title breadcrumbs:
--#          -#= render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
--#          = active_navigation_item_name(:level => 1) + ' > ' + active_navigation_item_name(:level => 2) + " > " + active_navigation_item_name(:level => 3) +" > "+ active_navigation_item_name(:level => 4)
--#          -#= active_navigation_item_name( :renderer => :breadcrumbs, :join_with => ' &raquo; ')#, :level => :all)
--#          -#%br
--#          -#%h1=@item.try(:name)
--#        .clear_float
--#        .content_wrapper
--#        #sub_navigation=render_navigation(:level => 3)
--#        .content2
--#          %h1=@item.try(:name)
--#          #sub_navigation=render_navigation(:level => 4)
--#          -#-@shops.each do |item|
--#            %a{:href=>"#{shops_path}/#{item.id.to_s}"}=item.name
+-#
+-#        -#.breadcrumbs
+-#        -#  .title breadcrumbs:
+-#        -#  = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+-#
+-#        = render partial: 'shop_details'
 -#      .clear_float
+
+.example
+  #example_3.example_content
+    #top_navigation= render_navigation(:level => 1)
+    .clear_float
+    .content_wrapper
+      #sub_navigation= render_navigation(:level => 2) #render_navigation &tcats
+      .content
+        .breadcrumbs
+          .title breadcrumbs:
+          = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+          -#= active_navigation_item_name(:level => 1) + ' > ' + active_navigation_item_name(:level => 2) + " > " + active_navigation_item_name(:level => 3) +" > "+ active_navigation_item_name(:level => 4)
+          -#= active_navigation_item_name( :renderer => :breadcrumbs, :join_with => ' &raquo; ')#, :level => :all)
+
+        .clear_float
+        .content_wrapper
+        #sub_navigation=render_navigation(:level => 3)
+        .content2
+          =render partial: 'home/shop_details'
+
+          -#%h1=@shop.try(:name)
+          -##sub_navigation=render_navigation(:level => 4)
+          -#-@shops.each do |item|
+            %a{:href=>"#{shops_path}/#{item.id.to_s}"}=item.name
+      .clear_float

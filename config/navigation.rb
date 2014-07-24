@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 # Configures your navigation
+require 'unicode'
+#require 'unicode_utils'
+#require "unicode_utils/upcase"
 SimpleNavigation::Configuration.run do |navigation|
   # Specify a custom renderer if needed.
   # The default renderer is SimpleNavigation::Renderer::List which renders HTML lists.
@@ -77,7 +80,25 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :home, 'Главная', root_path do |sub_nav|
 
     end
-    primary.item :shops, 'Компании', shops_path
+
+    items = ['Аа','Бб', 'Вв', 'Гг', 'Дд', 'Ее', 'Жж', 'Зз', 'Ии', 'Кк', 'Лл', 'Мм', 'Нн', 'Оо', 'Пп', 'Рр', 'Сс', 'Тт', 'Уу', 'Фф', 'Хх', 'Цц', 'Чч', 'Шш', 'Щщ', 'Ыы', 'Ээ', 'Юю', 'Яя']
+    i=0
+    primary.item :shops, 'Компании', shops_path do |sub_nav|
+      items.each do |item|
+        query=item[1]
+        sub_nav.item "shop_#{i}", item, "#{shops_path}?query=#{query}" do |shop_nav|
+        i+=1
+        Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").each do |shop|
+           #{shops_path}?query=#{item[1]}"
+          shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
+
+          end
+
+          end
+        end
+      end
+    end
+
     primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
       CategoryItem.where(parent_id:0).each do |item|
         sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
