@@ -3,17 +3,19 @@
     #top_navigation= render_navigation(:level => 1)
     .clear_float
     .content_wrapper
-      #sub_navigation= render_navigation(:level => 2) #render_navigation &tcats
+      #top_navigation= render_navigation(:level => 2)
+      #sub_navigation= render_navigation(:level => 3) #render_navigation &tcats
       .content
         .breadcrumbs
           .title breadcrumbs:
           = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
         .clear_float
         .content_wrapper
-        #sub_navigation=render_navigation(:level => 3)
+        -##sub_navigation=render_navigation(:level => 3)
         .content2
           -#%h1=@item.try(:name)
-          #sub_navigation=render_navigation(:level => 4)
+          -##sub_navigation=render_navigation(:level => 4)
+          #top_navigation= render_navigation(:level => 4)
           .content3
             = render partial: 'shop_details'
           -#-@shops.each do |item|

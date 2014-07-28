@@ -89,7 +89,7 @@ SimpleNavigation::Configuration.run do |navigation|
         query=item[1]
         sub_nav.item "shop_#{i}", item, "#{shops_path}?query=#{query}" do |shop_nav|
         i+=1
-        Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").each do |shop|
+        Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
            #{shops_path}?query=#{item[1]}"
             shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
             end
@@ -99,9 +99,9 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
-      CategoryItem.where(parent_id:0).each do |item|
+      CategoryItem.where(parent_id:0).order(name: :asc).each do |item|
         sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
-          CategoryItem.where(parent_id:item.id).each do |item2|
+          CategoryItem.where(parent_id:item.id).order(name: :asc).each do |item2|
             sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do |shop_nav|
               CategoryItem.find(item2.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
                 shop_nav.item "tcat_shops_#{shop.id}", shop.name, "#{tcats_path}/#{item2.id}?shop_id=#{shop.id}" do |shop_detail_nav|
@@ -116,7 +116,7 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :cats, 'Категории', cats_path do |sub_nav|
-      Category.all.each do |item|
+      Category.all.order(name: :asc).each do |item|
         sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s do |shop_nav|
           Category.find(item.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
             shop_nav.item "cat_shops_#{shop.id}", shop.name, "#{cats_path}/#{item.id}?shop_id=#{shop.id}" do |shop_detail_nav|
