@@ -1,40 +1,15 @@
 <!--xs (phones), sm (tablets), md (desktops), and lg (larger desktops)-->
-<%#= render :partial=>'home/nav' %>
+<ul class="nav nav-pills">
+  <%
+     items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
+              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+     items.each do |item|%>
+      <!--<li class="active"><a href="#"><%=item%></a></li>-->
+      <!--<li><a href="#{search_shop_url}?query=#{item}"><%=item%></a></li>-->
+      <li><a href='<%="#{shops_path}?query=#{item}"%>'><%=item%></a></li>
 
-<%#= render_navigation( level: 2, expand_all: true, renderer: :bootstrap ) %>
-<%#= render_navigation( level: 3, expand_all: true, renderer: :bootstrap ) %>
-<%#= render_navigation (level: 1, renderer: :bootstrap) %>
-
-<%
-
-#render_navigation do |primary|
-#  #render_navigation level:2, expand_all: true do |primary|
-#  items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
-#           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-#  i=0
-#primary.item :shops, 'Компании', "#{shops_path}" do |sub_nav|
-#items.each do |item|
-#sub_nav.dom_class="nav nav-pills"#nav nav-tabs"
-##sub_nav.item "item_#{i}", item, search_shop_path(item)
-#sub_nav.item "item_#{i}", item, "#{shops_path}/#{params[:id]}/?query=#{item}"
-#end
-#end
-#end
-
-#@my_items = [
-#        { key: :main, name: 'Main', url: request.original_url, options: { container_id: 'my-id', container_class: 'nav nav_tabs'}, items: [
-#                { key: :sub1, name: 'Submenu 1', url: '/sub1' },
-#                { key: :sub2, name: 'Submenu 2', url: '/sub2' }
-#        ]}
-#]
-
-%>
-<%#=request.original_url%>
-<%#= render_navigation items: @my_items%>
-<%#= render_navigation items: @my_items, level: 1, expand_all: true%>
-<%#= render_navigation level: 2, expand_all: true%>
-<%#= render_navigation level: 3, expand_all: true%>
-
+  <% end %>
+</ul>
 
 <div class="row">
 
