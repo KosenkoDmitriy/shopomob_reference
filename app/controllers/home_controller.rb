@@ -59,21 +59,35 @@ class HomeController < ApplicationController
     if (cid > 0)
       @item = Category.find(cid)
       #@shops = Category.find(cid).shops.order(favorite: :desc, rated: :desc, name: :asc)
+    #else
     end
-    @items = Category.all
+    @items = Category.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+
   end
 
   def tcats
     tcid = params[:id].to_i
     shop_id = params[:shop_id].to_i
-    if (shop_id > 0)
-      @shop = Shop.find(shop_id)
+
+    if (tcid == nil)
+      tcid = 0
     end
-    if (tcid > 0)
-      @item = CategoryItem.find(tcid)
-      #@shops = CategoryItem.find(tcid).shops.order(favorite: :desc, rated: :desc, name: :asc)
+
+    @items = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+    tsubid = (tcid == 0) ? @items.first.id : tcid
+    if (CategoryItem.where(parent_id:tsubid).count > 0)
+      @sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
+    #else
+      #@sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+
+      @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      if (@shops.count > 0 && shop_id < 0)
+        @shop = @shops.first
+      elsif (shop_id > 0)
+        @shop = Shop.find(shop_id)
+      end
     end
-    @items = CategoryItem.all
+
   end
 
   def services_sms

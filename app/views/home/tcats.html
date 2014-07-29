@@ -14,71 +14,139 @@
 
 <div class="row">
 
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs-2 col-md-2">
         <aside>
-            <h2>Рубрики/Категории</h2>
+            <!--<h2>Рубрики/Категории</h2>-->
+            <%#= will_paginate @items %>
 
             <ul class="nav nav-pills nav-stacked list-icon">
 
-                <li class="active ">
-
-                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Авто
-                        <!--<span class="cus-shopomob">-->
-                        <!--<img class=" img-rounded" src="images/shopomob.png">-->
-                        <!--</span>-->
-                    </a></li>
-
+                <% @items.each do |item| %>
                 <li>
-                    <!--<a href="#">Отдых</a>-->
-                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Отдых</a>
+                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
+                    <a href='<%="#{tcats_path}/#{item.id}"%>'>
+                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= item.name %>
+                    </a>
                 </li>
-                <li>
-                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Спорт</a>
+                <% end %>
+                <!--<li class="active ">-->
 
-                    <!--<a href="#">Спорт</a>-->
-                </li>
+                    <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Авто-->
+                        <!--&lt;!&ndash;<span class="cus-shopomob">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img class=" img-rounded" src="images/shopomob.png">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                    <!--</a></li>-->
+
+                <!--<li>-->
+                    <!--&lt;!&ndash;<a href="#">Отдых</a>&ndash;&gt;-->
+                    <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Отдых</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Спорт</a>-->
+
+                    <!--&lt;!&ndash;<a href="#">Спорт</a>&ndash;&gt;-->
+                <!--</li>-->
 
             </ul>
+            <%#= will_paginate @items %>
+
         </aside>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs-2 col-md-2">
         <aside>
-            <h2>Организации/Магазины</h2>
+            <%#= will_paginate @sub_items %>
+
+            <ul class="nav nav-pills nav-stacked list-icon">
+
+                <%if @sub_items
+                @sub_items.each do |item| %>
+                <li>
+                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
+                    <a href='<%="#{tcats_path}/#{item.parent_id}"%>'>
+                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= item.name %>
+                    </a>
+                </li>
+                <% end else %>
+                <p>не выбрана рубрика</p>
+                <% end %>
+            </ul>
+            <%#= will_paginate @sub_items %>
+
+            <!--<h2>Организации/Магазины</h2>-->
             <%#= render_navigation(level:2, renderer: :bootstrap3) %>
-            <ul class="nav nav-pills nav-stacked list-icon">
-                <li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>
-                <li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>
-                <li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Google</a></li>
-            </ul>
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
+            <!--<ul class="nav nav-pills nav-stacked list-icon">-->
+                <!--<li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>-->
+                <!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>-->
+                <!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Google</a></li>-->
+            <!--</ul>-->
+            <!--<ul class="pagination">-->
+                <!--<li><a href="#">&laquo;</a></li>-->
+                <!--<li><a href="#">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
+                <!--<li><a href="#">&raquo;</a></li>-->
+            <!--</ul>-->
         </aside>
-
     </div>
+
+    <div class="col-xs-2 col-md-2">
+        <aside>
+            <%= will_paginate @shops %>
+
+            <ul class="nav nav-pills nav-stacked list-icon">
+
+                <%if @shops
+                @shops.each do |item| %>
+                <li>
+                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
+                    <a href='<%="#{tcats_path}?shop_id=#{item.id}"%>'>
+                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= item.name %>
+                    </a>
+                </li>
+                <% end else %>
+                <p>не выбрана рубрика</p>
+                <% end %>
+            </ul>
+            <%= will_paginate @shops %>
+
+        </aside>
+    </div>
+
     <div class="col-xs-3 col-md-3">
         <section>
             <article>
-                <header><h2>Подробности/Детали</h2></header>
-                <p><img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob</p>
+                <% if (@shop) %>
+                <header><h2><%= @shop.name %></h2></header>
+                <p>
+                    <%= image_tag( (@shop.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : @shop.images.first.image_url, :class => "img-circle", :width => "100%") %>
 
+                    <!--<img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob-->
+                </p>
+                <p><%=@shop.try(:time_work) %></p>
+                <p><%#=@shop.try(:postal_code) %><%=@shop.try(:address) %></p>
+                <p><%=@shop.try(:www) %></p>
+                <% @shop.try(:contact_items).each do |contact| %>
+                <p><%= contact.value %></p>
+                <% end %>
+                <p><%= @shop.try(:description) %></p>
+                <%#= link_to @shop.name, controller: "home", action: "shops", id: @shop %>
+                <% end %>
             </article>
         </section>
     </div>
     <div class="col-xs-3 col-md-3">
         <h2>Баннеры/Реклама</h2>
-        <!--<p><img class="img-thumbnail" src="assets/home/b2458.png"></p>-->
-        <img class="img-thumbnail" src="assets/home/b1498.png">
-        <img class="img-thumbnail" src="assets/home/b2458.png">
-        <img class="img-thumbnail" src="assets/home/b1498.png">
-        <img class="img-thumbnail" src="assets/home/b2458.png">
-        <img class="img-thumbnail" src="assets/home/b1498.png">
+        <!--<p><img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png"></p>-->
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
 
     </div>
 </div>
