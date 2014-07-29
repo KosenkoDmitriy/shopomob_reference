@@ -51,35 +51,41 @@ class HomeController < ApplicationController
   end
 
   def cats
-    cid = params['id'].to_i
+    #cid = params['id'].to_i
+    #shop_id = params[:shop_id].to_i
+    #if (shop_id > 0)
+    #  @shop = Shop.find(shop_id)
+    #end
+    #if (cid > 0)
+    #  @item = Category.find(cid)
+    #  #@shops = Category.find(cid).shops.order(favorite: :desc, rated: :desc, name: :asc)
+    ##else
+    #end
+    #@items = Category.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+    tcid = params[:id].to_i
     shop_id = params[:shop_id].to_i
-    if (shop_id > 0)
-      @shop = Shop.find(shop_id)
-    end
-    if (cid > 0)
-      @item = Category.find(cid)
-      #@shops = Category.find(cid).shops.order(favorite: :desc, rated: :desc, name: :asc)
-    #else
-    end
-    @items = Category.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
 
+    @items = Category.all.order(name: :asc)#.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+    tsubid = (tcid > 0) ? tcid : @items.first.id
+    #if (Category.where(parent_id:tsubid).count > 0)
+    #  @sub_items = Category.where(parent_id:tsubid).order(name: :asc)
+      @shops = Category.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      if (@shops.count > 0 && shop_id < 0)
+        @shop = @shops.first
+      elsif (shop_id > 0)
+        @shop = Shop.find(shop_id)
+      end
+    #end
   end
 
   def tcats
     tcid = params[:id].to_i
     shop_id = params[:shop_id].to_i
 
-    if (tcid == nil)
-      tcid = 0
-    end
-
     @items = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-    tsubid = (tcid == 0) ? @items.first.id : tcid
+    tsubid = (tcid > 0) ? tcid : @items.first.id
     if (CategoryItem.where(parent_id:tsubid).count > 0)
       @sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
-    #else
-      #@sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-
       @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
       if (@shops.count > 0 && shop_id < 0)
         @shop = @shops.first
