@@ -23,9 +23,10 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
             <ul class="nav navbar-nav">
                 <!--render_navigation :expand_all => true, :renderer => :bootstrap-->
-                <%= render_navigation(level:1, expand_all: true, renderer: :bootstrap ) %>
+                <%= render_navigation(level: 1, expand_all: true, renderer: :bootstrap ) %>
                 <%#= render_navigation( expand_all: true, renderer: :bootstrap_topbar_list) %>
                 <%#= render_navigation( expand_all: true, renderer: :bootstrap_list) %>
                 <%#= render_navigation( expand_all: true, renderer: :bootstrap ) %>
@@ -51,14 +52,24 @@
                 <div class="form-group">
                     <input name="utf8" type="hidden" value="✓">
                     <input name="authenticity_token" type="hidden" value="7ZywC6kmI0cC5BE1AlBKexfCB430TqKkD9fCqTUtKr8=">
-                    <input id="nav-search" type="text" name="squery" class="form-control" placeholder="Поиск организаций ...">
-                    <a href='<%="#{shops_path}/#{item.id}'>
-
+                    <input id="nav-search" type="text" name="squery" class="form-control" placeholder="Введите что-нибудь ...">
                     <!--<input name="authenticity_token" type="hidden" value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">-->
                 </div>
-                <button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-search"></span>&nbsp</button>
+                <button type="submit" class="btn btn-default ">найти организацию <span class="glyphicon glyphicon-search"></span>&nbsp</button>
             </form>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<ul class="nav nav-pills">
+    <%
+    items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    items.each do |item|%>
+    <!--<li class="active"><a href="#"><%=item%></a></li>-->
+    <!--<li><a href="#{search_shop_url}?query=#{item}"><%=item%></a></li>-->
+    <li><a href='<%="#{shops_path}?query=#{item}"%>'><%=item%></a></li>
+
+    <% end %>
+</ul>

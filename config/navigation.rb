@@ -162,27 +162,24 @@ SimpleNavigation::Configuration.run do |navigation|
     #end
 
     primary.item :home, 'Главная', root_path
-    #primary.item :shops, 'Компании', shops_path
-    #items = ['Аа','Бб', 'Вв', 'Гг', 'Дд', 'Ее', 'Жж', 'Зз', 'Ии', 'Кк', 'Лл', 'Мм', 'Нн', 'Оо', 'Пп', 'Рр', 'Сс', 'Тт', 'Уу', 'Фф', 'Хх', 'Цц', 'Чч', 'Шш', 'Щщ', 'Ыы', 'Ээ', 'Юю', 'Яя',
-    #         'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz']
-    items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
-             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    i=0
-    primary.item :shops, 'Компании', shops_path do |sub_nav|
-      items.each do |item|
-        query=item
-        sub_nav.dom_class="nav nav-pills"#nav nav-tabs"
-        sub_nav.item "shop_#{i}", item, "#{shops_path}?query=#{query}" do |shop_nav|
-        i+=1
-        Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
-           #{shops_path}?query=#{item[1]}"
-          shop_nav.dom_class="nav nav-pills nav-stacked list-icon"
-          shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
-            end
-          end
-        end
-      end
-    end
+
+    primary.item :shops, 'Компании', shops_path
+    #do |sub_nav|
+    #  items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
+    #           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    #  i=0
+    #  items.each do |item|
+    #    #sub_nav.dom_class="nav nav-pills"#nav nav-tabs"
+    #    sub_nav.dom_class="nav nav-tabs"
+    #    #sub_nav.item "item_#{i}", item, search_shop_path(item)
+    #    #sub_nav.item "item_#{i}", item, "#{shops_path}/#{Shop.first.id}/?query=#{item}"
+    #    sub_nav.item "item_#{i}", item, "#{shops_path}/1/?query=#{item}" do |sub_item|
+    #      #sub_item.dom_class="nav nav-tabs"
+    #      #sub_item.item "sitem_#{i}", item, "#{shops_path}/1/?query=#{item}"
+    #
+    #    end
+    #  end
+    #end
     primary.item :tcats, 'Рубрики', tcats_path
     primary.item :cats, 'Категории', cats_path #do |sub_nav|
     primary.item :services, 'Услуги', services_path

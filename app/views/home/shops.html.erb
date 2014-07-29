@@ -1,7 +1,40 @@
 <!--xs (phones), sm (tablets), md (desktops), and lg (larger desktops)-->
+<%#= render :partial=>'home/nav' %>
 
-<%= render_navigation( level: 2, expand_all: true, renderer: :bootstrap ) %>
+<%#= render_navigation( level: 2, expand_all: true, renderer: :bootstrap ) %>
+<%#= render_navigation( level: 3, expand_all: true, renderer: :bootstrap ) %>
 <%#= render_navigation (level: 1, renderer: :bootstrap) %>
+
+<%
+
+#render_navigation do |primary|
+#  #render_navigation level:2, expand_all: true do |primary|
+#  items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
+#           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+#  i=0
+#primary.item :shops, 'Компании', "#{shops_path}" do |sub_nav|
+#items.each do |item|
+#sub_nav.dom_class="nav nav-pills"#nav nav-tabs"
+##sub_nav.item "item_#{i}", item, search_shop_path(item)
+#sub_nav.item "item_#{i}", item, "#{shops_path}/#{params[:id]}/?query=#{item}"
+#end
+#end
+#end
+
+#@my_items = [
+#        { key: :main, name: 'Main', url: request.original_url, options: { container_id: 'my-id', container_class: 'nav nav_tabs'}, items: [
+#                { key: :sub1, name: 'Submenu 1', url: '/sub1' },
+#                { key: :sub2, name: 'Submenu 2', url: '/sub2' }
+#        ]}
+#]
+
+%>
+<%#=request.original_url%>
+<%#= render_navigation items: @my_items%>
+<%#= render_navigation items: @my_items, level: 1, expand_all: true%>
+<%#= render_navigation level: 2, expand_all: true%>
+<%#= render_navigation level: 3, expand_all: true%>
+
 
 <div class="row">
 
@@ -9,21 +42,16 @@
         <aside>
             <%= will_paginate @shops %>
             <%#= render_navigation( level: 3, expand_all: true, renderer: :bootstrap ) %>
-
             <ul class="nav nav-pills nav-stacked list-icon">
-                <!--<ul class="nav nav-pills nav-stacked list-icon">-->
                 <% @shops.each do |item| %>
-                    <!--<li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>-->
-                    <!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>-->
-                    <li><%#= link_to item.name, shops_path(item) %>
-                            <a href='<%="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>
-                            <!--<a href='<%="#{shops_path}/#{item.id}"%>'>-->
-                        <!--<img class="img-circle" src='<%= (item.images.first != nil) ? item.images.first.image_url.to_s : "#{root_url}assets/home/shopomob.png" %>'/>-->
-                            <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
-                            <%= item.name %>
-                            <!--<small><%= item.address %></small>-->
-                        </a>
-                    </li>
+                <li>
+                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
+                        <a href='<%="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>
+                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= item.name %>
+                        <!--<small><%= item.address %></small>-->
+                    </a>
+                </li>
                 <% end %>
             </ul>
 
