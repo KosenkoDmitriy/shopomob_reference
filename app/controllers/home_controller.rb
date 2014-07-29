@@ -48,7 +48,10 @@ class HomeController < ApplicationController
 
 
     if (query)
-      @shops = Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      upcaseQuery = Unicode::upcase(query)+"%"
+      downcaseQuery = Unicode::downcase(query)+"%"
+      capitalizeQuery = "%" + Unicode::capitalize(query)+"%"
+      @shops = Shop.where("name like ? or name like ? or address like ? or www like ? or tags like '%#{downcaseQuery}'", upcaseQuery, downcaseQuery, capitalizeQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
     else
       @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     end
