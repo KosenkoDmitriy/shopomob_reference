@@ -68,3 +68,37 @@ body { padding-top: 70px; }
     /*!important;*/
 }
 
+
+.big-btns li{
+    display:inline-block;
+}
+.big-btns li a{
+    width: 219px;
+    height: 77px;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+}
+.big-btns li a:hover{
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity:1;
+    -webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -ms-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+}
+.iapps{
+    background: url(../home/img-sprit.png) no-repeat 0px -65px;
+}
+.gapps{
+    background: url(../home/img-sprit.png) no-repeat -240px -65px;
+}
+.big-btns {
+    margin-top: 2em;
+}
