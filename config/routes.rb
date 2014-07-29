@@ -26,6 +26,10 @@ Shopomob::Application.routes.draw do
   get 'services/adv' => 'home#services_adv'
 
   get 'shops' => 'home#shops'
+
+  get 'search/shop/:q' => 'home#shops', as: "search_shop"
+  post 'search/shop/:q' => 'home#shops'
+
   get 'shops/:id' => 'home#shops'
   get 'tcats' => 'home#tcats'
   get 'tcats/:id' => 'home#tcats'

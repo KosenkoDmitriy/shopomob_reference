@@ -16,7 +16,8 @@
                     <!--<li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>-->
                     <!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>-->
                     <li><%#= link_to item.name, shops_path(item) %>
-                        <a href='<%="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? "a" : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>
+                            <a href='<%="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>
+                            <!--<a href='<%="#{shops_path}/#{item.id}"%>'>-->
                         <!--<img class="img-circle" src='<%= (item.images.first != nil) ? item.images.first.image_url.to_s : "#{root_url}assets/home/shopomob.png" %>'/>-->
                             <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
                             <%= item.name %>
