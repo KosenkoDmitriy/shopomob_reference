@@ -4,6 +4,8 @@ require 'unicode'
 #require 'unicode_utils'
 #require "unicode_utils/upcase"
 SimpleNavigation::Configuration.run do |navigation|
+  navigation.renderer = SimpleNavigationRenderers::Bootstrap2
+
   # Specify a custom renderer if needed.
   # The default renderer is SimpleNavigation::Renderer::List which renders HTML lists.
   # The renderer can also be specified as option in the render_navigation call.
@@ -38,7 +40,13 @@ SimpleNavigation::Configuration.run do |navigation|
   # navigation.consider_item_names_as_safe = false
 
   # Define the primary navigation
+
+  #navigation.renderer = SimpleNavigationRenderers::Bootstrap3
   navigation.items do |primary|
+    primary.dom_class = 'nav navbar-nav' #for simple-navigation-boostrap gem
+
+
+
     # Add an item to the primary navigation. The following params apply:
     # key - a symbol which uniquely defines your navigation item in the scope of the primary_navigation
     # name - will be displayed in the rendered navigation. This can also be a call to your I18n-framework.
@@ -77,16 +85,92 @@ SimpleNavigation::Configuration.run do |navigation|
     ## You can turn off auto highlighting for a specific level
     ## primary.auto_highlight = false
 
-    primary.item :home, 'Главная', root_path do |sub_nav|
 
-    end
+    #primary.item :header_admin, 'Admin', 'admin#', :opts => {:nav_header => true}
+    #primary.item :my_items, 'My Items', "items#", :opts => {:icon => 'icon-th'} do |sub_nav|
+    #  sub_nav.item "item_1", "Item 1", "items/1", :opts => {:is_subnavigation => true}
+    #
+    #end
+    #primary.item "item_2", "Item 2", "items/2", :opts => {:is_subnavigation => true}
 
+
+
+
+    #primary.dom_id = 'cats'
+    #primary.dom_class = 'nav navbar-nav'
+    #primary.item :home, 'Главная', root_path
+    #
+    #
+    #items = ['Аа','Бб', 'Вв', 'Гг', 'Дд', 'Ее', 'Жж', 'Зз', 'Ии', 'Кк', 'Лл', 'Мм', 'Нн', 'Оо', 'Пп', 'Рр', 'Сс', 'Тт', 'Уу', 'Фф', 'Хх', 'Цц', 'Чч', 'Шш', 'Щщ', 'Ыы', 'Ээ', 'Юю', 'Яя',
+    #'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz']
+    #i=0
+    #primary.item :shops, 'Компании', shops_path do |sub_nav|
+    #  items.each do |item|
+    #    query=item[1]
+    #    sub_nav.item "shop_#{i}", item, "#{shops_path}?query=#{query}" do |shop_nav|
+    #    i+=1
+    #    Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
+    #       #{shops_path}?query=#{item[1]}"
+    #        shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
+    #        end
+    #      end
+    #    end
+    #  end
+    #end
+    #
+    #primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
+    #  CategoryItem.where(parent_id:0).order(name: :asc).each do |item|
+    #    sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
+    #      CategoryItem.where(parent_id:item.id).order(name: :asc).each do |item2|
+    #        sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do |shop_nav|
+    #          CategoryItem.find(item2.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
+    #            shop_nav.item "tcat_shops_#{shop.id}", shop.name, "#{tcats_path}/#{item2.id}?shop_id=#{shop.id}" do |shop_detail_nav|
+    #              shop_detail = Shop.find(shop.id)
+    #              shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
+    #            end
+    #          end
+    #      end
+    #      end
+    #    end
+    #  end
+    #end
+    #
+    #primary.item :cats, 'Категории', cats_path do |sub_nav|
+    #  Category.all.order(name: :asc).each do |item|
+    #    #sub_nav.dom_id = 'cats'
+    #    #sub_nav.dom_class = 'nav nav-pills nav-stacked list-icon'
+    #    sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s do |shop_nav|
+    #      Category.find(item.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
+    #        shop_nav.item "cat_shops_#{shop.id}", shop.name, "#{cats_path}/#{item.id}?shop_id=#{shop.id}" do |shop_detail_nav|
+    #          shop_detail = Shop.find(shop.id)
+    #          shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
+    #        end
+    #      end
+    #    end
+    #  end
+    #end
+    #
+    ##primary.item :contacts, 'Контакты', contacts_path
+    #
+    #primary.item :services, 'Услуги', services_path do |sub_nav|
+    #  #sub_nav.dom_id = ''
+    #  #sub_nav.dom_class = 'dropdown-menu'
+    #  sub_nav.item :service_1, 'Реклама в справочнике Владикавказа', services_adv_path
+    #  sub_nav.item :service_2, 'Аренда мобильного приложения', services_rent_app_path
+    #  sub_nav.item :service_3, 'Аренда интернет-магазина', services_rent_shop_path
+    #  sub_nav.item :service_4, 'СМС-рассылка', services_sms_path
+    #end
+
+    primary.item :home, 'Главная', root_path
+    #primary.item :shops, 'Компании', shops_path
     items = ['Аа','Бб', 'Вв', 'Гг', 'Дд', 'Ее', 'Жж', 'Зз', 'Ии', 'Кк', 'Лл', 'Мм', 'Нн', 'Оо', 'Пп', 'Рр', 'Сс', 'Тт', 'Уу', 'Фф', 'Хх', 'Цц', 'Чч', 'Шш', 'Щщ', 'Ыы', 'Ээ', 'Юю', 'Яя',
     'Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz']
     i=0
+
     primary.item :shops, 'Компании', shops_path do |sub_nav|
       items.each do |item|
         query=item[1]
+        sub_nav.dom_class="nav nav-tabs"
         sub_nav.item "shop_#{i}", item, "#{shops_path}?query=#{query}" do |shop_nav|
         i+=1
         Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
@@ -97,45 +181,8 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
-
-    primary.item :tcats, 'Рубрики', tcats_path do |sub_nav|
-      CategoryItem.where(parent_id:0).order(name: :asc).each do |item|
-        sub_nav.item "tcats_#{item.id}", item.name, tcats_path+"/"+item.id.to_s do |sub_nav2|
-          CategoryItem.where(parent_id:item.id).order(name: :asc).each do |item2|
-            sub_nav2.item "tcats2_#{item2.id}", item2.name, tcats_path+"/"+item2.id.to_s do |shop_nav|
-              CategoryItem.find(item2.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
-                shop_nav.item "tcat_shops_#{shop.id}", shop.name, "#{tcats_path}/#{item2.id}?shop_id=#{shop.id}" do |shop_detail_nav|
-                  shop_detail = Shop.find(shop.id)
-                  shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
-                end
-              end
-          end
-          end
-        end
-      end
-    end
-
-    primary.item :cats, 'Категории', cats_path do |sub_nav|
-      Category.all.order(name: :asc).each do |item|
-        sub_nav.item "cats_#{item.id}", item.name, cats_path+"/"+item.id.to_s do |shop_nav|
-          Category.find(item.id).shops.order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
-            shop_nav.item "cat_shops_#{shop.id}", shop.name, "#{cats_path}/#{item.id}?shop_id=#{shop.id}" do |shop_detail_nav|
-              shop_detail = Shop.find(shop.id)
-              shop_detail_nav.item "shop_#{shop_detail.id}", shop_detail.name, "#{shops_path}/#{shop_detail.id}"
-            end
-          end
-        end
-      end
-    end
-
-    primary.item :contacts, 'Контакты', contacts_path
-
-    primary.item :services, 'Услуги', services_path do |sub_nav|
-      sub_nav.item :service_1, 'Реклама в справочнике Владикавказа', services_adv_path
-      sub_nav.item :service_2, 'Аренда мобильного приложения', services_rent_app_path
-      sub_nav.item :service_3, 'Аренда интернет-магазина', services_rent_shop_path
-      sub_nav.item :service_4, 'СМС-рассылка', services_sms_path
-    end
-
+    primary.item :tcats, 'Рубрики', tcats_path
+    primary.item :cats, 'Категории', cats_path #do |sub_nav|
+    primary.item :services, 'Услуги', services_path
   end
 end

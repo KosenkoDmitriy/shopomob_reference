@@ -1,0 +1,97 @@
+<!--xs (phones), sm (tablets), md (desktops), and lg (larger desktops)-->
+
+<ul class="nav nav-tabs" role="tablist">
+<%= render_navigation( level: 2, expand_all: true, renderer: :bootstrap ) %>
+<%#= render_navigation (level: 1, renderer: :bootstrap) %>
+</ul>
+<!--<ul class="nav nav-tabs" role="tablist">-->
+    <!--<li class="active"><a href="#">Home</a></li>-->
+    <!--<li><a href="#">Profile</a></li>-->
+    <!--<li><a href="#">Messages</a></li>-->
+<!--</ul>-->
+
+
+
+<div class="row">
+
+    <div class="col-xs-3 col-md-3">
+        <aside>
+            <h2>Рубрики/Категории</h2>
+
+            <ul class="nav nav-pills nav-stacked list-icon">
+
+                <li class="active ">
+
+                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Авто
+                        <!--<span class="cus-shopomob">-->
+                        <!--<img class=" img-rounded" src="images/shopomob.png">-->
+                        <!--</span>-->
+                    </a></li>
+
+                <li>
+                    <!--<a href="#">Отдых</a>-->
+                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Отдых</a>
+                </li>
+                <li>
+                    <a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Спорт</a>
+
+                    <!--<a href="#">Спорт</a>-->
+                </li>
+
+            </ul>
+        </aside>
+    </div>
+    <div class="col-xs-3 col-md-3">
+        <aside>
+            <h2>Организации/Магазины</h2>
+            <%#= render_navigation(level:2, renderer: :bootstrap3) %>
+            <ul class="nav nav-pills nav-stacked list-icon">
+                <li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>
+                <li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>
+                <li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Google</a></li>
+            </ul>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </aside>
+
+    </div>
+    <div class="col-xs-3 col-md-3">
+        <section>
+            <article>
+                <header><h2>Подробности/Детали</h2></header>
+                <p><img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob</p>
+
+            </article>
+        </section>
+    </div>
+    <div class="col-xs-3 col-md-3">
+        <h2>Баннеры/Реклама</h2>
+        <!--<p><img class="img-thumbnail" src="assets/home/b2458.png"></p>-->
+        <img class="img-thumbnail" src="assets/home/b1498.png">
+        <img class="img-thumbnail" src="assets/home/b2458.png">
+        <img class="img-thumbnail" src="assets/home/b1498.png">
+        <img class="img-thumbnail" src="assets/home/b2458.png">
+        <img class="img-thumbnail" src="assets/home/b1498.png">
+
+    </div>
+</div>
+
+<!--<h3>3 columns Алфавитный указатель/Поиск</h3>-->
+<!--<div class="row">-->
+<!--<div class="col-xs-4 col-md-4">-->
+<!--<h2>Организации</h2>-->
+<!--</div>-->
+<!--<div class="col-xs-4 col-md-4">-->
+<!--<h2>Подробности</h2>-->
+<!--</div>-->
+<!--<div class="col-xs-4 col-md-4">-->
+<!--<h2>Баннеры</h2>-->
+<!--</div>-->
+<!--</div>-->

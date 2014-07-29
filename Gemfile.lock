@@ -152,6 +152,11 @@ GEM
       rdoc (~> 4.0, < 5.0)
     simple-navigation (3.13.0)
       activesupport (>= 2.3.2)
+    simple-navigation-bootstrap (1.0.0)
+      railties (>= 3.1)
+      simple-navigation (>= 3.7.0)
+    simple_navigation_renderers (1.0.2)
+      simple-navigation (~> 3.11)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -202,7 +207,8 @@ DEPENDENCIES
   russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc
-  simple-navigation
+  simple-navigation-bootstrap
+  simple_navigation_renderers
   sqlite3
   therubyracer (>= 0.11.0)
   turbolinks

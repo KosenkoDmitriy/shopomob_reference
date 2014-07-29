@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
@@ -27,5 +26,8 @@ module Shopomob
     #  I18n.reload!
     #end
 
+    #config.autoload_paths << Rails.root.join('/app/navigation_renderers/')
+    config.autoload_paths << Rails.root.join('app', 'navigation_renderers', '*.{rb,yml}').to_s
+    #config.load_paths << Dir[Rails.root.join('app', 'navigation_renderers', '*.{rb,yml}').to_s]
   end
 end

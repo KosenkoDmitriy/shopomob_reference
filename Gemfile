@@ -54,7 +54,10 @@ gem "paperclip", "~> 4.1"
 gem 'formtastic'
 gem 'russian', '~> 0.6.0'
 
-gem "simple-navigation"
+#gem "simple-navigation"
+gem 'simple-navigation-bootstrap'
+gem 'simple_navigation_renderers'
+
 gem 'haml'
 #gem 'unicode_utils'
 gem 'unicode'
