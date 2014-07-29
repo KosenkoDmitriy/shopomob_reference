@@ -61,3 +61,5 @@ gem 'simple_navigation_renderers'
 gem 'haml'
 #gem 'unicode_utils'
 gem 'unicode'
+
+gem 'bootstrap-will_paginate'

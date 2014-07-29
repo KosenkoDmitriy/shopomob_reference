@@ -19,7 +19,14 @@ class HomeController < ApplicationController
     if (params['id'])
       @shop = Shop.find(params['id'])
     end
-    @shops = Shop.all#[0..3]
+    if (params['query'])
+      query = params['query']
+      @shops = Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+    else
+      @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+    end
+    #@shop = @shops.paginate(:page => params[:page], :per_page => 30)
+
   end
 
   def cats

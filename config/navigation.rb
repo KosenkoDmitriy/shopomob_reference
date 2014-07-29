@@ -175,7 +175,8 @@ SimpleNavigation::Configuration.run do |navigation|
         i+=1
         Shop.where("name like '#{Unicode::upcase(query)}%' or name like '#{Unicode::downcase(query)}%'").order(favorite: :desc, rated: :desc, name: :asc).each do |shop|
            #{shops_path}?query=#{item[1]}"
-            shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
+          shop_nav.dom_class="nav nav-pills nav-stacked list-icon"
+          shop_nav.item "shop_detail_#{shop.id}", shop.name, "#{shops_path}/#{shop.id}" do |shop_detail_nav|
             end
           end
         end
