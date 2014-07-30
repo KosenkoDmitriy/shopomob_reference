@@ -48,15 +48,20 @@
                 <!--</li>-->
             </ul>
 
-            <form id="nav-search-form" class="navbar-form navbar-left" action='<%= "#{root_url}search/shop/%20/"%>' method="post" role="search">
-                <div class="form-group">
-                    <input name="utf8" type="hidden" value="✓">
-                    <input name="authenticity_token" type="hidden" value="7ZywC6kmI0cC5BE1AlBKexfCB430TqKkD9fCqTUtKr8=">
-                    <input id="nav-search" type="text" name="squery" class="form-control" placeholder="Введите что-нибудь ...">
-                    <!--<input name="authenticity_token" type="hidden" value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">-->
-                </div>
-                <button type="submit" class="btn btn-default ">найти организацию <span class="glyphicon glyphicon-search"></span>&nbsp</button>
-            </form>
+            <!--<form id="nav-search-form" class="navbar-form navbar-left" action='<%= "#{root_url}search/shop/%20/"%>' method="post" role="search">-->
+                <!--<div class="form-group">-->
+                    <!--<input name="utf8" type="hidden" value="✓">-->
+                    <!--<input name="authenticity_token" type="hidden" value="7ZywC6kmI0cC5BE1AlBKexfCB430TqKkD9fCqTUtKr8=">-->
+                    <!--<input id="nav-search" type="text" name="squery" class="form-control" placeholder="Введите что-нибудь ...">-->
+                    <!--&lt;!&ndash;<input name="authenticity_token" type="hidden" value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">&ndash;&gt;-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn btn-default ">найти организацию <span class="glyphicon glyphicon-search"></span>&nbsp</button>-->
+            <!--</form>-->
+            <%= form_tag("/search/shop/%20/", method: "post", id: "nav-search-form", class: "navbar-form navbar-left", role:"search") do %>
+                <%#= label_tag(:q, "Search for:") %>
+                <%= text_field_tag(:squery, "", id: "nav-search", class: "form-control", placeholder: I18n.t('search_hint')) %>
+                <%= submit_tag(t("search"), class:"btn btn-default ") %>
+            <% end %>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

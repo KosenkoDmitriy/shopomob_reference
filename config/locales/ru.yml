@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  search: "искать компанию"
+  search_hint: "название, адрес, сайт"
   no_tcats: "Нет рубрик"
   no_cats: "Нет категорий"
   no_shops: "Нет организаций"
