@@ -1,0 +1,37 @@
+<%#= will_paginate @sub_items %>
+
+<ul class="nav nav-pills nav-stacked list-icon">
+  <%if items.blank?%>
+      <p><%=I18n.t("no_cats")%></p>
+  <% else %>
+      <% items.each do |item| %>
+          <li>
+            <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
+            <a href='<%="#{cats_path}/#{ parent == true ? item.parent_id : item.id }"%>'>
+              <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "img-circle") %>
+              <%= item.name %>
+            </a>
+          </li>
+
+      <% end %>
+  <% end %>
+
+</ul>
+<%#= will_paginate @sub_items %>
+
+<!--<h2>Организации/Магазины</h2>-->
+<%#= render_navigation(level:2, renderer: :bootstrap3) %>
+<!--<ul class="nav nav-pills nav-stacked list-icon">-->
+<!--<li class="active"><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Adec</a></li>-->
+<!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> ShopoMob</a></li>-->
+<!--<li><a href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Google</a></li>-->
+<!--</ul>-->
+<!--<ul class="pagination">-->
+<!--<li><a href="#">&laquo;</a></li>-->
+<!--<li><a href="#">1</a></li>-->
+<!--<li><a href="#">2</a></li>-->
+<!--<li><a href="#">3</a></li>-->
+<!--<li><a href="#">4</a></li>-->
+<!--<li><a href="#">5</a></li>-->
+<!--<li><a href="#">&raquo;</a></li>-->
+<!--</ul>-->

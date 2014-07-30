@@ -1,0 +1,53 @@
+<!--xs (phones), sm (tablets), md (desktops), and lg (larger desktops)-->
+
+<!--<ul class="nav nav-tabs" role="tablist">-->
+<%#= render_navigation( level: 2..3, expand_all: true, renderer: :bootstrap ) %>
+<%#= render_navigation (level: 1, renderer: :bootstrap) %>
+<!--</ul>-->
+<!--<ul class="nav nav-tabs" role="tablist">-->
+    <!--<li class="active"><a href="#">Home</a></li>-->
+    <!--<li><a href="#">Profile</a></li>-->
+    <!--<li><a href="#">Messages</a></li>-->
+<!--</ul>-->
+
+
+
+<div class="row">
+
+    <div class="col-xs-2 col-md-2">
+        <aside>
+            <!--<h2>Рубрики/Категории</h2>-->
+          <%= render(:partial=> 'home/tcategory', locals: {items: @items, parent: true, error: t('no_tcats')}) || t('no_shops') %>
+        </aside>
+    </div>
+    <div class="col-xs-2 col-md-2">
+        <aside>
+          <%= render(:partial=> 'home/tcategory', locals: {items: @sub_items, parent: false, error: t('no_tcats')}) || t('no_shops') %>
+        </aside>
+    </div>
+
+    <div class="col-xs-2 col-md-2">
+        <aside>
+          <%#= render(:partial=> 'home/company', collection: @shops, as: :items, locals: {items: @shops, title: t('shops')}) || t('no_shops') %>
+          <%= render(:partial=> 'home/company_list', locals: {items: @shops, title: t('shops')}) || t('no_shops') %>
+        </aside>
+    </div>
+
+    <div class="col-xs-3 col-md-3">
+        <section>
+            <article>
+              <%= render(:partial=> 'home/company_item', locals: {title: t('shops')}) || t('no_shops') %>
+            </article>
+        </section>
+    </div>
+    <div class="col-xs-3 col-md-3">
+        <!--<h2>Баннеры/Реклама</h2>-->
+        <p><img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png"></p>
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">
+        <img class="img-thumbnail" src="<%=root_url%>assets/home/b1498.png">
+
+    </div>
+</div>

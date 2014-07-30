@@ -6,91 +6,20 @@
     <div class="col-xs-2 col-md-2">
         <aside>
             <!--<h2>Рубрики/Категории</h2>-->
-            <%#= will_paginate @items %>
-
-            <ul class="nav nav-pills nav-stacked list-icon">
-
-                <% if @items.blank? %>
-                <p>нет категорий</p>
-                <% else
-                @items.each do |item| %>
-                <li>
-                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
-                    <a href='<%="#{cats_path}/#{item.id}"%>'>
-                        <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "img-circle") %>
-                        <%= item.name %>
-                    </a>
-                </li>
-
-                <% end end %>
-                <!--<li class="active ">-->
-
-                <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Авто-->
-                <!--&lt;!&ndash;<span class="cus-shopomob">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img class=" img-rounded" src="images/shopomob.png">&ndash;&gt;-->
-                <!--&lt;!&ndash;</span>&ndash;&gt;-->
-                <!--</a></li>-->
-
-                <!--<li>-->
-                <!--&lt;!&ndash;<a href="#">Отдых</a>&ndash;&gt;-->
-                <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Отдых</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a class="" href="#"><img class="img-circle" src="assets/home/shopomob.png"/> Спорт</a>-->
-
-                <!--&lt;!&ndash;<a href="#">Спорт</a>&ndash;&gt;-->
-                <!--</li>-->
-
-            </ul>
-            <%#= will_paginate @items %>
-
+            <%= render(:partial=> 'home/category', locals: {items: @items, parent: false, error: t('no_cats')}) || t('no_shops') %>
         </aside>
     </div>
 
     <div class="col-xs-2 col-md-2">
         <aside>
-            <%= will_paginate @shops if @shops %>
-
-            <ul class="nav nav-pills nav-stacked list-icon">
-
-                <%if @shops.blank?%>
-                <p>нет организаций</p>
-                <% else
-                @shops.each do |item| %>
-                <li>
-                    <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
-                    <a href='<%="#{cats_path}?shop_id=#{item.id}"%>'>
-                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
-                        <%= item.name %>
-                    </a>
-                </li>
-                <% end
-                end%>
-            </ul>
-            <%= will_paginate @shops if @shops %>
-
+            <%= render(:partial=> 'home/company_list', locals: {items: @shops, title: t('shops')}) || t('no_shops') %>
         </aside>
     </div>
 
     <div class="col-xs-5 col-md-5">
         <section>
             <article>
-                <% if (@shop) %>
-                <header><h2><%= @shop.name %></h2></header>
-                <p>
-                    <%= image_tag( (@shop.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : @shop.images.first.image_url, :class => "img-circle", :width => "100%") %>
-
-                    <!--<img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob-->
-                </p>
-                <p><%=@shop.try(:time_work) %></p>
-                <p><%#=@shop.try(:postal_code) %><%=@shop.try(:address) %></p>
-                <p><%=@shop.try(:www) %></p>
-                <% @shop.try(:contact_items).each do |contact| %>
-                <p><%= contact.value %></p>
-                <% end %>
-                <p><%= @shop.try(:description) %></p>
-                <%#= link_to @shop.name, controller: "home", action: "shops", id: @shop %>
-                <% end %>
+                <%= render(:partial=> 'home/company_item', locals: {title: t('shops')}) || t('no_shops') %>
             </article>
         </section>
     </div>

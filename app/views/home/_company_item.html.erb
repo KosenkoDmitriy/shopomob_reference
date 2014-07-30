@@ -1,0 +1,27 @@
+<% if (@shop) %>
+    <header><h2><%= @shop.name %></h2></header>
+    <p>
+      <%= image_tag( (@shop.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : @shop.images.first.image_url, :class => "img-circle", :width => "100%") %>
+
+      <!--<img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob-->
+    </p>
+    <p>
+      <!--<img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">-->
+      <% @shop.try(:images).each do |image| %>
+          <%= image_tag (image.try(:image_url)) if (image != nil )  %>
+      <% end %>
+      <%#= image_tag (@shop.try(:images).try(:first).try(:image_url)) if (@shop.try(:images).try(:first) != nil )  %>
+
+    </p>
+    <p><%=@shop.try(:time_work) %></p>
+    <p><%#=@shop.try(:postal_code) %><%=@shop.try(:address) %></p>
+    <p><%=@shop.try(:www) %></p>
+    <% @shop.try(:contact_items).each do |contact| %>
+        <p><%= contact.value %></p>
+    <% end %>
+    <p><%= @shop.try(:description) %></p>
+    <%#= link_to @shop.name, controller: "home", action: "shops", id: @shop %>
+<% else %>
+    <p><%= t("no_shop_selected")%></p>
+<% end %>
+

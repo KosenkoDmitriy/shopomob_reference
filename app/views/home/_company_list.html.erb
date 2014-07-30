@@ -1,0 +1,25 @@
+<!--<h2><%= t("title")%></h2>-->
+
+<%#= controller.controller_name %>
+<%= controller.action_name %>
+<!--#to get id information:-->
+<!--<%#= ActionController::Routing::Routes.recognize_path(request.url)[:id] %>-->
+<% if items.blank? %>
+    <p><%= t("no_shops")%></p>
+<% else %>
+    <%= will_paginate items %>
+    <ul class="nav nav-pills nav-stacked list-icon">
+        <% items.each do |item|
+          url = (controller.action_name == "shops") ? "#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
+           : "#{controller.action_name}?shop_id=#{item.id}"
+        %>
+        <li>
+            <a href='<%= url %>'>
+                <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                <%= item.name %>
+            </a>
+        </li>
+        <% end %>
+    </ul>
+    <%= will_paginate items %>
+<% end %>
