@@ -31,7 +31,7 @@
     %>
         <li style="width: 100%">
             <a href="<%= url %>">
-                <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-circle") %>
+                <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-thumbnails") %>
             </a>
         </li>
     <%

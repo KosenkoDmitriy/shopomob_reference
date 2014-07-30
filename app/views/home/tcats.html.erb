@@ -1,30 +1,22 @@
-<!--xs (phones), sm (tablets), md (desktops), and lg (larger desktops)-->
-
-<!--<ul class="nav nav-tabs" role="tablist">-->
-<%#= render_navigation( level: 2..3, expand_all: true, renderer: :bootstrap ) %>
-<%#= render_navigation (level: 1, renderer: :bootstrap) %>
-<!--</ul>-->
-<!--<ul class="nav nav-tabs" role="tablist">-->
-    <!--<li class="active"><a href="#">Home</a></li>-->
-    <!--<li><a href="#">Profile</a></li>-->
-    <!--<li><a href="#">Messages</a></li>-->
-<!--</ul>-->
-
-
 
 <div class="row">
 
-    <div class="col-xs-2 col-md-2">
-        <aside>
-            <!--<h2>Рубрики/Категории</h2>-->
-          <%= render(:partial=> 'home/tcategory', locals: {items: @items, parent: true, error: t('no_tcats')}) || t('no_shops') %>
-        </aside>
-    </div>
-    <div class="col-xs-2 col-md-2">
-        <aside>
-          <%= render(:partial=> 'home/tcategory', locals: {items: @sub_items, parent: false, error: t('no_tcats')}) || t('no_shops') %>
-        </aside>
-    </div>
+  <div class="col-xs-3 col-md-3">
+    <aside>
+      <%= render(:partial=> 'home/tcategory', locals: {items: @items, sub_items: @sub_items, parent: false, error: t('no_tcats')}) || t('no_shops') %>
+    </aside>
+  </div>
+    <!--<div class="col-xs-1 col-md-1">-->
+        <!--<aside>-->
+            <!--&lt;!&ndash;<h2>Рубрики/Категории</h2>&ndash;&gt;-->
+          <!--<%#= render(:partial=> 'home/tcategory', locals: {items: @items, parent: true, error: t('no_tcats')}) || t('no_shops') %>-->
+        <!--</aside>-->
+    <!--</div>-->
+    <!--<div class="col-xs-1 col-md-1">-->
+        <!--<aside>-->
+          <!--<%#= render(:partial=> 'home/tcategory', locals: {items: @sub_items, parent: false, error: t('no_tcats')}) || t('no_shops') %>-->
+        <!--</aside>-->
+    <!--</div>-->
 
     <div class="col-xs-2 col-md-2">
         <aside>
@@ -40,7 +32,8 @@
             </article>
         </section>
     </div>
-    <div class="col-xs-3 col-md-3">
+
+    <div class="col-xs-4 col-md-4">
       <!--<h2>Баннеры/Реклама</h2>-->
       <%= render(:partial=> 'home/vertical_banner')%>
     </div>

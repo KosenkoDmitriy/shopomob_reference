@@ -1,6 +1,7 @@
 <%#= will_paginate @sub_items %>
 
 <ul class="nav nav-pills nav-stacked list-icon">
+
   <%if items.blank?%>
       <p><%=I18n.t("no_cats")%></p>
   <% else %>

@@ -8,9 +8,8 @@
     <p>
       <!--<img class="img-thumbnail" src="<%=root_url%>assets/home/b2458.png">-->
       <% @shop.try(:images).each do |image| %>
-          <%= image_tag (image.try(:image_url)) if (image != nil )  %>
+          <%#= image_tag (image.try(:image_url)) if (image != nil )  %>
       <% end %>
-      <%#= image_tag (@shop.try(:images).try(:first).try(:image_url)) if (@shop.try(:images).try(:first) != nil )  %>
 
     </p>
     <p><%=@shop.try(:time_work) %></p>

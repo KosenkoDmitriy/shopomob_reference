@@ -27,7 +27,7 @@ class HomeController < ApplicationController
   end
 
   def shops
-    squery = params[:q]
+    squery = params[:squery]
     query = params[:query]
 
     if (params[:page].blank?)
@@ -41,12 +41,12 @@ class HomeController < ApplicationController
     if (!query.blank?)
       upcaseQuery = Unicode::upcase(query)+"%"
       downcaseQuery = Unicode::downcase(query)+"%"
-      capitalizeQuery = "%" + Unicode::capitalize(query)+"%"
-      @shops = Shop.where("name like ? or name like ? or address like ? or www like ? or tags like '%#{downcaseQuery}'", upcaseQuery, downcaseQuery, capitalizeQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
     elsif (!squery.blank?)
       upcaseQuery = Unicode::upcase(squery)+"%"
       downcaseQuery = Unicode::downcase(squery)+"%"
-      @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      capitalizeQuery = "%" + Unicode::capitalize(squery)+"%"
+      @shops = Shop.where("name like ? or name like ? or address like ? or www like ? or tags like '%#{downcaseQuery}'", upcaseQuery, downcaseQuery, capitalizeQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
     else
       @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     end
