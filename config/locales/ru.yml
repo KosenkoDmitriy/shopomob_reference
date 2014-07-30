@@ -25,9 +25,9 @@ ru:
   no_tcats: "Нет рубрик"
   no_cats: "Нет категорий"
   no_shops: "Нет организаций"
-  no_cat_selected: "Нет выбрана категория"
-  no_tcat_selected: "Нет выбрана рубрика"
-  no_shop_selected: "Нет выбрана организация"
+  no_cat_selected: "Не выбрана категория"
+  no_tcat_selected: "Не выбрана рубрика"
+  no_shop_selected: "Не выбрана организация"
 
 
   will_paginate:
