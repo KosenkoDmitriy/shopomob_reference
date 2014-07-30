@@ -66,16 +66,17 @@ class HomeController < ApplicationController
     shop_id = params[:shop_id].to_i
 
     @items = Category.all.order(name: :asc)#.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-    tsubid = (tcid > 0) ? tcid : @items.first.id
-    #if (Category.where(parent_id:tsubid).count > 0)
-    #  @sub_items = Category.where(parent_id:tsubid).order(name: :asc)
+    if (@items.count>0)
+      tsubid = (tcid > 0) ? tcid : @items.first.id
+      #if (Category.where(parent_id:tsubid).count > 0)
+      #  @sub_items = Category.where(parent_id:tsubid).order(name: :asc)
       @shops = Category.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
       if (@shops.count > 0 && shop_id < 0)
         @shop = @shops.first
       elsif (shop_id > 0)
         @shop = Shop.find(shop_id)
       end
-    #end
+    end
   end
 
   def tcats
@@ -83,14 +84,16 @@ class HomeController < ApplicationController
     shop_id = params[:shop_id].to_i
 
     @items = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-    tsubid = (tcid > 0) ? tcid : @items.first.id
-    if (CategoryItem.where(parent_id:tsubid).count > 0)
-      @sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
-      @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-      if (@shops.count > 0 && shop_id < 0)
-        @shop = @shops.first
-      elsif (shop_id > 0)
-        @shop = Shop.find(shop_id)
+    if (@items.count>0)
+      tsubid = (tcid > 0) ? tcid : @items.first.id
+      if (CategoryItem.where(parent_id:tsubid).count > 0)
+        @sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
+        @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+        if (@shops.count > 0 && shop_id < 0)
+          @shop = @shops.first
+        elsif (shop_id > 0)
+          @shop = Shop.find(shop_id)
+        end
       end
     end
 

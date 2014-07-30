@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722185839) do
+ActiveRecord::Schema.define(version: 20140730001057) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140722185839) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_id"
+    t.integer  "parent_id",          default: 0, null: false
     t.integer  "_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140722185839) do
   end
 
   create_table "category_items", force: true do |t|
-    t.integer  "parent_id"
+    t.integer  "parent_id",          default: 0, null: false
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

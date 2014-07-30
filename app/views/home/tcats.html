@@ -17,15 +17,17 @@
     <div class="col-xs-2 col-md-2">
         <aside>
             <!--<h2>Рубрики/Категории</h2>-->
-            <%#= will_paginate @items %>
+            <%#= will_paginate @items if @items.count > 0 %>
 
             <ul class="nav nav-pills nav-stacked list-icon">
-
-                <% @items.each do |item| %>
+                <% if @items.blank?%>
+                <p>нет рубрик</p>
+                <% else
+                @items.each do |item| %>
                 <li>
                     <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
                     <a href='<%="#{tcats_path}/#{item.id}"%>'>
-                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "img-circle") %>
                         <%= item.name %>
                     </a>
                 </li>
@@ -59,18 +61,21 @@
 
             <ul class="nav nav-pills nav-stacked list-icon">
 
-                <%if @sub_items
+                <%if @sub_items.blank?%>
+                <p>не выбрана рубрика</p>
+                <% else %>
                 @sub_items.each do |item| %>
                 <li>
                     <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
                     <a href='<%="#{tcats_path}/#{item.parent_id}"%>'>
-                        <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "img-circle") %>
+                        <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "img-circle") %>
                         <%= item.name %>
                     </a>
                 </li>
-                <% end else %>
-                <p>не выбрана рубрика</p>
+
                 <% end %>
+                <% end %>
+
             </ul>
             <%#= will_paginate @sub_items %>
 
@@ -95,12 +100,14 @@
 
     <div class="col-xs-2 col-md-2">
         <aside>
-            <%= will_paginate @shops %>
+            <%= will_paginate @shops if @shops %>
 
             <ul class="nav nav-pills nav-stacked list-icon">
 
-                <%if @shops
-                @shops.each do |item| %>
+                <%if @shops.blank?%>
+                <p>нет организаций</p>
+                <% else %>
+                <% @shops.each do |item| %>
                 <li>
                     <!--<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>-->
                     <a href='<%="#{tcats_path}?shop_id=#{item.id}"%>'>
@@ -108,11 +115,11 @@
                         <%= item.name %>
                     </a>
                 </li>
-                <% end else %>
-                <p>не выбрана рубрика</p>
+
+                <% end %>
                 <% end %>
             </ul>
-            <%= will_paginate @shops %>
+            <%= will_paginate @shops if @shops %>
 
         </aside>
     </div>

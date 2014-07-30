@@ -25,6 +25,7 @@ AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :passw
 
 require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
+path_to_img = File.dirname(__FILE__)+'/images/'
 
 
 file_path = "#{path_to_app}tcats.csv"
@@ -32,6 +33,13 @@ puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   pid = row['parent_id'].to_i
   sc = CategoryItem.create(_id: row['_id'].to_i, name: row['name'], parent_id: pid)
+  if (!row['image'].blank?)
+    img_path = path_to_img + row['image']
+    if (File.exists?(img_path))
+      sc.image = Image.create(:image=>File.open(img_path))
+    end
+  end
+
   if pid == 0
     #c = Category.create(name: row['name'] )
     puts "parent tcat: #{row['name']}"
@@ -97,6 +105,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 =end
+
 
 ct_mail = ContactType.create(name:'email', value:'Email Address')
 ct_url = ContactType.create(name:'url', value:'Website or other link')
