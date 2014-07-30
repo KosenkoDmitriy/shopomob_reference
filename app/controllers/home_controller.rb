@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
-  #after_action :set_csrf_headers, only: :create
-  token = "x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA="
-  #before_action :authenticate, except: [ :index ]
-  protect_from_forgery with: :exception
+  before_action :init#, except: [ :index ]
+
+  def init
+    @banners = Banner.all
+    @services = Service.all
+  end
 
   def index2
     #render_navigation#(level:0)
