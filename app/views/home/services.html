@@ -1,4 +1,11 @@
 <div class="row">
+<div class="col-sm-8 col-md-8">
+    <%= render(:partial=> 'home/service', locals: {items: @services, title: t('services')}) || t('no_services') %>
+</div>
+<div class="col-xs-4 col-md-4">
+    <!--<h2>Баннеры/Реклама</h2>-->
+    <%= render(:partial=> 'home/vertical_banner')%>
+</div>
     <!--<div class="col-sm-6 col-md-4">-->
         <!--<div class="thumbnail">-->
             <!--<img src="<%=root_url%>assets/home/promo.png" alt="...">-->
@@ -12,57 +19,59 @@
             <!--</div>-->
         <!--</div>-->
     <!--</div>-->
-    <div class="col-xs-4 col-md-4">
-        <div class="thumbnail">
-            <!--<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">-->
-            <!--<img src="<%=root_url%>assets/home/reference_adv.png" class="img-rounded" alt="shopomob services">-->
-            <!--<img src="<%=root_url%>assets/home/reference_adv_2.jpeg" class="img-rounded" alt="shopomob services">-->
-            <img src="<%=root_url%>assets/home/phones_and_tablets_5.png" class="img-rounded" alt="shopomob services">
-            <div class="caption">
-                <h3>Реклама в мобильном справочнике Владикавказа</h3>
-                <p>Для размещения рекламы в приложении требуется связаться с менеджером по телефонам:</p>
-                <p>
-                    <!--<a href="#" class="btn btn-primary" role="button"></a>-->
-                    <a href="#" class="btn btn-default" role="button">+7 (938) 861 67 88</a>
-                    <a href="#" class="btn btn-default" role="button">+7 (989) 748 03 10</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-4 col-md-4">
-        <div class="thumbnail">
-            <!--<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">-->
-            <img src="<%=root_url%>assets/home/phones_and_tablets_2.png" class="img-rounded" alt="shopomob services">
-            <div class="caption">
-                <h3>Аренда мобильного приложения и(или) интернет-магазина</h3>
-                <p>для продажи Ваших продуктов или услуг с мобильного устройства (планшет или телефон)</p>
-                <p>
-                    <a href="http://itunes.apple.com/us/app/shopomob-sopomob-mobil-noe/id861438900?mt=8"" class="btn btn-primary" role="button">Android</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.shopomob.demo.android" class="btn btn-default" role="button">iOS (iPhone & iPad)</a>
-                </p>
-                <!--<ul class="big-btns">-->
-                    <!--<li><a class="iapps" href="http://itunes.apple.com/us/app/shopomob-sopomob-mobil-noe/id861438900?mt=8">-->
-                        <!--&lt;!&ndash;http://itunes.apple.com/ru/app/com.shopomob.demo.ios/id857710888?mt=8">&ndash;&gt;-->
-                    <!--</a></li>-->
-                    <!--<li><a class="gapps" href="https://play.google.com/store/apps/details?id=com.shopomob.demo.android"> </a></li>-->
-                    <!--<div class="clear"> </div>-->
-                <!--</ul>-->
-            </div>
-        </div>
-    </div>
 
-    <div class="col-xs-4 col-md-4">
-        <div class="thumbnail">
-            <!--<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">-->
-            <img src="<%=root_url%>assets/home/sms_banner.jpg" class="img-rounded" alt="shopomob services">
-            <div class="caption">
-                <h3>СМС-рассылка</h3>
-                <p>от 30 копеек за штуку</p>
-                <p>
-                    <!--<a href="#" class="btn btn-primary" role="button"></a>-->
-                    <!--<a href="#" class="btn btn-default" role="button"></a>-->
-                </p>
-            </div>
-        </div>
-    </div>
+
+    <!--<div class="col-xs-4 col-md-4">-->
+        <!--<div class="thumbnail">-->
+            <!--&lt;!&ndash;<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="<%=root_url%>assets/home/reference_adv.png" class="img-rounded" alt="shopomob services">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="<%=root_url%>assets/home/reference_adv_2.jpeg" class="img-rounded" alt="shopomob services">&ndash;&gt;-->
+            <!--<img src="<%=root_url%>assets/home/phones_and_tablets_5.png" class="img-rounded" alt="shopomob services">-->
+            <!--<div class="caption">-->
+                <!--<h3>Реклама в мобильном справочнике Владикавказа</h3>-->
+                <!--<p>Для размещения рекламы в приложении требуется связаться с менеджером по телефонам:</p>-->
+                <!--<p>-->
+                    <!--&lt;!&ndash;<a href="#" class="btn btn-primary" role="button"></a>&ndash;&gt;-->
+                    <!--<a href="#" class="btn btn-default" role="button">+7 (938) 861 67 88</a>-->
+                    <!--<a href="#" class="btn btn-default" role="button">+7 (989) 748 03 10</a>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-xs-4 col-md-4">-->
+        <!--<div class="thumbnail">-->
+            <!--&lt;!&ndash;<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">&ndash;&gt;-->
+            <!--<img src="<%=root_url%>assets/home/phones_and_tablets_2.png" class="img-rounded" alt="shopomob services">-->
+            <!--<div class="caption">-->
+                <!--<h3>Аренда мобильного приложения и(или) интернет-магазина</h3>-->
+                <!--<p>для продажи Ваших продуктов или услуг с мобильного устройства (планшет или телефон)</p>-->
+                <!--<p>-->
+                    <!--<a href="http://itunes.apple.com/us/app/shopomob-sopomob-mobil-noe/id861438900?mt=8"" class="btn btn-primary" role="button">Android</a>-->
+                    <!--<a href="https://play.google.com/store/apps/details?id=com.shopomob.demo.android" class="btn btn-default" role="button">iOS (iPhone & iPad)</a>-->
+                <!--</p>-->
+                <!--&lt;!&ndash;<ul class="big-btns">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a class="iapps" href="http://itunes.apple.com/us/app/shopomob-sopomob-mobil-noe/id861438900?mt=8">&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;http://itunes.apple.com/ru/app/com.shopomob.demo.ios/id857710888?mt=8">&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a class="gapps" href="https://play.google.com/store/apps/details?id=com.shopomob.demo.android"> </a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="clear"> </div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="col-xs-4 col-md-4">-->
+        <!--<div class="thumbnail">-->
+            <!--&lt;!&ndash;<img src="<%=root_url%>assets/home/promo.png" class="img-rounded" alt="shopomob services">&ndash;&gt;-->
+            <!--<img src="<%=root_url%>assets/home/sms_banner.jpg" class="img-rounded" alt="shopomob services">-->
+            <!--<div class="caption">-->
+                <!--<h3>СМС-рассылка</h3>-->
+                <!--<p>от 30 копеек за штуку</p>-->
+                <!--<p>-->
+                    <!--&lt;!&ndash;<a href="#" class="btn btn-primary" role="button"></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="#" class="btn btn-default" role="button"></a>&ndash;&gt;-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>

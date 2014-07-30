@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def init
     @banners = Banner.all
-    @services = Service.all
+    @services = Service.all.order(order_id: :asc, title: :asc)
   end
 
   def index2

@@ -29,6 +29,11 @@ ru:
   no_cat_selected: "Не выбрана категория"
   no_tcat_selected: "Не выбрана рубрика"
   no_shop_selected: "Не выбрана организация"
+  services: "Услуги"
+  no_services: "Нет услуг"
+
+  details: "Подробности"
+  details_on_url: "смотреть подробности на сайте"
 
 
   will_paginate:

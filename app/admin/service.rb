@@ -1,9 +1,14 @@
 ActiveAdmin.register Service do
 
-  permit_params :text, :title, :url, image_attributes: [:id, :image, :_destroy]
+  permit_params :order_id, :text, :title, :url, image_attributes: [:id, :image, :_destroy]
 
   form do |f|
     f.inputs
+
+    f.inputs "Order" do
+      f.input :order_id
+    end
+
     f.inputs "Images" do
       f.has_many :image, :heading => 'Images' do |ff|
         ff.input :image, :label => "Image", :hint => ff.template.image_tag(ff.object.image.url(:thumb))

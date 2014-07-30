@@ -1,0 +1,24 @@
+<%if items.blank?%>
+    <p><%=I18n.t("no_services")%></p>
+<% else %>
+    <ul class="media-list list-icon">
+      <%
+         items.each do |item| %>
+          <div class="media">
+            <a class="pull-left" href="<%= (item.url.blank?) ? "#" : item.url %>">
+              <!--<img class="media-object" src="..." alt="...">-->
+              <%#= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "media-object img-circle ") %>
+              <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{asset_path}assets/missing.png" : item.image.image_url, :class => "media-object img-circle ") %>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= item.title %></h4>
+              <%= item.text %>
+
+              <%= link_to( t("details_on_url"), item.url, class: "btn btn-primary" ) if (!item.url.blank?) %>
+
+              <!--<a href="#" class="btn btn-primary" role="button"><%= (item.url.blank?) ? "#" : item.url %></a>-->
+            </div>
+          </div>
+      <% end %>
+    </ul>
+<% end %>
