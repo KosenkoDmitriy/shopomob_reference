@@ -35,10 +35,21 @@ class HomeController < ApplicationController
     end
 
     if (!query.blank?)
-      upcaseQuery = Unicode::upcase(query)+"%"
-      downcaseQuery = Unicode::downcase(query)+"%"
-      @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-    elsif (!squery.blank?)
+      if (query.to_i >= 0)
+        #query = "%"+query+"%"
+        #queries = [1,2,3,4,5,6,7,8,9,'-', '+', '_']
+        #queryString = "name like ''%#{queries.first}%''"
+        #queries[1..queries.count].each do |item|
+        #  queryString += " or name like ''%#{item}%''"
+        #end
+        queryString = "name like '#{query}%' or name like '%#{query}%'"
+        @shops = Shop.where(queryString).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      else
+        upcaseQuery = Unicode::upcase(query)+"%"
+        downcaseQuery = Unicode::downcase(query)+"%"
+        @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      end
+      elsif (!squery.blank?)
       upcaseQuery = Unicode::upcase(squery)+"%"
       downcaseQuery = Unicode::downcase(squery)+"%"
       capitalizeQuery = "%" + Unicode::capitalize(squery)+"%"
