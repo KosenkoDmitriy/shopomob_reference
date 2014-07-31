@@ -90,10 +90,10 @@ class HomeController < ApplicationController
     @tcats = CategoryItem.all.order(name: :asc)
 
     tcid = (tcid > 0) ? tcid : @tcats.first.id
-    shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first
+    shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
 
     @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-    @shop = @shops.find( shop_id )
+    @shop = @shops.find( shop_id ) if shop_id > 0
     #@shop = Shop.find( shop_id )
     #@shops = CategoryItem.find( shop_id ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
 
