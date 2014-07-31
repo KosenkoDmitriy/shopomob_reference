@@ -3,37 +3,25 @@
     <p><%=I18n.t("no_tcats")%></p>
 <% else %>
     <ul class="media-list">
-    <% items.each do |item| %>
+    <% items.where(parent_id:0).each do |item| %>
         <div class="media">
-          <a class="pull-left" href="<%="#{tcats_path}/#{ (parent) ? item.id : item.parent_id }"%>">
+          <a class="pull-left" href="<%="#{tcats_path}/#{ item.id }"%>">
             <!--<img class="media-object" src="..." alt="...">-->
             <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "media-object img-circle list-icon") %>
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= item.name %> <span class="badge"><%= (item.shops.blank? ) ? 0 : item.shops.count %></h4>
-            <% sub_items.each do |item| %>
-                <%= link_to item.name,  "#{tcats_path}/#{ (parent) ? item.id : item.parent_id }" %>
+            <%
+               items.where(parent_id:item.id).each do |sub_item|
+            %>
+                <%#= link_to sub_item.name,  "#{tcats_path}/#{ (parent) ? sub_item.id : sub_item.parent_id }" %>
+                <%= link_to sub_item.name,  "#{tcats_path}/#{ sub_item.id }" %>
+                <%#= link_to sub_item.name,  tcats_path( sub_item.id) %>
             <% end %>
           </div>
         </div>
     <% end %>
     </ul>
 <% end %>
-
-
-<!--<ul class="nav nav-pills nav-stacked list-icon">-->
-  <!--<%if items.blank?%>-->
-      <!--<p><%=I18n.t("no_tcats")%></p>-->
-  <!--<% else %>-->
-      <!--<% items.each do |item| %>-->
-          <!--<li>-->
-            <!--&lt;!&ndash;<a href='<%#="#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"%>'>&ndash;&gt;-->
-            <!--<a href='<%="#{tcats_path}/#{ (parent) ? item.id : item.parent_id }"%>'>-->
-              <!--<%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "img-circle") %>-->
-              <!--<%= item.name %>-->
-            <!--</a>-->
-          <!--</li>-->
-      <!--<% end %>-->
-  <!--<% end %>-->
 
 </ul>

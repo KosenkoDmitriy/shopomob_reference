@@ -3,7 +3,7 @@
 
   <div class="col-xs-3 col-md-3">
     <aside>
-      <%= render(:partial=> 'home/tcategory', locals: {items: @items, sub_items: @sub_items, parent: false, error: t('no_tcats')}) || t('no_shops') %>
+      <%= render(:partial=> 'home/tcategory', locals: {items: @tcats, error: t('no_tcats')}) || t('no_shops') %>
     </aside>
   </div>
     <!--<div class="col-xs-1 col-md-1">-->

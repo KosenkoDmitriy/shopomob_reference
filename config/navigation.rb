@@ -161,7 +161,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #  sub_nav.item :service_4, 'СМС-рассылка', services_sms_path
     #end
 
-    primary.item :home, 'Главная', root_path
+    #primary.item :home, 'Главная', root_path
 
     primary.item :shops, 'Компании', shops_path
     #do |sub_nav|
@@ -180,8 +180,9 @@ SimpleNavigation::Configuration.run do |navigation|
     #    end
     #  end
     #end
-    primary.item :tcats, 'Рубрики', tcats_path
-    primary.item :cats, 'Категории', cats_path #do |sub_nav|
-    primary.item :services, 'Услуги', services_path
+
+    primary.item :tcats, I18n.t('tcats'), tcats_path
+    #primary.item :cats, I18n.t('cats'), cats_path #do |sub_nav|
+    primary.item :services, I18n.t('services'), services_path
   end
 end

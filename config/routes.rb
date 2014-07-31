@@ -16,32 +16,25 @@ Shopomob::Application.routes.draw do
     end
   end
 
-  #resources :shops
   root 'home#index'
   #resources :category
   #resources :t_category
   #resources :shops
   get 'services' => 'home#services'
   get 'contacts' => 'home#contacts'
-  get 'services/adv' => 'home#services_adv'
 
   get 'shops' => 'home#shops'
+  get 'shops/:id' => 'home#shops'
 
   #get 'shops/search/:q' => 'home#shops', as: "search_shop"
   #post 'shops/search/:q' => 'home#shops'
   get 'search/shop/:q' => 'home#shops', as: "search_shop"
   post 'search/shop/:q' => 'home#shops'
 
-
-  get 'shops/:id' => 'home#shops'
-  get 'tcats' => 'home#tcats'
+  get 'tcats' => 'home#tcats', as: "tcats"
   get 'tcats/:id' => 'home#tcats'
   get 'cats' => 'home#cats'
   get 'cats/:id' => 'home#cats'
-
-  get 'services/rent_shop' => 'home#services_rent_shop'
-  get 'services/rent_app' => 'home#services_rent_app'
-  get 'services/sms' => 'home#services_sms'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
