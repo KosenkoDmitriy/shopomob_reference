@@ -88,12 +88,13 @@ class HomeController < ApplicationController
 
     #@tcats = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     @tcats = CategoryItem.all.order(name: :asc)
+    if (!@tcats.blank?)
+      tcid = (tcid > 0) ? tcid : @tcats.first.id if
+      shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
 
-    tcid = (tcid > 0) ? tcid : @tcats.first.id
-    shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
-
-    @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-    @shop = @shops.find( shop_id ) if shop_id > 0
+      @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      @shop = @shops.find( shop_id ) if shop_id > 0
+    end
     #@shop = Shop.find( shop_id )
     #@shops = CategoryItem.find( shop_id ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
 
