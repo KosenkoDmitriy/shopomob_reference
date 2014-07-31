@@ -18,14 +18,14 @@
         <!--</aside>-->
     <!--</div>-->
 
-    <div class="col-xs-6 col-md-2">
+    <div class="col-xs-12 col-md-2">
         <aside>
           <%#= render(:partial=> 'home/company', collection: @shops, as: :items, locals: {items: @shops, title: t('shops')}) || t('no_shops') %>
           <%= render(:partial=> 'home/company_list', locals: {items: @shops, title: t('shops')}) || t('no_shops') %>
         </aside>
     </div>
 
-    <div class="col-xs-6 col-md-3">
+    <div class="col-xs-12 col-md-3">
         <section>
             <article>
               <%= render(:partial=> 'home/company_item', locals: {title: t('shops')}) || t('no_shops') %>
