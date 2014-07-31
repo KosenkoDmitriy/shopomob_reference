@@ -7,21 +7,16 @@
         //You don't need this timeout in your pages - Safari has stupid issues with our demo system
         window.setTimeout(function() {
             $("#carousel").carousel({
-                orientation: 'vertical',
-                radius: 130
+                orientation: 'vertical'
+//                radius: 130*2
             });
-        }, $.browser.safari ? 100 : 0);
+        }, $.browser.safari ? 100*1.5 : 0);
     });
 </script>
 
 <div class="demo">
 <!--<h1>carousel</h1>-->
   <ul id="carousel">
-    <!--<li style="width: 100%"><img src="<%= asset_path 'vertical_slider/1.png' %>" alt=""></li>-->
-    <!--<li style="width: 100%"><img src="<%= asset_path 'vertical_slider/2.png' %>" alt=""></li>-->
-    <!--<li style="width: 100%"><img src="<%= asset_path 'vertical_slider/3.png' %>" alt=""></li>-->
-    <!--<li style="width: 100%"><img src="<%= asset_path 'vertical_slider/4.png' %>" alt=""></li>-->
-    <!--<li style="width: 100%"><img src="<%= asset_path 'vertical_slider/5.png' %>" alt=""></li>-->
     <% if (@banners.blank?) %>
     <p><%= t("your_adv_here") %></p>
     <% else
@@ -29,7 +24,7 @@
        url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
        : "#{controller.action_name}?shop_id=#{banner.shop_id}"
     %>
-        <li style="width: 100%">
+        <li style="height:20%; width: 80%">
             <a href="<%= url %>">
                 <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-thumbnails") %>
             </a>

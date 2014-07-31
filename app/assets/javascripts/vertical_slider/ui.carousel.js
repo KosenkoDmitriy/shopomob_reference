@@ -160,16 +160,16 @@ $.widget("ui.carousel", {
 
 $.extend($.ui.carousel, {
 	defaults: {
-		animate: 0.005, //TODO: Setting animate to false also currently blocks animateByMouse
+		animate: 0.0015, //TODO: Setting animate to false also currently blocks animateByMouse
 		animateByMouse: true,
-		distance: 0.7,
+		distance: 0.5,
 		handle: false,
 		items: '> *',
 		orientation: 'horizontal',
 		pausable: true,
-		pauseSpeed: 0.001, //If you don't want to actually stop the carousel when hovering items, set it to something small, i.e. 0.001
-		radius: 200,
-		tilt: -0.1
+//		pauseSpeed: 0.001, //If you don't want to actually stop the carousel when hovering items, set it to something small, i.e. 0.001
+		radius: 330,
+		tilt: -80.9
 	}
 });
 	
