@@ -58,7 +58,13 @@
             <%= form_tag("/search/shop/%20/", method: "post", id: "nav-search-form", class: "navbar-form navbar-left", role:"search") do %>
                 <%#= label_tag(:q, "Search for:") %>
                 <%= text_field_tag(:squery, "", id: "nav-search", class: "form-control", placeholder: I18n.t('search_hint')) %>
-                <%= submit_tag(t("search"), class:"btn btn-default ") %>
+            <%#= submit_tag(t("search"), class:"btn btn-default") %>
+            <%= button_tag(type: "submit", class: "btn btn-default") do %>
+            <%#=t("search")%> <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+            <!--<button type="submit" class="btn btn-default">-->
+                <!--<span class="glyphicon glyphicon-search"></span> <%#=t("search")%>-->
+            <!--</button>-->
             <% end %>
 
         </div><!-- /.navbar-collapse -->

@@ -29,5 +29,8 @@ module Shopomob
     #config.autoload_paths << Rails.root.join('/app/navigation_renderers/')
     config.autoload_paths << Rails.root.join('app', 'navigation_renderers', '*.{rb,yml}').to_s
     #config.load_paths << Dir[Rails.root.join('app', 'navigation_renderers', '*.{rb,yml}').to_s]
+
+    #config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    #config.autoload_paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end

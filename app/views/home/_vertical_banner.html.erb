@@ -1,38 +1,157 @@
 
-<%= javascript_include_tag  "vertical_slider/jquery-1.3.2.js", "vertical_slider/jquery-migrate-1.2.1.min.js", "vertical_slider/ui.core.js", "vertical_slider/ui.carousel.js", "data-turbolinks-track" => true %>
-<%= stylesheet_link_tag    "home/bootstrap.min.css", "home/logo-nav.css",  "vertical_slider/vertical_slider.css", media: "all", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    "vertical_slider/vertical_slider.css" %>
+<%= javascript_include_tag  "vertical_slider/bootstrap-carousel.js"%>
+
 
 <script type="text/javascript">
-    $(function() {
-        //You don't need this timeout in your pages - Safari has stupid issues with our demo system
-        window.setTimeout(function() {
-            $("#carousel").carousel({
-                orientation: 'vertical'
-//                radius: 130*2
-            });
-        }, $.browser.safari ? 100*1.5 : 0);
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 2000,
+            pause: "hover",
+            wrap: true
+        })
     });
 </script>
 
-<div class="demo">
-<!--<h1>carousel</h1>-->
-  <ul id="carousel">
-    <% if (@banners.blank?) %>
+
+<% if (@banners.blank?) %>
     <p><%= t("your_adv_here") %></p>
-    <% else
-       @banners.each do |banner|
-       url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
-       : "#{controller.action_name}?shop_id=#{banner.shop_id}"
-    %>
-        <li style="height:20%; width: 80%">
+<% else %>
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Индикаторы -->
+      <ol class="carousel-indicators">
+        <% i=0
+        @banners.each do |banner|
+        %>
+        <li data-target="#carousel-example-generic" data-slide-to="<%= i %>" class="<%= (i==0) ? "active" : "" %>"></li>
+        <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+        <% i+=1
+           end %>
+      </ol>
+      <!-- Содержимое слайдера (Обёртка для слайдов)-->
+      <div class="carousel-inner">
+        <div class="item active">
+          <% banner = @banners.first %>
+          <% url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}" %>
+          <a href="<%= url %>">
+            <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-thumbnails") %>
+            <div class="carousel-caption">
+
+            </div>
+          </a>
+        </div>
+    <% @banners[1..@banners.count].each do |banner| %>
+        <% url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}" %>
+
+        <div class="item">
+            <!--<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="...">-->
             <a href="<%= url %>">
                 <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-thumbnails") %>
-            </a>
-        </li>
-    <%
-       end
-    end
-    %>
-  </ul>
+                <div class="carousel-caption">
 
-</div><!-- End demo -->
+                </div>
+            </a>
+        </div>
+    <% end %>
+      </div>
+        <!-- Контролы -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left "></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+
+
+
+
+    <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
+      <!-- Индикаторы -->
+      <ol class="carousel-indicators">
+        <ol class="carousel-indicators">
+          <% i=0
+             @banners.reverse.each do |banner|
+          %>
+              <li data-target="#carousel-example-generic1" data-slide-to="<%= i %>" class="<%= (i==0) ? "active" : "" %>"></li>
+              <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+          <% i+=1
+             end %>
+        </ol>
+        <!--<li data-target="#carousel-example-generic1" data-slide-to="0" class="active"></li>-->
+        <!--<li data-target="#carousel-example-generic1" data-slide-to="1"></li>-->
+        <!--<li data-target="#carousel-example-generic1" data-slide-to="2"></li>-->
+      </ol>
+      <!-- Содержимое слайдера (Обёртка для слайдов)-->
+      <div class="carousel-inner">
+        <% i=0
+           @banners.reverse.each do |banner| %>
+            <% url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}" %>
+
+            <div class="item <%= (i==0) ? "active" : "" %>">
+              <!--<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="...">-->
+              <a href="<%= url %>">
+                <%= image_tag( (banner.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : banner.image.image_url, :class => "img-thumbnails") %>
+                <div class="carousel-caption">
+
+                </div>
+              </a>
+            </div>
+        <% i+=1
+           end %>
+      </div>
+      <!-- Контролы -->
+      <a class="left carousel-control" href="#carousel-example-generic1" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left "></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic1" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+<% end %>
+
+
+
+<!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
+  <!--&lt;!&ndash; Индикаторы &ndash;&gt;-->
+  <!--<ol class="carousel-indicators">-->
+    <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+    <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+    <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+  <!--</ol>-->
+  <!--&lt;!&ndash; Содержимое слайдера (Обёртка для слайдов)&ndash;&gt;-->
+  <!--<div class="carousel-inner">-->
+    <!--<div class="item active">-->
+      <!--<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="...">-->
+      <!--<div class="carousel-caption">-->
+        <!--<h4>Первый слайд</h4>-->
+        <!--<p>Принимаясь за дело, соберись с духом.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+      <!--<img src="assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="...">-->
+      <!--<div class="carousel-caption">-->
+        <!--<h4>Второй слайд</h4>-->
+        <!--<p>Часами измеряется время, а временем жизнь человеческая; но чем, скажи, измеришь ты глубину Восточного океана?</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+      <!--<img src="assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="...">-->
+      <!--<div class="carousel-caption">-->
+        <!--<h4>Третий слайд</h4>-->
+        <!--<p>Многие вещи нам непонятны не потому, что наши понятия слабы; но потому, что сии вещи не входят в круг наших понятий.</p>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash; Контролы &ndash;&gt;-->
+  <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">-->
+    <!--<span class="glyphicon glyphicon-chevron-left "></span>-->
+  <!--</a>-->
+  <!--<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">-->
+    <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+  <!--</a>-->
+<!--</div>-->
+
+
