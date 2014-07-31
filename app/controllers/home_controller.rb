@@ -34,10 +34,6 @@ class HomeController < ApplicationController
       params[:page] = "1"
     end
 
-    if (params[:id])
-      @shop = Shop.find(params['id'])
-    end
-
     if (!query.blank?)
       upcaseQuery = Unicode::upcase(query)+"%"
       downcaseQuery = Unicode::downcase(query)+"%"
@@ -49,6 +45,12 @@ class HomeController < ApplicationController
       @shops = Shop.where("name like ? or name like ? or address like ? or www like ? or tags like '%#{downcaseQuery}'", upcaseQuery, downcaseQuery, capitalizeQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
     else
       @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+    end
+
+    if (params[:id])
+      @shop = Shop.find(params['id'])
+    elsif (!@shops.blank?)
+      @shop = @shops.first
     end
   end
 
@@ -73,7 +75,7 @@ class HomeController < ApplicationController
       #if (Category.where(parent_id:tsubid).count > 0)
       #  @sub_items = Category.where(parent_id:tsubid).order(name: :asc)
       @shops = Category.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-      if (@shops.count > 0 && shop_id < 0)
+      if (@shops.count > 0 && shop_id <= 0)
         @shop = @shops.first
       elsif (shop_id > 0)
         @shop = Shop.find(shop_id)
@@ -91,7 +93,7 @@ class HomeController < ApplicationController
       if (CategoryItem.where(parent_id:tsubid).count > 0)
         @sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
         @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-        if (@shops.count > 0 && shop_id < 0)
+        if (@shops.count > 0 && shop_id <= 0)
           @shop = @shops.first
         elsif (shop_id > 0)
           @shop = Shop.find(shop_id)
