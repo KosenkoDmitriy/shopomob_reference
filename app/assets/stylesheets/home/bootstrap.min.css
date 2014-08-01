@@ -11,39 +11,3 @@
     url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
     url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
-
-/*@grid-float-breakpoint) {*/
-    /*dt {*/
-        /*float: left;*/
-        /*width: (@dl-horizontal-offset - 40);*/
-    /*}*/
-/*}*/
-
-
-@media (min-width: 320px) {
-    .navbar-header {
-        float: none; }
-    .navbar-toggle {
-        display: block; }
-    .navbar-fixed-top .navbar-collapse,
-    .navbar-static-top .navbar-collapse,
-    .navbar-fixed-bottom .navbar-collapse {
-        padding-right: 15px;
-        padding-left: 15px; }
-    .navbar-collapse.collapse {
-        display: none !important; }
-    .navbar-collapse.collapse.in {
-        display: block!important;
-        margin-top: 0px; }
-}
-
-@media (min-width: 900px) {
-    .navbar-header {
-        float: left; }
-    .navbar-toggle {
-        display: none; }
-    .navbar-fixed-top .navbar-collapse,
-    .navbar-static-top .navbar-collapse,
-    .navbar-fixed-bottom .navbar-collapse {
-        display: block !important; }
-}
