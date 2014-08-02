@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require_tree .
- *= require home/bootstrap.min
  */
+@import "home/bootstrap.min.css";

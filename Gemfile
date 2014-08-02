@@ -63,3 +63,6 @@ gem 'haml'
 gem 'unicode'
 
 gem 'bootstrap-will_paginate'
+
+#gem 'thin'
+gem 'passenger'
