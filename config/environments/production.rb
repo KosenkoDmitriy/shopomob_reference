@@ -82,5 +82,6 @@ Shopomob::Application.configure do
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
   # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.compile = true
+  config.assets.precompile += %w( .js .css .css.erb .svg .eot .woff .ttf )
 end
