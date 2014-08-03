@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     end
 
     if (!query.blank?)
-      if (query.to_i >= 0)
+      if (is_numeric(query)) #if searching by number
         #query = "%"+query+"%"
         #queries = [1,2,3,4,5,6,7,8,9,'-', '+', '_']
         #queryString = "name like ''%#{queries.first}%''"
@@ -36,11 +36,15 @@ class HomeController < ApplicationController
         downcaseQuery = Unicode::downcase(query)+"%"
         @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
       end
-      elsif (!squery.blank?)
+    elsif (!squery.blank? && squery.size > 2)
       upcaseQuery = Unicode::upcase(squery)+"%"
       downcaseQuery = Unicode::downcase(squery)+"%"
       capitalizeQuery = "%" + Unicode::capitalize(squery)+"%"
       @shops = Shop.where("name like ? or name like ? or address like ? or www like ? or tags like '%#{downcaseQuery}'", upcaseQuery, downcaseQuery, capitalizeQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+    elsif (!squery.blank? && squery.size <= 2) #search by name
+      upcaseQuery = Unicode::upcase(squery)+"%"
+      downcaseQuery = Unicode::downcase(squery)+"%"
+      @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
     else
       @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     end
@@ -119,7 +123,7 @@ class HomeController < ApplicationController
   end
 
   private
-  def authenticate
-
+  def is_numeric(o)
+    true if Integer(o) rescue false
   end
 end
