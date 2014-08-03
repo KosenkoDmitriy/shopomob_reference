@@ -32,5 +32,6 @@ module Shopomob
 
     #config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     #config.autoload_paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.enabled = true
   end
 end
