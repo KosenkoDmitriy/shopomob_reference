@@ -1,8 +1,8 @@
 <% if (@shop) %>
     <header><h2><%= @shop.name %></h2></header>
     <p>
-      <%= image_tag( (@shop.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : @shop.images.first.image_url, :class => "img-circle", :width => "100%") %>
-
+      <%#= image_tag( (@shop.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : @shop.images.first.image_url, :class => "img-circle", :width => "100%") %>
+      <%= (!@shop.try(:images).try(:first).try(:image_url).blank?) ? image_tag( (@shop.try(:images).try(:first).try(:image).try(:image_url)), :class => "img-circle", :width => "100%") : image_tag( 'missing.png', :class => "img-circle", :width => "100%" ) %>
       <!--<img class="img-thumbnail" src="assets/home/b2458.png">ShopoMob-->
     </p>
     <p>

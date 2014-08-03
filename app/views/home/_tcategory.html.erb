@@ -7,7 +7,8 @@
         <div class="media">
           <a class="pull-left" href="<%="#{tcats_path}/#{ item.id }"%>">
             <!--<img class="media-object" src="..." alt="...">-->
-            <%= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "media-object img-circle list-icon") %>
+            <%#= image_tag( (item.try(:image).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.image.image_url, :class => "media-object img-circle list-icon") %>
+            <%= (!item.try(:image).try(:image_url).blank?) ? image_tag( (item.try(:image).try(:image_url)), :class => "media-object img-circle list-icon") : image_tag( 'missing.png', :class => "media-object img-circle list-icon" ) %>
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= item.name %> <span class="badge"><%= (item.shops.blank? ) ? 0 : item.shops.count %></h4>

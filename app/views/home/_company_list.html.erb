@@ -18,8 +18,8 @@
         %>
           <div class="media">
             <a class="pull-left" href="<%=url%>">
-              <%= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "media-object img-circle list-icon") %>
-
+              <%#= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "media-object img-circle list-icon") %>
+              <%= (!item.try(:images).try(:first).try(:image_url).blank?) ? image_tag( (item.try(:images).try(:first).try(:image).try(:image_url)), :class => "media-object img-circle list-icon") : image_tag( 'missing.png', :class => "media-object img-circle list-icon" ) %>
             </a>
             <div class="media-body">
               <h4 class="media-heading"><a href='<%= url %>'>
