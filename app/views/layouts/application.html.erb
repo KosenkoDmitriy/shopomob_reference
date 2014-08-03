@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <title>Shopomob</title>
+  <title><%=t('head.title')%></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,8 @@
   <meta name="keywords" content="Shopomob">
   <meta name="author" content="Dmitry Kosenko">
 
-  <%= stylesheet_link_tag    "home/bootstrap.min.css", "home/logo-nav.css",  media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "home/jquery.min.js", "home/bootstrap.min.js", "home/search.js", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application",  media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="container-fluid">
@@ -35,7 +35,7 @@
 <section>
   <%= yield %>
 </section>
-<footer class="panel-footer">ООО "Адек". Все права защищены. <%=Date.today.year%></footer>
+<footer class="panel-footer"><%=t("footer.title")%><%=Date.today.year%></footer>
 </body>
 
 </html>

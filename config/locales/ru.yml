@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  footer:
+    title: "ООО \"Адек\". Все права защищены."
+  head:
+    title: "ШопоМоб/Shopomob"
   nav_title: "Шопомоб.Справочник"
   nav_subtitle: "Владикавказ"
   your_adv_here: "Ваша реклама здесь"

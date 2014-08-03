@@ -1,10 +1,9 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "home/*";
+@import "vertical_slider/*"
 
-//@import "simple_navigation_bootstrap";
-//@import "bootstrap2_dropdown_submenu";
-//@import "bootstrap2_navbar_divider_vertical";
-//@import "simple_navigation_bootstrap_overrides";
-@import "home/logo-nav";
-@import "home/bootstrap.min";
+//@import "home/bootstrap.min";
+//@import "home/logo-nav";
+//@import "vertical_slider/vertical_slider";

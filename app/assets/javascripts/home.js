@@ -11,8 +11,5 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery_ujs
-//= require home
-//= require turbolinks
-//= require_tree .
+//= require_tree ./home
+//= require ./vertical_slider/vertical_slider
