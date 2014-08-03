@@ -11,5 +11,6 @@
 // about supported directives.
 //
 
-//= require_tree ./home
-//= require ./vertical_slider/vertical_slider
+//= require home/bootstrap.min
+//= require home/search.js
+//= require vertical_slider/vertical_slider
