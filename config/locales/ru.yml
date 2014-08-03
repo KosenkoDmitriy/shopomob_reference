@@ -24,6 +24,10 @@ ru:
     title: "ООО \"Адек\". Все права защищены."
   head:
     title: "ШопоМоб/Shopomob"
+    meta:
+      description: "Shopomob"
+      keywords: "Shopomob"
+      author: "Dmitry Kosenko"
   nav_title: "Шопомоб.Справочник"
   nav_subtitle: "Владикавказ"
   your_adv_here: "Ваша реклама здесь"
