@@ -78,11 +78,12 @@ Shopomob::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # Add the fonts path
-  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
   # Precompile additional assets
   config.assets.compile = false
+  # Add the fonts path
+  #config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
   #config.assets.precompile += %w( .js .css .css.erb .svg .eot .woff .ttf )
   #config.assets.precompile = ['*.js', 'application.css.scss', '*.css.erb', '*.svg', '*.eot', '*.woff', '*.ttf']
 

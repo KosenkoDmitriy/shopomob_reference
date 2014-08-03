@@ -9,9 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  */
-@import "home/*";
-@import "vertical_slider/*"
+@import "home/bootstrap.min";
+@import "home/logo-nav";
+@import "vertical_slider/vertical_slider"
 
-//@import "home/bootstrap.min.css";
+//@import "home/bootstrap.min.css.scss";
 //@import "home";
 //@import "active_admin";
