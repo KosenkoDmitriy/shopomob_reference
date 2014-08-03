@@ -66,3 +66,6 @@ gem 'bootstrap-will_paginate'
 
 #gem 'thin'
 gem 'passenger'
+
+# for assets pipeline (assets precompile)
+gem 'sprockets-rails', :require => 'sprockets/railtie'

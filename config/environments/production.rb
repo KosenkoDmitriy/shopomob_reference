@@ -27,7 +27,7 @@ Shopomob::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  #config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -58,7 +58,7 @@ Shopomob::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets.
-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+  # application.js, application.css.scss, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -83,5 +83,7 @@ Shopomob::Application.configure do
 
   # Precompile additional assets
   config.assets.compile = true
-  config.assets.precompile += %w( .js .css .css.erb .svg .eot .woff .ttf )
+  #config.assets.precompile += %w( .js .css .css.erb .svg .eot .woff .ttf )
+  #config.assets.precompile = ['*.js', 'application.css.scss', '*.css.erb', '*.svg', '*.eot', '*.woff', '*.ttf']
+
 end

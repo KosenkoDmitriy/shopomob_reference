@@ -219,6 +219,7 @@ DEPENDENCIES
   sdoc
   simple-navigation-bootstrap
   simple_navigation_renderers
+  sprockets-rails
   sqlite3
   therubyracer (>= 0.11.0)
   turbolinks
