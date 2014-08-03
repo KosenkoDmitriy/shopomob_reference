@@ -55,7 +55,7 @@
 .promo {
     /*background-image: url(../images/promos/zastavka1024x748.png);*/
     /*background-image: url(../images/promos/bg.png);*/
-    background-image: url('/assets/shop_cart.png');
+    background-image: url('/assets/home/shop_cart.png');
 }
 
 body { padding-top: 70px; }
@@ -94,10 +94,10 @@ body { padding-top: 70px; }
     transition: opacity .15s ease-in-out;
 }
 .iapps{
-    background: url('/assets/img-sprit.png') no-repeat 0px -65px;
+    background: url('/assets/home/img-sprit.png') no-repeat 0px -65px;
 }
 .gapps{
-    background: url('/assets/img-sprit.png') no-repeat -240px -65px;
+    background: url('/assets/home/img-sprit.png') no-repeat -240px -65px;
 }
 .big-btns {
     margin-top: 2em;
