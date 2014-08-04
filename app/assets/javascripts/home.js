@@ -12,5 +12,5 @@
 //
 
 //= require home/bootstrap.min
-//= require home/search.js
+//= require home/search
 //= require vertical_slider/vertical_slider

@@ -13,10 +13,10 @@
     <!--<ul class="nav nav-pills nav-stacked list-icon">-->
     <ul class="media-list">
         <% items.each do |item|
-          #query = (!params[:query].blank? && params[:query].size > 2) ? "squery=" + params[:query] : (!params[:query].blank? ) ? "query=#{params[:query]}" : "squery=#{params[:squery]}"
-          query = (params[:query].blank?) ? "query=#{params[:query]}" : "squery=#{params[:squery]}"
-          params_query = "?#{ query }&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
-          url = (controller.action_name == "shops") ? "#{shops_path}/#{item.id}#{params_query}": "#{controller.action_name}?shop_id=#{item.id}" %>
+          url = "#{shops_path}/#{item.id}/#{params[:search]}?page=#{params[:page]}"
+          #url = (controller.action_name == "shops") ? "#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
+          # : "#{controller.action_name}?shop_id=#{item.id}"
+        %>
           <div class="media">
             <a class="pull-left" href="<%=url%>">
               <%#= image_tag( (item.try(:images).try(:first).try(:image_url).blank?) ? "#{root_url}assets/missing.png" : item.images.first.image_url, :class => "media-object img-circle list-icon") %>

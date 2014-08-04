@@ -14,12 +14,11 @@ class HomeController < ApplicationController
   end
 
   def shops
-    squery = params[:squery] # if search field
-    query = params[:query]  #if search by letter or number
-    #if (!query.blank? && query.size>2)
-    #  squery = query
-    #  query = ""
-    #end
+    @alphabet = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
+             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+    query = params[:search]  #if search by letter or number
+    #squery = (!query.blank? && query.size > 2) ? query : ""
 
     if (params[:page].blank?)
       params[:page] = "1"
@@ -29,33 +28,35 @@ class HomeController < ApplicationController
       if (is_numeric(query)) #if searching by number or letter
         queryString = "name like '#{query}%' or name like '%#{query}%'"
         @shops = Shop.where(queryString).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+      elsif (query.size > 2) # searching by not name only
+        upcaseQuery = "%" + Unicode::upcase(query)+"%"
+        downcaseQuery = "%" + Unicode::downcase(query)+"%"
+        capitalizeQuery = "%" + Unicode::capitalize(query)+"%"
+        address = "%" + Unicode::downcase(query)+"%"
+        @shops = Shop.where("name like '#{upcaseQuery}' or name like '#{downcaseQuery}' or address like '#{capitalizeQuery}' or address like '#{downcaseQuery}' or address like '#{upcaseQuery}' or www like '#{downcaseQuery}' or tags like '#{downcaseQuery}'").order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
       else
         upcaseQuery = Unicode::upcase(query)+"%"
         downcaseQuery = Unicode::downcase(query)+"%"
         @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-      end
-    elsif (!squery.blank?) #search from nav bar
-      if (squery.size > 2)
-        upcaseQuery = "%" + Unicode::upcase(squery)+"%"
-        downcaseQuery = "%" + Unicode::downcase(squery)+"%"
-        capitalizeQuery = "%" + Unicode::capitalize(squery)+"%"
-        address = "%" + Unicode::downcase(squery)+"%"
-        @shops = Shop.where("name like ? or name like ? or address like '#{capitalizeQuery}' or address like ? or www like ? or tags like ?", upcaseQuery, downcaseQuery, address, downcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-      else #search by name
-        upcaseQuery = Unicode::upcase(squery)+"%"
-        downcaseQuery = Unicode::downcase(squery)+"%"
-        @shops = Shop.where("name like ? or name like ?", upcaseQuery, downcaseQuery).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+
       end
     else
       @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     end
 
-    if (params[:id])
+    if (params[:id].to_i>0)
       @shop = Shop.find(params['id'])
     elsif (!@shops.blank?)
       @shop = @shops.first
     end
+
+    #redirect_to shops_path + "/#{@shop.id}?query=#{squery}&page=#{params[:page] }"
+
   end
+
+  #def search_shops
+  #
+  #end
 
   def cats
     #cid = params['id'].to_i
