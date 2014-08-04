@@ -1,6 +1,6 @@
 <%#= will_paginate @sub_items %>
 <%if items.blank?%>
-    <p><%=I18n.t("no_tcats")%></p>
+    <p><%=I18n.t("no_cats")%></p>
 <% else %>
     <ul class="media-list">
     <% items.where(parent_id:0).each do |item| %>

@@ -181,8 +181,8 @@ SimpleNavigation::Configuration.run do |navigation|
     #  end
     #end
 
-    primary.item :tcats, I18n.t('tcats'), tcats_path
-    #primary.item :cats, I18n.t('cats'), cats_path #do |sub_nav|
+    primary.item :tcats, I18n.t('cats'), tcats_path
+    #primary.item :cats, I18n.t('tcats'), cats_path #do |sub_nav|
     primary.item :services, I18n.t('services'), services_path
   end
 end
