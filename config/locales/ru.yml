@@ -32,6 +32,27 @@ ru:
       description: "Shopomob"
       keywords: "Shopomob"
       author: "Dmitry Kosenko"
+
+  contacts:
+    one: "Контакт"
+    other: "Контакты"
+#    time_work: "часы работы"
+#    types: "Типы Контактов"
+#    type: "Тип Контакта"
+#    address: "адрес"
+    empty: "Пусто"
+    name: "Название"
+    postal_code: "Почтовый индекс"
+    address: "Адрес"
+    time_work: "Часы работы"
+    email: "@ почта"
+    website: "Веб-сайт"
+    rated: "Топ"
+    tags: "Ключевые слова"
+    keywords_space: "ключевые слова чере пробел "
+    www: "Сайт"
+    description: "Описание"
+
   nav_title: "Шопомоб.Справочник"
   nav_subtitle: "Владикавказ"
   your_adv_here: "Ваша реклама здесь"
@@ -65,8 +86,7 @@ ru:
   home: "Главная"
   tcat_shops: "Рубрики компаний"
   cat_shops: "Категории компаний"
-  contact_types: "Типы Контактов"
-  contacts: "Контакты"
+
   remove: "Удалить"
   delete: "Удалить"
 
