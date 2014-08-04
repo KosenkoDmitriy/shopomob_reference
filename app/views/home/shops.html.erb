@@ -5,7 +5,7 @@
      @alphabet.each do |item|%>
       <!--<li class="active"><a href="#"><%=item%></a></li>-->
       <!--<li><a href="#{search_shop_url}?query=#{item}"><%=item%></a></li>-->
-      <li><a href='<%="#{shops_path}/-1/#{ item }?page=#{ params[:page] }"%>'><%=item%></a></li>
+      <li><a href='<%="#{shops_path}/-1/#{ item }?page=1"%>'><%=item%></a></li>
 
   <% end %>
 </ul>
