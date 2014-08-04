@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  default_address:
+    city: "Владикавказ"
+    state: "Северная Осетия-Алания Республика"
+    postal_code: "362000"
   footer:
     title: "ООО \"Адек\". Все права защищены."
   head:
