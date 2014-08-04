@@ -52,7 +52,9 @@ ru:
     keywords_space: "ключевые слова чере пробел "
     www: "Сайт"
     description: "Описание"
-
+    phone: "Телефон"
+    home_phone:
+      prefix: "8672"
   nav_title: "Шопомоб.Справочник"
   nav_subtitle: "Владикавказ"
   your_adv_here: "Ваша реклама здесь"

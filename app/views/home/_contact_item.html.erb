@@ -1,8 +1,15 @@
 <%
 isEmail = item.include?("@")
-phone = ActiveSupport::NumberHelper.number_to_phone(item)
-isPhone = (phone.to_i > 0)
+isHome = false;
+if (item.size < 10)
+  isHome = true
+  item = "#{I18n.t("contacts.home_phone.prefix")}#{item}"
+end
+
+isPhone = (item.to_i > 0)
+#phoneFormated = ActiveSupport::NumberHelper.number_to_phone(phone, :groupings => [4, 3, 3], :delimiter => "-")
 isUrl = item.start_with?("www")
+if (!item.blank?)
 %>
 <li class="media">
   <a class="pull-left" href="#">
@@ -11,9 +18,12 @@ isUrl = item.start_with?("www")
     <%=image_tag("contacts/contacts_call.png", class:"media-object list-icon") if isPhone %>
   </a>
   <div class="media-body">
-    <h4 class="media-heading"><%= item || t("contacts.empty") %></h4>
-    <%=t('contacts.phone') if isPhone %><%=item%>
+    <h4 class="media-heading">
+      <%= (isPhone) ? format_phone(item, isHome) : item %>
+    </h4>
+    <%=t('contacts.phone') if isPhone %>
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
   </div>
 </li>
+<% end %>

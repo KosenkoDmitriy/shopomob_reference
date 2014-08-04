@@ -83,6 +83,7 @@ $(document).on('page:load', ready);
       <% end %>
     </p>
 
+    <% if (!@shop.try(:description).blank?) %>
     <div class="media">
       <a class="pull-left" href="#">
         <% url = @shop.try(:images).try(:first).try(:image_url)
@@ -91,11 +92,13 @@ $(document).on('page:load', ready);
         <%=image_tag(url, class:"media-object list-icon") %>
       </a>
       <div class="media-body">
-        <h4 class="media-heading"><%=@shop.description || t("contacts.empty") %></h4>
+        <h4 class="media-heading"><%=@shop.try(:description) || t("contacts.empty") %></h4>
         <%=t('contacts.description') %>
       </div>
     </div>
+    <% end %>
 
+    <% if (!@shop.try(:address) .blank?) %>
       <div class="media">
         <a class="pull-left" href="#">
           <%=image_tag "contacts/contacts_map.png", class:"media-object list-icon"%>
@@ -106,7 +109,9 @@ $(document).on('page:load', ready);
           <%=t("contacts.address") %>
         </div>
       </div>
+    <% end %>
 
+    <% if (!@shop.try(:time_work) .blank?) %>
       <div class="media">
         <a class="pull-left" href="#">
           <%=image_tag "contacts/contacts_time_work2.png", class:"media-object list-icon"%>
@@ -116,7 +121,9 @@ $(document).on('page:load', ready);
           <%=t('contacts.time_work') %>
         </div>
       </div>
+    <% end %>
 
+    <% if (!@shop.try(:email) .blank?) %>
       <div class="media">
         <a class="pull-left" href="#">
           <%=image_tag "contacts/contacts_mail.png", class:"media-object list-icon"%>
@@ -126,7 +133,9 @@ $(document).on('page:load', ready);
           <%=t('contacts.email') %>
         </div>
       </div>
+    <% end %>
 
+    <% if (!@shop.try(:www) .blank?) %>
       <div class="media">
         <a class="pull-left" href="#">
           <%=image_tag "contacts/contacts_www.png", class:"media-object list-icon"%>
@@ -136,7 +145,7 @@ $(document).on('page:load', ready);
           <%=t('contacts.www') %>
         </div>
       </div>
-
+    <% end %>
 
       <ul class="media-list">
         <% @shop.try(:contact_items).each do |contact|
