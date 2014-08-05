@@ -20,10 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  calculate: "рассчитать"
   default_address:
+    your_pos: "Ваш адрес"
     city: "Владикавказ"
     state: "Северная Осетия-Алания Республика"
     postal_code: "362000"
+    street: "Кирова"
+    home: "3"
   footer:
     title: "ООО \"Адек\". Все права защищены."
   head:
