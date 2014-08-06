@@ -154,7 +154,7 @@ ActiveAdmin.register Shop do
       link_to shop.id, admin_shop_path(shop)
     end
     column I18n.t("company.name"), :name
-    column I18n.t("contacts"), :id do |shop|
+    column I18n.t("contacts.other"), :id do |shop|
       ci = ContactItem.where(shop_id:shop.id).map{|u| ["#{u.value}", "#{u.contact_type.name if u.contact_type}" ]}
       ci.each do |item|
         if item[0]
