@@ -1,13 +1,11 @@
 ActiveAdmin.register Shop do
-  #permit_params :shop, :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
-
   menu :label => proc{ I18n.t("companies") }, :priority => 0
 
-  #menu :priority => 2, url: ->{ app_customers_path(locale: I18n.locale) } # Pass the locale to the menu link
+  #permit_params :shop, :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
+  config.sort_order = 'id_asc'
 
-  #action_item do
-  #  link_to I18n.t("shops"), new_app_customer_path(locale: I18n.locale) # Pass the locale to the new button
-  #end
+  #belongs_to :status
+
 
   controller do
     def create
@@ -84,7 +82,7 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:description, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+      params.require(:shop).permit(:status_id, :shop_id, :description, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
     end
   end
 
@@ -100,6 +98,8 @@ ActiveAdmin.register Shop do
       f.input :rated, label: I18n.t("company.rated")
       f.input :description, label: I18n.t("company.description")
       f.input :tags, label: I18n.t("company.tags"), hint: I18n.t("company.keywords_space")
+      #f.input :status_id, label: I18n.t("company.status.title"), hint: I18n.t("company.status.text")
+      f.input :status, label: I18n.t("company.status.title"), hint: I18n.t("company.status.text")
     end
 
     f.inputs I18n.t("cats") + "/" + I18n.t("tcats") do
@@ -150,9 +150,10 @@ ActiveAdmin.register Shop do
 
   index do
     actions
-    column I18n.t("company.id"), :id do |shop|
-      link_to shop.id, admin_shop_path(shop)
-    end
+    column I18n.t("company.id"), :id
+    #column I18n.t("company.id"), :id do |shop|
+    #  link_to shop.id, admin_shop_path(shop)
+    #end
     column I18n.t("company.name"), :name
     column I18n.t("contacts.other"), :id do |shop|
       ci = ContactItem.where(shop_id:shop.id).map{|u| ["#{u.value}", "#{u.contact_type.name if u.contact_type}" ]}
@@ -166,11 +167,12 @@ ActiveAdmin.register Shop do
     column I18n.t("company.address"), :address
     column I18n.t("company.time_work"), :time_work
     column I18n.t("company.email"), :email
-    column I18n.t("company.website"), :www
-
-    column I18n.t("company.tags"), :tags
-    column I18n.t("company.postal_code"), :postal_code
-    column I18n.t("company.rated"), :rated
+    #column I18n.t("company.website"), :www
+    #column I18n.t("company.tags"), :tags
+    #column I18n.t("company.postal_code"), :postal_code
+    #column I18n.t("company.rated"), :rated
+    #column I18n.t("company.status.title"), :status_id
+    column I18n.t("company.status.title"), :status
 
   end
 
@@ -217,7 +219,7 @@ ActiveAdmin.register Shop do
       row I18n.t("company.tags") do
         f.tags
       end
-      row I18n.t("contacts") do
+      row I18n.t("contacts.other") do
         ci = ContactItem.where(shop_id:params["id"]).map{|u| ["#{u.value}", "#{u.contact_type.name if u.contact_type}" ]}
         ci.each do |book|
           if book[0]
@@ -237,7 +239,5 @@ ActiveAdmin.register Shop do
     #  ci.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove'
     #end
   end
-
-
 
 end

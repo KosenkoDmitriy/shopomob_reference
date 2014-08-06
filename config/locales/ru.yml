@@ -121,6 +121,9 @@ ru:
     keywords_space: "ключевые слова чере пробел "
     www: "Сайт"
     description: "Описание"
+    status:
+      title: "Статус"
+      text: ""
   time:
     formats:
       long: ""
@@ -155,6 +158,14 @@ ru:
             name:
               one: "Имя"
               other: "Имена"
-#      attributes:
-#        shop:
-#          title: Имя
+        status:
+          one: "Статус"
+          other: "Статусы"
+          attributes:
+            no:
+              one: "#"
+              other: "#"
+            title:
+              one: "Имя"
+            text:
+              one: "Описание"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730221813) do
+ActiveRecord::Schema.define(version: 20140806152824) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -152,8 +152,17 @@ ActiveRecord::Schema.define(version: 20140730221813) do
     t.integer  "_id"
     t.string   "tags"
     t.text     "description"
+    t.integer  "status_id"
   end
 
   add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"
+
+  create_table "statuses", force: true do |t|
+    t.integer  "no"
+    t.string   "title"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

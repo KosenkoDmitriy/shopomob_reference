@@ -24,6 +24,19 @@
 #AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
 AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass')
 
+#Status.create(no: 0, title: 'none', text: '')
+#Status.create(no: 1, title: 'rejected', text: 'Отклонен')
+#Status.create(no: 2, title: 'removed', text: 'Удален')
+#Status.create(no: 3, title: 'call_later', text: 'Позвоните позже')
+#Status.create(no: 4, title: 'draft', text: 'Черновик')
+#Status.create(no: 5, title: 'approved', text: 'Одобрен/Опубликован/Подтвержден')
+
+Status.create(no: 1, title: 'не отвечает на звонок', text: '')
+Status.create(no: 2, title: 'удалена', text: '')
+Status.create(no: 3, title: 'просит перезвонить', text: '')
+Status.create(no: 4, title: 'ожидаем актуальной информации', text: '')
+Status.create(no: 5, title: 'ожидаем оплаты', text: '')
+Status.create(no: 6, title: 'подтверждена', text: '')
 
 require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
