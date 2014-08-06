@@ -1,4 +1,5 @@
 ActiveAdmin.register Service do
+  menu :label => proc{ I18n.t("services") } #, :parent => I18n.t("cats")
 
   permit_params :order_id, :text, :title, :url, image_attributes: [:id, :image, :_destroy]
 

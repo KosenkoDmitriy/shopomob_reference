@@ -1,9 +1,10 @@
 ActiveAdmin.register Shop do
   #permit_params :shop, :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
-  menu :label => proc{ I18n.t("companies") }
+  menu :label => proc{ I18n.t("companies") }, :priority => 0
+
   #menu :priority => 2, url: ->{ app_customers_path(locale: I18n.locale) } # Pass the locale to the menu link
-  #
+
   #action_item do
   #  link_to I18n.t("shops"), new_app_customer_path(locale: I18n.locale) # Pass the locale to the new button
   #end

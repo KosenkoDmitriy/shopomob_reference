@@ -1,6 +1,4 @@
 ActiveAdmin.register CategoryItem do
-  #menu :parent => "Category"
-  #menu :label => proc{ I18n.t("tcats") }
   menu :label => proc{ I18n.t("tcats") } , :parent => I18n.t("cats")
 
   # See permitted parameters documentation:

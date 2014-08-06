@@ -1,4 +1,6 @@
 ActiveAdmin.register Banner do
+  menu :label => proc{ I18n.t("banners") } #, :parent => I18n.t("cats")
+
   #permit_params :shop_id, :title, :url, image_attributes: [ image: [:original_filename, :filename, :_destroy] ]
   permit_params :shop_id, :title, :url, image_attributes: [:id, :image, :_destroy]
 

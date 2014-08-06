@@ -1,7 +1,7 @@
 ActiveAdmin.register Category do
-  permit_params :name
-  #menu :parent => "Category"
   menu :label => proc{ I18n.t("cats") } , :parent => I18n.t("cats")
+
+  permit_params :name
 
   controller do
     #before_filter :initialize_categories, :only => [:new, :edit]

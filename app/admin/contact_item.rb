@@ -1,6 +1,5 @@
 ActiveAdmin.register ContactItem do
-  #menu :parent => "Contact"
-  menu :label => proc{ I18n.t("contacts") } , :parent => I18n.t("contacts")
+  menu :label => proc{ I18n.t("contacts.other") } , :parent => I18n.t("contacts.other")
 
   permit_params :contact_item, :contact_type_id, :fio, :department, :shop_id, :value
 

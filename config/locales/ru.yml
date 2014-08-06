@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+
+  users: "Пользователи"
   calculate: "рассчитать"
   default_address:
     your_pos: "Ваш адрес"
@@ -37,7 +39,14 @@ ru:
       keywords: "Shopomob"
       author: "Dmitry Kosenko"
 
+  active_admin:
+    dashboard: "Главная"
+    dashboard_welcome:
+      welcome: "Добро пожаловать"
+      call_to_action: "Требует действия"
+
   contacts:
+    types: "Типы контактов"
     one: "Контакт"
     other: "Контакты"
 #    time_work: "часы работы"
@@ -73,6 +82,7 @@ ru:
   no_shop_selected: "Не выбрана организация"
   services: "Услуги"
   no_services: "Нет услуг"
+  banners: "Баннеры"
 
   details: "Подробности"
   details_on_url: "смотреть подробности на сайте"
@@ -81,6 +91,7 @@ ru:
   will_paginate:
     previous_label: "<"
     next_label: ">"
+
   hello: "Привет мир"
   shopomob: "Шопомоб"
   companies: "Компании"
