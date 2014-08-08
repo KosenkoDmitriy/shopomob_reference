@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <%=@html%>
+      <% @items.each do |item| %>
+        <p><%=item%><%#=item.try(:title) %></p>
+      <% end %>
+    </div>
+</div>

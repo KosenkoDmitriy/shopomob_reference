@@ -70,8 +70,7 @@ gem 'passenger'
 # for assets pipeline (assets precompile)
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-turbolinks'
-#gem 'gmaps4rails'
-#gem 'gmaps4rails', '2.0.3'
-#gem 'gmaps4rails', '~> 2.0.1', git: 'https://github.com/fiedl/Google-Maps-for-Rails'
 
-gem 'underscore-rails'
+# HTML, XML, SAX, and Reader parser with XPath and CSS selector support.
+gem 'nokogiri'
+gem "handle_invalid_percent_encoding_requests"

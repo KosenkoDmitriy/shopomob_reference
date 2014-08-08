@@ -76,6 +76,9 @@ GEM
       actionpack (>= 3.0)
     haml (4.0.5)
       tilt
+    handle_invalid_percent_encoding_requests (1.0.2)
+      rack-utf8_sanitizer
+      rails (>= 3.1)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -105,8 +108,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.10.1)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -123,6 +129,8 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-utf8_sanitizer (1.2.2)
+      rack (~> 1.0)
     rails (4.0.1)
       actionmailer (= 4.0.1)
       actionpack (= 4.0.1)
@@ -192,7 +200,6 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.6.0)
     unicode (0.4.4.1)
     unicorn (4.8.3)
       kgio (~> 2.6)
@@ -212,10 +219,12 @@ DEPENDENCIES
   devise
   formtastic
   haml
+  handle_invalid_percent_encoding_requests
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
   libv8 (>= 3.11.8)
+  nokogiri
   paperclip (~> 4.1)
   passenger
   rails (= 4.0.1)
@@ -229,6 +238,5 @@ DEPENDENCIES
   therubyracer (>= 0.11.0)
   turbolinks
   uglifier (>= 1.3.0)
-  underscore-rails
   unicode
   unicorn
