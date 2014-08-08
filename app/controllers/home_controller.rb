@@ -31,7 +31,7 @@ class HomeController < ApplicationController
       address = item["address"] if item
       s = Shop.new
       s.name = name
-      s.address = address
+      s.address = address.gsub(" (Дзæуджыхъæу)", "")
       s.www = item["url"] if item
       s.email = item["Phones"][0]["formatted"] if item["Phones"]
       s.time_work = item["Hours"]["text"] if item["Hours"]
