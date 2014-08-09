@@ -71,7 +71,7 @@ file_path = "#{path_to_app}tcats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   pid = row['parent_id'].to_i
-  sc = CategoryItem.create(_id: row['_id'].to_i, name: row['name'], parent_id: pid)
+  sc = CategoryItem.create(_id: row['_id'].to_i, name: row['name'], parent_id: pid, tags: row['tags'])
   if (!row['image'].blank?)
     img_path = path_to_img + row['image']
     if (File.exists?(img_path))
@@ -92,7 +92,7 @@ end
 file_path = "#{path_to_app}cats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
-  sc = Category.create(_id: row['_id'].to_i, name: row['name'])
+  sc = Category.create(_id: row['_id'].to_i, name: row['name'], tags: row['tags'])
   puts "cat: #{row['name']}"
 end
 

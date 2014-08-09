@@ -19,7 +19,7 @@ if (!item.blank?)
   </a>
   <div class="media-body">
     <h4 class="media-heading">
-      <%= (isPhone) ? format_phone(item, isHome) : item %>
+      <%= (isPhone) ? format_phone(item, isHome) : item %><%#=item%>
     </h4>
     <%=t('contacts.phone') if isPhone %>
     <%=t('contacts.email') if isEmail %>

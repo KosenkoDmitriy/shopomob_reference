@@ -3,7 +3,9 @@
     <p><%=I18n.t("no_cats")%></p>
 <% else %>
     <ul class="media-list">
-    <% items.where(parent_id:0).each do |item| %>
+    <%
+       count = 0
+       items.where(parent_id:0).each do |item| %>
         <div class="media">
           <a class="pull-left" href="<%="#{tcats_path}/#{ item.id }"%>">
             <!--<img class="media-object" src="..." alt="...">-->
@@ -11,12 +13,18 @@
             <%= (!item.try(:image).try(:image_url).blank?) ? image_tag( (item.try(:image).try(:image_url)), :class => "media-object img-circle list-icon") : image_tag( 'missing.png', :class => "media-object img-circle list-icon" ) %>
           </a>
           <div class="media-body">
-            <h4 class="media-heading"><%= item.name %> <span class="badge"><%= (item.shops.blank? ) ? 0 : item.shops.count %></h4>
+            <h4 class="media-heading"><%= item.name %> <span class="badge"><%
+               #(item.shops.blank? ) ? 0 : item.shops.count
+               count = 0
+               items.where(parent_id:item.id).each do |sub_itemc|
+                 count += sub_itemc.shops.count
+               end
+            %><%=count%></span></h4>
             <%
                items.where(parent_id:item.id).each do |sub_item|
             %>
                 <%#= link_to sub_item.name,  "#{tcats_path}/#{ (parent) ? sub_item.id : sub_item.parent_id }" %>
-                <%= link_to sub_item.name,  "#{tcats_path}/#{ sub_item.id }" %>
+                <%= link_to sub_item.name,  "#{tcats_path}/#{ sub_item.id }" %> <span class="badge"><%= (sub_item.shops.blank? ) ? 0 : sub_item.shops.count %></span>
                 <%#= link_to sub_item.name,  tcats_path( sub_item.id) %>
             <% end %>
           </div>

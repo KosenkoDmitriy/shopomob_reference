@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806152824) do
+ActiveRecord::Schema.define(version: 20140808191618) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140806152824) do
     t.datetime "updated_at"
     t.integer  "parent_id",  default: 0, null: false
     t.integer  "_id"
+    t.string   "tags"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140806152824) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "_id"
+    t.string   "tags"
   end
 
   add_index "category_items", ["parent_id"], name: "index_category_items_on_parent_id"
