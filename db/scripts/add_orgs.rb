@@ -8,12 +8,13 @@ puts file_path
 shops_new = []
 shops_exist = []
 ct_phone = ContactType.find_or_create_by(name:'phone', value:'Phone Number')
-
+default_town = "Владикавказ"
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   #puts "#{row['name']} #{row['address']} "
   pid = row['parent_id'].to_i
+  address="#{default_town}, #{row['address']}"
   #shop = Shop.create(_id: row['_id'].to_i, name: row['name'], parent_id: pid, postal_code: row['address_index'].to_i, address: row['address'], time_work: row['time'], email: row['email'], www: row['www'], favorite: row['favorite'].to_i, rated: 0, tags: row['tags'], description: row['description'] ) #:
-  shopNew = Shop.new(_id: row['_id'].to_i, name: row['name'], parent_id: pid, postal_code: row['address_index'].to_i, address: row['address'], time_work: row['time'], email: row['email'], www: row['www'], favorite: row['favorite'].to_i, rated: 0, tags: row['tags'], description: row['description'] ) #:
+  shopNew = Shop.new(_id: row['_id'].to_i, name: row['name'], parent_id: pid, postal_code: row['address_index'].to_i, address: address, time_work: row['time'], email: row['email'], www: row['www'], favorite: row['favorite'].to_i, rated: 0, tags: row['tags'], description: row['description'] ) #:
   name = shopNew.name
   searchName = "#{name}%"
   shops = Shop.where("name like ? or name like ? or name like ?", searchName.downcase, searchName.upcase, searchName.capitalize)

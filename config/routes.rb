@@ -39,8 +39,6 @@ Shopomob::Application.routes.draw do
   get 'cats' => 'home#cats'
   get 'cats/:id' => 'home#cats'
 
-  #get 'parse' => 'home#parse'
-  get 'parse_json'=>'home#parse_json'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

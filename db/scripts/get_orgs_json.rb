@@ -1,4 +1,4 @@
-# load './db/scripts/parse.rb'
+# load './db/scripts/get_orgs_json.rb'
 require "net/http"
 require "uri"
 
