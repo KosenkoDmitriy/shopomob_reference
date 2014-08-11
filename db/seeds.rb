@@ -84,6 +84,7 @@ def self.parse_item name, ci
 end
 
 #AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
+AdminUser.delete_all
 user=AdminUser.find_by(:email=>"shopomob@shopomob.ru")
 AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass') if user.nil?
 
