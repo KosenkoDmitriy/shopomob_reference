@@ -22,7 +22,7 @@
 
 
 #AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
-AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass')
+AdminUser.find_or_create_by(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass')
 
 #Status.create(no: 0, title: 'none', text: '')
 #Status.create(no: 1, title: 'rejected', text: 'Отклонен')
@@ -31,12 +31,16 @@ AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass',
 #Status.create(no: 4, title: 'draft', text: 'Черновик')
 #Status.create(no: 5, title: 'approved', text: 'Одобрен/Опубликован/Подтвержден')
 
-Status.create(no: 1, title: 'не отвечает на звонок', text: '')
-Status.create(no: 2, title: 'удалена', text: '')
-Status.create(no: 3, title: 'просит перезвонить', text: '')
-Status.create(no: 4, title: 'ожидаем актуальной информации', text: '')
-Status.create(no: 5, title: 'ожидаем оплаты', text: '')
-Status.create(no: 6, title: 'подтверждена', text: '')
+Status.find_or_create_by(no: 1, title: 'не отвечает на звонок', text: '')
+Status.find_or_create_by(no: 2, title: 'удалена', text: '')
+Status.find_or_create_by(no: 3, title: 'просит перезвонить', text: '')
+Status.find_or_create_by(no: 4, title: 'ожидаем актуальной информации', text: '')
+Status.find_or_create_by(no: 5, title: 'ожидаем оплаты', text: '')
+Status.find_or_create_by(no: 6, title: 'подтверждена', text: '')
+
+ct_mail = ContactType.find_or_create_by(name:'email', value:'Email Address')
+ct_url = ContactType.find_or_create_by(name:'url', value:'Website or other link')
+ct_phone = ContactType.find_or_create_by(name:'phone', value:'Phone Number')
 
 require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
