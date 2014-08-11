@@ -14,4 +14,4 @@
 //= require home/bootstrap.min
 //= require home/search
 //= require vertical_slider/vertical_slider
-//= require home/google.map
+// require home/google.map

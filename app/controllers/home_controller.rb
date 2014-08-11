@@ -67,16 +67,13 @@ class HomeController < ApplicationController
         if (shop.blank?)
           s.save() #create new shop
         else
-          shop = s
-          shop.save()
+          shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at'))
           s = shop
         end
+        items << s
       end
-      #ci.shops.append(shop)
-      items << s
     end
     ci.shops = (items+ci.shops).uniq()
-    #return items
   end
 
   def send_request url

@@ -88,6 +88,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 
+=begin
 
 file_path = "#{path_to_app}cats.csv"
 puts file_path
@@ -134,6 +135,8 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
     end
   end
 end
+=end
+
 
 
 =begin

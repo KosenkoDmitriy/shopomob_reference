@@ -25,7 +25,9 @@
         border: 1px solid #999;
     }
 </style>
-
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js">
+</script>
 <script>
 var ready;
 var geocoder;
@@ -144,7 +146,7 @@ function calcRoute() {
           <%=image_tag "contacts/contacts_map.png", class:"media-object list-icon"%>
         </a>
         <div class="media-body">
-          <h4 id="addressTo" value="<%=@shop.try(:address)%>, <%=t("default_address.city")%>" class="media-heading">
+          <h4 id="addressTo" value="<%=@shop.try(:address)%>" class="media-heading">
             <%=@shop.try(:address) || t("contacts.empty") %></h4>
           <%=t("contacts.address") %>
         </div>
