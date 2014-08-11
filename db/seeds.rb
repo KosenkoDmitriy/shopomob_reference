@@ -22,7 +22,7 @@
 
 
 #AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
-AdminUser.find_or_create_by(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass')
+AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass', :password_confirmation => 'shopomobpass')
 
 #Status.create(no: 0, title: 'none', text: '')
 #Status.create(no: 1, title: 'rejected', text: 'Отклонен')
