@@ -30,7 +30,7 @@ class HomeController < ApplicationController
     #c = CategoryItem.find(name)
     parsed_json= ""
     path_to_json = Rails.root.join('db', 'scripts', 'json', "#{name}.json")
-    puts = path_to_json
+    puts path_to_json
 
     if (File.exists?(path_to_json))
       parsed_json = File.open(path_to_json, 'r').read()
