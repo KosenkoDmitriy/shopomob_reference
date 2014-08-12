@@ -45,11 +45,6 @@ require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
 path_to_img = File.dirname(__FILE__)+'/images/'
 
-
-load Rails.root.join('db', 'scripts', 'add_orgs_from_json.rb') #load orgs from csv file
-load Rails.root.join('db', 'scripts', 'add_orgs_from_csv.rb') #load orgs from csv file
-
-
 file_path = "#{path_to_app}services.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
@@ -94,6 +89,9 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
     puts "tcat: #{row['name']}"
   end
 end
+
+load Rails.root.join('db', 'scripts', 'add_orgs_from_json.rb') #load orgs from csv file
+load Rails.root.join('db', 'scripts', 'add_orgs_from_csv.rb') #load orgs from csv file
 
 =begin
 
@@ -178,3 +176,4 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 =end
+

@@ -42,7 +42,7 @@ class HomeController < ApplicationController
 
       end
     else
-      @shops = Shop.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+      @shops = Shop.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
     end
 
     if (params[:id].to_i>0)

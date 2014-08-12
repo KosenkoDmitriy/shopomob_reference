@@ -25,6 +25,12 @@
 
             <ul class="nav navbar-nav">
                 <!--render_navigation :expand_all => true, :renderer => :bootstrap-->
+                <li>
+                    <%= link_to "#{shops_path}?page=1", 'data-no-turbolink' => true do %>
+                    Компании
+                    <% end %>
+                </li>
+
                 <%= render_navigation(level: 1, expand_all: true, renderer: :bootstrap ) %>
                 <%#= render_navigation( expand_all: true, renderer: :bootstrap_topbar_list) %>
                 <%#= render_navigation( expand_all: true, renderer: :bootstrap_list) %>
