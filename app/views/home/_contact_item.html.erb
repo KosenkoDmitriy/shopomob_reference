@@ -1,29 +1,23 @@
-<%
-isEmail = item.include?("@")
-isHome = false;
-if (item.size < 10)
-  isHome = true
-  item = "#{I18n.t("contacts.home_phone.prefix")}#{item}"
-end
-
-isPhone = (item.to_i > 0)
-#phoneFormated = ActiveSupport::NumberHelper.number_to_phone(phone, :groupings => [4, 3, 3], :delimiter => "-")
-isUrl = item.start_with?("www")
-if (!item.blank?)
-%>
+<!--<h2>-->
+  <!--<%=t('contacts.phones') if isPhone %>-->
+  <!--<%=t('contacts.emails') if isEmail %>-->
+  <!--<%=t('contacts.urls') if isUrl %>-->
+  <!--<%=t('contacts.addresses') if isAddress %>-->
+<!--</h2>-->
 <li class="media">
   <a class="pull-left" href="#">
     <%=image_tag("contacts/contacts_email.png", class:"media-object list-icon") if isEmail %>
     <%=image_tag("contacts/contacts_www.png", class:"media-object list-icon") if isUrl %>
     <%=image_tag("contacts/contacts_call.png", class:"media-object list-icon") if isPhone %>
+    <%=image_tag("contacts/contacts_map.png", class:"media-object list-icon") if isAddress %>
   </a>
   <div class="media-body">
     <h4 class="media-heading">
-      <%= (isPhone) ? format_phone(item, isHome) : item %><%#=item%>
+      <%= (isPhone) ? format_phone(item, isHome) : item %>
     </h4>
     <%=t('contacts.phone') if isPhone %>
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
+    <%=t('contacts.address') if isAddress %>
   </div>
 </li>
-<% end %>

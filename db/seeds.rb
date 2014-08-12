@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#c = Category.create(name:'Category 1')
-#sc = Category.create(name:'1.1 Category', parent:c)
-#
-#s = c.shops.create(name:'Shop 1')
-#
 #ct_mail = ContactType.create(name:'email', value:'Email Address')
 #ct_url = ContactType.create(name:'url', value:'Website or other link')
 #ct_phone = ContactType.create(name:'phone', value:'Phone Number')
@@ -19,69 +14,7 @@
 #ci = ContactItem.create(name:'Email (Sales)', value:'sales@ex.com', shop:s, contact_type:ct_mail)
 #ci = ContactItem.create(name:'Website (Official)', value:'www.ex.com', shop:s, contact_type:ct_url)
 #ci = ContactItem.create(name:'Facebook', value:'www.facebook.com/ex', shop:s, contact_type:ct_url)
-def self.update_shops
-  #key_words = ["Отдых","развлечения", "Магазины", "Красота", "здоровье", "Услуги", "Спорт","фитнес", "Авто", "Образование", "Туризм", "Недвижимость","строительство", "Финансы", "Транспорт", "Связь", "Домашние животные", "Государство","общество", "Бильярд", "Боулинг", "Дворцы и дома культуры", "Зоопарки", "Кинотеатры", "Музеи", "Ночные клубы", "Парки", "Парки культуры и отдыха", "Развлекательные центры", "Рестораны", "кафе", "бары", "Театры", "Танцы", "Школы танцев", "Гипермаркеты", "Детские магазины", "Книжные магазины", "Компьютерные магазины", "Мебель","Магазины мебели", "одежда", "обувь", "Магазины одежды и обуви", "продукты","Магазины продуктов", "ткань", "Магазины ткани", "хозтовары","Магазины хозтоваров", "электроника","Магазины электроники", "Музыкальные магазины", "Парфюмерные магазины", "Охота","Рыбалка","Охотничьи и рыболовные магазины", "Рынки", "Спортивные магазины", "Супермаркеты", "Торговые центры", "Ювелирные магазины", "Аптеки", "Больницы", "Женские консультации", "Клиники", "Медицинские центры", "Парикмахерские", "Поликлиники", "Родильные дома", "Салоны красоты", "Скорая помощь", "Солярии", "СПА-салоны", "Стоматология", "Травмпункты", "Аварийные службы", "Ателье по пошиву одежды", "Коммунальные службы", "Ломбарды", "Нотариус", "Нотариальные услуги", "Полиграфия", "Полиграфические услуги", "Прачечные", "Такси", "Фотоуслуги", "Химчистки", "Юристы", "Архитектура", "дизайн", "Архитектура и дизайн", "Бани", "сауны", "Бани и сауны", "Бассейны", "Спортивные комплексы", "Стадионы", "Фитнес-клубы", "Автозапчасти", "Автомагазины", "Автомойки", "Автосалоны", "Автосервисы", "автотехцентры", "Автосервисы, автотехцентры","Автостоянки", "Автостоянки, паркинги", "Автошколы", "АЗС", "ГАИ, ГИБДД", "МРЭО", "Шиномонтаж", "Библиотеки", "Вузы", "Детские сады", "Школы", "Авиа- и ж/д билеты", "Авиа билеты", "ж/д билеты", "Гостиницы", "Оформление виз", "Посольства, консульства", "Туроператоры", "Турфирмы", "Агентства недвижимости", "Аренда квартир и офисов", "Двери, дверные блоки", "Окна", "Строительные компании", "Строительные магазины", "Банки", "Банкоматы", "Обмен валют", "Автовокзалы", "Аэропорты", "Железнодорожные вокзалы", "Интернет-кафе", "Операторы сотовой связи", "Почта, телеграф", "Провайдеры", "Салоны связи", "Ветпомощь на дому", "Ветеринарные аптеки", "Ветеринарные клиники", "Зоосалоны, зоопарикмахерские", "Зоосалоны", "зоопарикмахерские", "Аптеки", "Автосервисы, автотехцентры", "Автосалоны", "Автозапчасти", "Автомагазины", "Авиа- и ж/д билеты", "Салоны связи", "Строительные магазины", "Военкоматы, комиссариаты", "ЗАГСы", "Налоговые инспекции, службы", "Органы власти", "Отделения милиции", "Паспортно-визовые службы", "Пенсионные фонды", "Религиозные учреждения", "Санэпидемстанции", "Суды", "Судебные приставы", "Центры занятости"]
-  CategoryItem.where("parent_id>0").each do |ci|
-    #CategoryItem.where("parent_id>0")[0..1].each do |ci|
-    key_words = ci.tags.split(",")
-    key_words.each do |key_word|
-      key_word = (key_word.include?("/")) ? key_word.gsub("/", "-") : key_word
-      parse_item key_word, ci
-    end
-  end
-  Shop.dedupe #remove duplicates
-end
 
-def self.parse_item name, ci
-  #http://localhost:3000/api/v1/t_category
-  #c = CategoryItem.find(name)
-  parsed_json= ""
-  path_to_json = Rails.root.join('db', 'scripts', 'json', "#{name}.json")
-  puts path_to_json
-
-  if (File.exists?(path_to_json))
-    parsed_json = File.open(path_to_json, 'r').read()
-  end
-  parsed_json = ActiveSupport::JSON.decode(parsed_json)#.load(parsed_json)#.encode(@parsed_json)
-
-  #parsed_json["vpage"]["data"]["businesses"]["GeoObjectCollection"]["features"][0]["properties"]["CompanyMetaData"]["name"]
-  orgs = parsed_json["vpage"]["data"]["businesses"]["GeoObjectCollection"]["features"]#[0]["properties"]["CompanyMetaData"]["name"]
-  items = []
-  orgs.each do |org|
-    #item = org["properties"]["CompanyMetaData"]
-    item = org["properties"]["CompanyMetaData"] || org["properties"]["PSearchObjectMetaData"]
-    s = Shop.new
-    s.name = item["name"] if item && item["name"]
-    s.address = item["address"].gsub(" (Дзæуджыхъæу)", "") if item && item["address"]
-    s.www = item["url"] if item && item["url"]
-    #s.email = item["Phones"][0]["formatted"] if item["Phones"] #TODO: add phones to contact_item
-    s.time_work = item["Hours"]["text"] if item && item["Hours"]
-    #shop = Shop.find_or_initialize_by_name(s.name)
-    #if (shop.new_record?)
-    #
-    #end
-    phones = item["Phones"] if item
-    if (!phones.blank?)
-      phones.each do |phone|
-        contactItem = ContactItem.create(value:phone["formatted"])
-        s.contact_items.append( contactItem )
-      end
-    end
-    s.category_items.append( ci )
-    #shop = Shop.find_or_create_by(name:s.name)
-    if (!s.name.blank?)
-      shop = Shop.where("name == ? or name == ?", s.name.downcase, s.name.upcase).first #.find(name:s.name.upcase, name:s.name.downcase)
-      if (shop.blank?)
-        s.save() #create new shop
-      else
-        shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at'))
-        s = shop
-      end
-      items << s
-    end
-  end
-  ci.shops = (items+ci.shops).uniq()
-end
 
 #AdminUser.create!(:email => 'spree@example.com', :password => 'spree123', :password_confirmation => 'spree123')
 AdminUser.delete_all
@@ -103,13 +36,18 @@ Status.find_or_create_by(no: 4, title: 'ожидаем актуальной ин
 Status.find_or_create_by(no: 5, title: 'ожидаем оплаты', text: '')
 Status.find_or_create_by(no: 6, title: 'подтверждена', text: '')
 
-ct_mail = ContactType.find_or_create_by(name:'email', value:'Email Address')
-ct_url = ContactType.find_or_create_by(name:'url', value:'Website or other link')
-ct_phone = ContactType.find_or_create_by(name:'phone', value:'Phone Number')
+ct_mail = ContactType.find_or_create_by(name:'email', value:'@')
+ct_url = ContactType.find_or_create_by(name:'url', value:'веб-сайт')
+ct_phone = ContactType.find_or_create_by(name:'phone', value:'тел')
+ct_address = ContactType.find_or_create_by(name:'address', value:'адрес')
 
 require 'csv'
 path_to_app = File.dirname(__FILE__)+'/csv/'
 path_to_img = File.dirname(__FILE__)+'/images/'
+
+
+load Rails.root.join('db', 'scripts', 'add_orgs_from_json.rb') #load orgs from csv file
+load Rails.root.join('db', 'scripts', 'add_orgs_from_csv.rb') #load orgs from csv file
 
 
 file_path = "#{path_to_app}services.csv"
@@ -240,6 +178,3 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 =end
-
-update_shops() #load orgs from json files
-load Rails.root.join('db', 'scripts', 'add_orgs.rb') #load orgs from csv file

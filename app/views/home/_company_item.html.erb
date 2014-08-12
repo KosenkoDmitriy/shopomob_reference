@@ -116,9 +116,11 @@ function calcRoute() {
 
 <% if (@shop) %>
     <header><h2><%= @shop.name %></h2></header>
+    <% if (!@shop.try(:images).try(:first).try(:image_url).blank?) %>
     <p>
       <%= (!@shop.try(:images).try(:first).try(:image_url).blank?) ? image_tag( (@shop.try(:images).try(:first).try(:image).try(:image_url)), :class => "img-circle", :width => "100%") : image_tag( 'missing.png', :class => "img-circle", :width => "100%" ) %>
     </p>
+    <% end %>
     <p>
       <% @shop.try(:images).each do |image| %>
           <%#= image_tag (image.try(:image_url)) if (image != nil )  %>
@@ -152,6 +154,7 @@ function calcRoute() {
         </div>
       </div>
     <% end %>
+
 
     <% if (!@shop.try(:time_work) .blank?) %>
       <div class="media">
@@ -189,28 +192,10 @@ function calcRoute() {
       </div>
     <% end %>
 
-      <ul class="media-list">
-        <% @shop.try(:contact_items).each do |contact|
-            contact_value = contact.try(:value)
-            contact_type_value = contact.try(:contact_type).try(:value)
-            #contact_value = "12313"
-            if (!contact_value.blank?)
-                contact_values = contact_value.split(',')
+    <% @shop.try(:contact_items).each do |contact|%>
 
-                if (!contact_values.blank?)
-                    contact_values.each do |cv|%>
-                        <%= render(:partial=> 'home/contact_item', locals: { item: cv}) || t('contacts.empty') %>
-                    <% end %>
-                <% else %>
-                    <%= render(:partial=> 'home/contact_item', locals: {item: contact_value} ) || t('contacts.empty') %>
-                <% end %>
-
-            <% end %>
-            <%#= render(:partial=> 'home/contact_item', locals: {item: contact, value: contact_value} ) || t('contacts.empty') %>
-
-        <% end %>
-
-      </ul>
+    <%= render(:partial=> 'home/contact_items', locals: { contact: contact }) || t('contacts.empty') %>
+    <% end %>
 
     <div class="row">
       <div class="col-xs-12 col-md-12">

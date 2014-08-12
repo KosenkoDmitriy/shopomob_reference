@@ -1,0 +1,71 @@
+<%
+   phones = []
+   urls = []
+   addresses = []
+   emails = []
+
+    contact_value = contact.try(:value)
+    contact_type = contact.try(:contact_type)#.try(:value)
+    #contact_value = "12313"
+    contact_values = []
+    if (!contact_value.blank?)
+      (contact_type.name == "address") ? contact_values << contact_value : contact_values = contact_value.split(',')
+    end
+
+    if (!contact_values.blank?)
+    contact_values.each do |cv|
+
+        if (contact_type.name == "address")
+          isAddress = true
+          addresses << cv
+        end
+
+        if (contact_type.name == "url")
+            isEmail = true
+            emails << cv
+            #isEmail = item.include?("@")
+        end
+
+        if (contact_type.name == "phone")
+          isHome = false;
+          if (cv.size < 10)
+            isHome = true
+            cv = "#{I18n.t("contacts.home_phone.prefix")}#{item}"
+          end
+          isPhone = true
+          phones << cv
+
+          #isPhone = (item.to_i > 0)
+          #phoneFormated = ActiveSupport::NumberHelper.number_to_phone(phone, :groupings => [4, 3, 3], :delimiter => "-")
+        end
+
+        if (contact_type.name == "url")
+            isUrl = true
+            #isUrl = item.start_with?("www")
+            urls << cv
+        end
+    end
+end %>
+<ul class="media-list">
+
+<% if (!phones.blank?) %>
+    <% phones.each do |item| %>
+        <%= render(:partial=> 'home/contact_item', locals: { item: item, isUrl: false, isAddress:false, isEmail:false, isPhone:true, isHome:true }) || t('contacts.empty') %>
+    <% end %>
+<% end %>
+<% if (!emails.blank?) %>
+    <% emails.each do |item| %>
+        <%= render(:partial=> 'home/contact_item', locals: { item: item, isUrl: false, isAddress:false, isEmail:true, isPhone:false, isHome:false }) || t('contacts.empty') %>
+    <% end %>
+<% end %>
+<% if (!addresses.blank?) %>
+    <% addresses.each do |item| %>
+        <%= render(:partial=> 'home/contact_item', locals: { item: item, isUrl: false, isAddress:true, isEmail:false, isPhone:false, isHome:false }) || t('contacts.empty') %>
+    <% end %>
+<% end %>
+<% if (!urls.blank?) %>
+    <% urls.each do |item| %>
+        <%= render(:partial=> 'home/contact_item', locals: { item: item, isUrl: true, isAddress:false, isEmail:false, isPhone:false, isHome:false }) || t('contacts.empty') %>
+    <% end %>
+<% end %>
+</ul>
