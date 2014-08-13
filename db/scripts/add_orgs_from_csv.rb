@@ -41,7 +41,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
 
   if (shops.blank?)
     puts "new: #{name}"
-    shopNew.save!
+    shopNew.save! if shopNew.name.present?
     shops_new << shopNew
   else
     shops.each do |shop|

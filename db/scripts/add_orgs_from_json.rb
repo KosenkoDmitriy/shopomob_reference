@@ -52,7 +52,7 @@ def self.parse_item name, cat_item
       shops = Shop.where("name like ? or name like ? or name like ? or name like ?", searchName, Unicode::downcase(searchName), Unicode::upcase(searchName), Unicode::capitalize(searchName))
       if (shops.blank?)
         puts "new: #{s.name} | #{shops.count}"
-        s.save!
+        s.save! if s.name.present?
       else
         shops.each do |shop|
           puts "finded: #{shop.name} | #{s.name}"
