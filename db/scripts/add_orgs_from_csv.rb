@@ -82,23 +82,23 @@ puts "shops_new.count: #{shops_new.count}"
 
 #puts "new"
 #shops_new.each { |shop| puts shop.name }
-#
-#file_path = Rails.root.join("db", "csv", "phones.csv")
-#puts file_path
-##_id	id_org	ord	phone	owner	owner_fio
-#CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
-#  s = Shop.find_by(_id: row['id_org'].to_i)
-#  if s
-#    #ci = ContactItem.find_by(_id: row['id_trubr'].to_i)
-#    ci = ContactItem.find_or_create_by(fio: row['owner_fio'], department:row['owner'], value:row['phone'], shop:s, contact_type:ct_phone)
-#    if ci
-#      #c.category_item_ids.append( ci.id )
-#      s.contact_items.append( ci )
-#      s.save
-#      puts "#{s.name} | #{ci.department} | #{ci.value} "
-#    end
-#  end
-#end
+
+file_path = Rails.root.join("db", "csv", "phones.csv")
+puts file_path
+#_id	id_org	ord	phone	owner	owner_fio
+CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
+  s = Shop.find_by(_id: row['id_org'].to_i)
+  if s
+    #ci = ContactItem.find_by(_id: row['id_trubr'].to_i)
+    ci = ContactItem.find_or_create_by(fio: row['owner_fio'], department:row['owner'], value:row['phone'], shop:s, contact_type:ct_phone)
+    if ci
+      #c.category_item_ids.append( ci.id )
+      s.contact_items.append( ci )
+      s.save
+      puts "#{s.name} | #{ci.department} | #{ci.value} "
+    end
+  end
+end
 
 #remove duplicates
 #Shop.dedupe
