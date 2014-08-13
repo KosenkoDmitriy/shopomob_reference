@@ -12,9 +12,11 @@
     <%=image_tag("contacts/contacts_map.png", class:"media-object list-icon") if isAddress %>
   </a>
   <div class="media-body">
-    <h4 class="media-heading">
+
+    <h4 value="<%=item%>" class="<%="addressTo" if isAddress%> media-heading">
       <%= (isPhone) ? format_phone(item, isHome) : item %>
     </h4>
+
     <%=t('contacts.phone') if isPhone %>
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
