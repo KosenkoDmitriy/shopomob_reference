@@ -163,7 +163,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
     #primary.item :home, 'Главная', root_path
 
-    #primary.item :shops, 'Компании', shops_path
+    primary.item :shops, I18n.t("companies"), shops_path
     #do |sub_nav|
     #  items = ['А','Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я',
     #           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -181,7 +181,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #  end
     #end
 
-    primary.item :tcats, I18n.t('cats'), tcats_path
+    primary.item :tcats, I18n.t("cats"), tcats_path
     #primary.item :cats, I18n.t('tcats'), cats_path #do |sub_nav|
     primary.item :services, I18n.t('services'), services_path
   end

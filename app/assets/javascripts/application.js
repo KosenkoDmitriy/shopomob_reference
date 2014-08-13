@@ -18,5 +18,5 @@
 
 //= require home
 
-//= require turbolinks
+// require turbolinks
 

@@ -10,8 +10,10 @@
   <meta name="keywords" content="<%=t("head.meta.keywords")%>">
   <meta name="author" content="<%=t("head.meta.author")%>">
 
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag  "application" %>
 
   <%= favicon_link_tag 'favicon.ico' %>
 

@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  show_on_map: "Показать на карте"
   users: "Пользователи"
   calculate: "рассчитать"
   default_address:
