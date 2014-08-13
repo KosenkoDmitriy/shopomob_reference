@@ -2,30 +2,42 @@ var ready;
 var geocoder;
 var map;
 
-ready = function() {
-    google.maps.event.addDomListener(window, 'load', initialize);
-};
-$(document).ready(ready);
-$(document).on('page:load', ready);
+//ready = function() {
+//
+//};
+//$(document).ready(ready);
+//$(document).on('page:load', ready);
 //$(document).on('page:change', ready);
+function loadScript() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?language=ru&' +
+        'callback=initialize';
+    document.body.appendChild(script);
+}
 
+window.onload = loadScript;
+loadScript();
+google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
-    var destination = new google.maps.LatLng(43.0167, 44.6500)
     var map_canvas = document.getElementById('map_canvas');
+
+    var destination = new google.maps.LatLng(43.0167, 44.6500)
     var map_options = {
         center: destination,
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    map = new google.maps.Map(map_canvas, map_options)
-    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(map_canvas, map_options);
 
     codeAddressTo();
     calcRoute();
 }
 
 function codeAddressTo() {
+    geocoder = new google.maps.Geocoder();
+
 //        var element = document.getElementById("address").firstChild;
 //        address = element.textContent || element.innerText || "";
 
@@ -87,12 +99,3 @@ function renderDirections(result) {
     directionsRenderer.setMap(map);
     directionsRenderer.setDirections(result);
 }
-
-function loadScript() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?language=ru&' +
-            'callback=initialize';
-    document.body.appendChild(script);
-}
-window.onload = loadScript;
