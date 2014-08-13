@@ -13,5 +13,6 @@
 
 //= require home/bootstrap.min
 //= require home/search
+//= require home/map
 //= require vertical_slider/vertical_slider
 // require home/google.map

@@ -56,12 +56,13 @@ def self.parse_item name, cat_item
       else
         shops.each do |shop|
           puts "finded: #{shop.name} | #{s.name}"
-          shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at'))
           #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
           ci = ContactItem.find_or_create_by(value:s.address, contact_type:ct_address)
-          shop.contact_items.append(ci)
+          shop.contact_items << ci if (s.address != shop.address)
           shop.contact_items = (shop.contact_items).uniq
+          #shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at')) if (!s.name.blank?)
           shop.save
+
           s = shop
         end
       end

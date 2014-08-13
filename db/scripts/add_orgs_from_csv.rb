@@ -49,7 +49,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
       shops_exist << shop
       #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
       ci = ContactItem.find_or_create_by(value:address, contact_type:ct_address)
-      shop.contact_items << ci
+      shop.contact_items << ci if (shopNew.address != shop.address)
       shop.contact_items = (shop.contact_items).uniq
       shop.save
       addresses << ci

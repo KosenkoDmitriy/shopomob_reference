@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  show_on_map: "Показать на карте"
+  show_on_map: "Смотреть адрес(а) на карте"
   users: "Пользователи"
   calculate: "рассчитать"
   default_address:
@@ -46,6 +46,7 @@ ru:
       call_to_action: "Требует действия"
 
   contacts:
+    additional: "Другие контакты"
     types: "Типы контактов"
     one: "Контакт"
     other: "Контакты"
