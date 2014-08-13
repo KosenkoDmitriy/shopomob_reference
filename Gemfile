@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'#, '2.3.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks' # don't work correctly with map
+gem 'turbolinks' # don't work correctly with map
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -74,3 +74,4 @@ gem 'jquery-turbolinks'
 # HTML, XML, SAX, and Reader parser with XPath and CSS selector support.
 gem 'nokogiri'
 gem "handle_invalid_percent_encoding_requests"
+#gem 'gabba' #for google analytics

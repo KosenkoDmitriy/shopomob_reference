@@ -10,10 +10,10 @@
   <meta name="keywords" content="<%=t("head.meta.keywords")%>">
   <meta name="author" content="<%=t("head.meta.author")%>">
 
-  <%#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag  "application" %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%#= stylesheet_link_tag    "application", media: "all" %>
+  <%#= javascript_include_tag  "application" %>
 
   <%= favicon_link_tag 'favicon.ico' %>
 
@@ -51,7 +51,14 @@
       ga('create', 'UA-53794940-1', 'auto');
       ga('send', 'pageview');
       console.log("ga send pageview ");
+
+
+//      $(document).ready(ready);
+//      $.getScript("You js file path",function(){
+//          $(document).ready(ready);
+//      });
   </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=ru"></script>
 </footer>
 
 </body>

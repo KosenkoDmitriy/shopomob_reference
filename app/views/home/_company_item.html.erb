@@ -82,10 +82,22 @@
     <%= render(:partial=> 'home/contact_items', locals: { contact: contact }) || t('contacts.empty') %>
     <% end %>
 
+    <div class="input-group">
+      <span class="input-group-addon"><%=t("default_address.your_pos")%></span>
+      <% addressFrom = "#{t("default_address.home")}, #{t("default_address.street")}, #{t("default_address.city")}" %>
+      <%= text_field_tag( :title, addressFrom, id:"addressFrom", class:"form-control") %>
+      <span class="input-group-btn">
+         <%= tag "input", { "type" => "button", "value" => t("calculate"), "onclick" => "initialize();return true;", class:"btn btn-default" } %>
+      </span>
+    </div><!-- /input-group -->
+    <div class="map_container">
+      <div id="map_canvas" class="map_canvas"></div>
+    </div>
+
     <!-- Button trigger modal -->
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      <%=t("show_on_map")%>
-    </button>
+    <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="initialize();return true;">-->
+      <!--<%=t("show_on_map")%>-->
+    <!--</button>-->
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -101,12 +113,13 @@
               <% addressFrom = "#{t("default_address.home")}, #{t("default_address.street")}, #{t("default_address.city")}" %>
               <%= text_field_tag( :title, addressFrom, id:"addressFrom", class:"form-control") %>
               <span class="input-group-btn">
-            <%= tag "input", { "type" => "button", "value" => t("calculate"), "onclick" => "initialize();return true;", class:"btn btn-default" } %>
-          </span>
+                 <%= tag "input", { "type" => "button", "value" => t("calculate"), "onclick" => "initialize();return true;", class:"btn btn-default" } %>
+              </span>
             </div><!-- /input-group -->
-            <div class="map_container">
-              <div id="map_canvas" class="map_canvas"></div>
-            </div>
+
+            <!--<div class="map_container">-->
+              <!--<div id="map_canvas" class="map_canvas"></div>-->
+            <!--</div>-->
           </div>
           <!--<div class="modal-footer">-->
             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->

@@ -15,8 +15,6 @@
 //= require jquery.turbolinks
 
 //= require jquery_ujs
-
 //= require home
 
-// require turbolinks
-
+//= require turbolinks
