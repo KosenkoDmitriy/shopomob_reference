@@ -38,17 +38,17 @@
       </div>
     <% end %>
 
-    <% if (!@shop.try(:email) .blank?) %>
-      <div class="media">
-        <a class="pull-left" href="#">
-          <%=image_tag "contacts/contacts_mail.png", class:"media-object list-icon"%>
-        </a>
-        <div class="media-body">
-          <h4 class="media-heading"><%=@shop.try(:email) || t("contacts.empty") %></h4>
-          <%=t('contacts.email') %>
-        </div>
-      </div>
-    <% end %>
+    <!--<% if (!@shop.try(:email) .blank?) %>-->
+      <!--<div class="media">-->
+        <!--<a class="pull-left" href="#">-->
+          <!--<%=image_tag "contacts/contacts_mail.png", class:"media-object list-icon"%>-->
+        <!--</a>-->
+        <!--<div class="media-body">-->
+          <!--<h4 class="media-heading"><%=@shop.try(:email) || t("contacts.empty") %></h4>-->
+          <!--<%=t('contacts.email') %>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--<% end %>-->
 
     <% if (!@shop.try(:www) .blank?) %>
       <div class="media">

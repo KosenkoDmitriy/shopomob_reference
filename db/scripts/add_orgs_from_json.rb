@@ -29,16 +29,16 @@ def self.parse_item name, cat_item
     #item = org["properties"]["CompanyMetaData"]
     item = org["properties"]["CompanyMetaData"] || org["properties"]["PSearchObjectMetaData"]
     s = Shop.new
-    s.name = item["name"].gsub('"', '') if item && item["name"]
-    s.address = item["address"].gsub(" (Дзæуджыхъæу)", "") if item && item["address"]
-    s.www = item["url"] if item && item["url"]
-    #s.email = item["Phones"][0]["formatted"] if item["Phones"] #TODO: add phones to contact_item
-    s.time_work = item["Hours"]["text"] if item && item["Hours"]
+    s.name = item["name"].gsub('"', '') if item && item["name"].present?
+    s.address = item["address"].gsub(" (Дзæуджыхъæу)", "") if item && item["address"].present?
+    s.www = item["url"] if item && item["url"].present?
+    s.email = item["InternalCompanyInfo"]["emails"].join(",") if item.present? && item["InternalCompanyInfo"].present? && item["InternalCompanyInfo"]["emails"].present?
+    s.time_work = item["Hours"]["text"] if item && item["Hours"].present? && item["Hours"]["text"].present?
     #shop = Shop.find_or_initialize_by_name(s.name)
     #if (shop.new_record?)
     #
     #end
-    phones = item["Phones"] if item
+    phones = item["Phones"] if item && item["Phones"].present?
     if (!phones.blank?)
       phones.each do |phone|
         contactItem = ContactItem.find_or_create_by(value:phone["formatted"], contact_type:ct_phone)
