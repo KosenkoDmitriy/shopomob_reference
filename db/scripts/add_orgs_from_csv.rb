@@ -30,7 +30,8 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
     org_name_arr << Unicode::capitalize(item) if item==Unicode::upcase(item)
     org_keywords_arr << item if item==Unicode::downcase(item)
   end
-  name = org_name_arr.join(" ")
+  name = org_name_arr.join(" ").gsub('"', '')
+
   tags = "#{row['tags']} #{org_keywords_arr.join(' ')}"
 
   searchName = "#{name}"
@@ -100,4 +101,4 @@ puts "shops_new.count: #{shops_new.count}"
 #end
 
 #remove duplicates
-Shop.dedupe
+#Shop.dedupe

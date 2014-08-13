@@ -92,6 +92,8 @@ end
 
 load Rails.root.join('db', 'scripts', 'add_orgs_from_json.rb') #load orgs from csv file
 load Rails.root.join('db', 'scripts', 'add_orgs_from_csv.rb') #load orgs from csv file
+#remove duplicates
+Shop.dedupe
 
 =begin
 
