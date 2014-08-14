@@ -42,10 +42,10 @@ ct_phone = ContactType.find_or_create_by(name:'phone', value:'тел')
 ct_address = ContactType.find_or_create_by(name:'address', value:'адрес')
 
 require 'csv'
-path_to_app = File.dirname(__FILE__)+'/csv/'
-path_to_img = File.dirname(__FILE__)+'/images/'
+path_to_app = Rails.root.join('db', 'csv') #File.dirname(__FILE__)+'/csv/'
+path_to_img = Rails.root.join('db', 'images') #File.dirname(__FILE__)+'/images/'
 
-file_path = "#{path_to_app}services.csv"
+file_path = "#{path_to_app}/services.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   item = Service.find_or_create_by( order_id: row['order_id'].to_i, title: row['title'], text: row['text'], url: row['url'])
@@ -57,7 +57,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 
-file_path = "#{path_to_app}banners.csv"
+file_path = "#{path_to_app}/banners.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   item = Banner.find_or_create_by(shop_id: row['shop_id'].to_i, title: row['title'], url: row['url'])
@@ -69,7 +69,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   end
 end
 
-file_path = "#{path_to_app}tcats.csv"
+file_path = "#{path_to_app}/tcats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   pid = row['parent_id'].to_i
@@ -97,7 +97,7 @@ Shop.dedupe
 
 =begin
 
-file_path = "#{path_to_app}cats.csv"
+file_path = "#{path_to_app}/cats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   sc = Category.create(_id: row['_id'].to_i, name: row['name'], tags: row['tags'])
@@ -105,7 +105,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
 end
 
 
-file_path = "#{path_to_app}companies.csv"
+file_path = "#{path_to_app}/companies.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   #puts "#{row['name']} #{row['address']} "
@@ -147,7 +147,7 @@ end
 
 
 =begin
-file_path = "#{path_to_app}company_cats.csv"
+file_path = "#{path_to_app}/company_cats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   c = Category.find_by(_id: row['id_rubr'].to_i)
@@ -163,7 +163,7 @@ CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
 end
 
 
-file_path = "#{path_to_app}cats_tcats.csv"
+file_path = "#{path_to_app}/cats_tcats.csv"
 puts file_path
 CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
   c = Category.find_by(_id: row['id_rubr'].to_i)
