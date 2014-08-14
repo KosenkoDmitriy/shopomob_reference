@@ -1,5 +1,12 @@
 <% if (@shop) %>
-    <header><h2><%= @shop.name %></h2></header>
+    <header>
+      <h2><%= @shop.name %></h2>
+    </header>
+    <p>
+      <% @shop.try(:tags).split(" ").each do |shop| %>
+        <a href="<%="#{shops_path}/-1/#{shop}?page=1"%>"><%= shop %></a>
+      <% end %>
+    </p>
     <% if (!@shop.try(:images).try(:first).try(:image_url).blank?) %>
     <p>
       <%= (!@shop.try(:images).try(:first).try(:image_url).blank?) ? image_tag( (@shop.try(:images).try(:first).try(:image).try(:image_url)), :class => "img-circle", :width => "100%") : image_tag( 'missing.png', :class => "img-circle", :width => "100%" ) %>
