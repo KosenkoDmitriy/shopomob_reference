@@ -5,16 +5,17 @@
       <%
          items.each do |item| %>
           <div class="media">
-            <a class="pull-left" href="<%= (item.url.blank?) ? "#" : item.url %>">
+            <a class="pull-left" href="<%= (item.try(:url).blank?) ? "#" : item.try(:url) %>">
               <!--<img class="media-object" src="..." alt="...">-->
               <%= (!item.try(:image).try(:image_url).blank?) ? image_tag( (item.try(:image).try(:image_url)), :class => "media-object img-circle list-icon") : image_tag( 'missing.png', :class => "media-object img-circle list-icon" ) %>
             </a>
             <div class="media-body">
-              <h4 class="media-heading"><%= item.title %></h4>
-              <%= item.text %>
+              <h4 class="media-heading"><%= item.try(:title) %></h4>
+              <%= item.try(:text).html_safe %>
+              <%#= render  text: item.text , :formats => [:html] %>
 
-              <%= link_to( t("details_on_url"), item.url, class: "btn btn-primary" ) if (!item.url.blank?) %>
-              <!--<a href="#" class="btn btn-primary" role="button"><%= (item.url.blank?) ? "#" : item.url %></a>-->
+              <%= link_to( t("details_on_url"), item.try(:url), class: "btn btn-primary" ) if (!item.try(:url).blank?) %>
+              <!--<a href="#" class="btn btn-primary" role="button"><%= (item.try(:url).blank?) ? "#" : item.try(:url) %></a>-->
             </div>
           </div>
       <% end %>
