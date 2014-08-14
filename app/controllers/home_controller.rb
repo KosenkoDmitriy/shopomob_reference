@@ -132,7 +132,8 @@ class HomeController < ApplicationController
   end
 
   def serve
-    path = Rails.root.join('public', "#{params[:filename]}.#{params[:extension]}")
+    #path = Rails.root.join('public', "#{params[:filename]}.#{params[:extension]}")
+    path = Rails.root.join("app", "assets", "#{params[:filename]}.#{params[:extension]}")
 
     send_file( path,
                :disposition => 'inline',
