@@ -39,6 +39,7 @@ Shopomob::Application.routes.draw do
   get 'cats' => 'home#cats'
   get 'cats/:id' => 'home#cats'
 
+  get 'serve/:filename/:extension' => 'home#serve'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

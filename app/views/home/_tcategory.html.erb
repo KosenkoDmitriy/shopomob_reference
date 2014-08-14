@@ -27,7 +27,7 @@
                items.where(parent_id:item.id).each do |sub_item|
             %>
                 <%#= link_to sub_item.name,  "#{tcats_path}/#{ (parent) ? sub_item.id : sub_item.parent_id }" %>
-                <%= link_to sub_item.name,  "#{tcats_path}/#{ sub_item.id }" %> <span class="badge"><%= (sub_item.shops.blank? ) ? 0 : sub_item.shops.count %></span>
+                <%= link_to sub_item.name,  "#{tcats_path}/#{ sub_item.id }", :anchor => sub_item.url.split("#")[1] %> <span class="badge"><%= (sub_item.shops.blank? ) ? 0 : sub_item.shops.count %></span>
                 <%#= link_to sub_item.name,  tcats_path( sub_item.id) %>
             <% end %>
           </div>

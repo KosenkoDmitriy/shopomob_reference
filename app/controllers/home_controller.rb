@@ -131,6 +131,16 @@ class HomeController < ApplicationController
 
   end
 
+  def serve
+    path = Rails.root.join('public', "#{params[:filename]}.#{params[:extension]}")
+
+    send_file( path,
+               :disposition => 'inline',
+               #:type => 'application/pdf',
+               :type => "application/#{params[:extension]}",
+               :x_sendfile => true )
+  end
+
   private
   def is_numeric(o)
     true if Integer(o) rescue false
