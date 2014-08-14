@@ -33,10 +33,10 @@ ru:
   footer:
     title: "ООО \"Адек\". Все права защищены."
   head:
-    title: "ШопоМоб/Shopomob"
+    title: "ШопоМоб|Shopomob - мобильные и веб приложения для развития бизнеса"
     meta:
-      description: "Shopomob"
-      keywords: "Shopomob"
+      description: "ШопоМоб Shopomob мобильные и веб приложения для развития бизнеса"
+      keywords: "ШопоМоб Shopomob мобильные и веб приложения для развития бизнеса"
       author: "Dmitry Kosenko"
 
   active_admin:
