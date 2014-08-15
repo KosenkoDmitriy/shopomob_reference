@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+  <style>
+
+  </style>
+  <script>
+
+  </script>
+</head>
+<body>
+<!--<div class="ui-widget">-->
+  <!--<label for="tags">Tag programming languages: </label>-->
+  <!--<input id="tags" size="50">-->
+<!--</div>-->
+<!--<input type="button" id="data-autocomplete-minlength" data-autocomplete-dropdown="Show Items"/>-->
+<%#=autocomplete_field_tag 'brand_name', '', autocomplete_brand_name_products_path, :size => 75, :id_element => '#some_element', :"data-autocomplete-minlength" => 0, :"data-autocomplete-dropdown" => "Show Items"%>
+<%#=autocomplete_field_tag 'brand_name', '', autocomplete_brand_name_products_path, :size => 75, :id_element => '#some_element', :"data-autocomplete-minlength" => 0, :"data-autocomplete-dropdown" => "Show Items" %>
+
+<%=form_for @product do |f|%>
+  <%#=autocomplete_field_tag :brand_name, '',autocomplete_brand_name_products_path%>
+    <%=autocomplete_field_tag 'brand_name', '', autocomplete_brand_name_products_path, :size => 75, :id_element => '#some_element', :"data-autocomplete-minlength" => 0, :"data-autocomplete-dropdown" => "Show Items" %>
+<%end%>
+
+<%=form_for @brand do |f| %>
+    <%#=autocomplete_field_tag 'name', '', autocomplete_brand_name_products_path, :size => 75, :id_element => '#some_element', :"data-autocomplete-minlength" => 0, :"data-autocomplete-dropdown" => "Show Items"%>
+
+    <%=f.autocomplete_field "name", autocomplete_brand_name_products_path, :id_element => '#some_element'%>
+<%end%>
+
+    <%=semantic_form_for @brand do |f| %>
+        <%#=f.inputs%>
+        <%#=f.autocomplete_field :name, autocomplete_brand_name_products_path%>
+    <%=f.input :name, as: :autocomplete, :url => autocomplete_brand_name_products_path%>
+    <%end%>
+</body>
+</html>

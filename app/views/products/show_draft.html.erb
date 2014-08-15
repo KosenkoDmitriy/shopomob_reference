@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <%#= f.autocomplete_field :artist, autocomplete_artist_name_reviews_path %>
+    <%#= f.autocomplete_field :category_items, autocomplete_category_items_name_products_path %>
+    <%#= f.autocomplete_field :brands, autocomplete_brand_name_products_path, 'data-delimiter' => ',', :multiple => true %>
+    <%#= f.autocomplete_field :brands, autocomplete_brand_name_products_path %>
+<%#= f.simple_fields_for :brands do |b| %>
+        <%#= b.autocomplete_field :name, autocomplete_brand_name_products_path %>
+    <%# end %>
+<%#=@product.name%>
+<%#=@product.brands.first.name%>
+<%#= semantic_form_for @product do |f|
+  #f.inputs
+
+
+  #, :as => :autocomplete, 'data-delimiter' => ',', :multiple => true, :collection => ["Justin",]
+  #f.select :brand_ids, as: :select#, :as => :autocomplete, :url => autocomplete_brand_name_products_path
+
+  #f.inputs :for => :brands do |b|
+  #  b.input :name, :as => :autocomplete, :url => autocomplete_brand_name_products_path
+  #end
+end %>
+<%#= form_tag do
+  #select_field_tag "name", as: :select, 'data-delimiter' => ',', :multiple => true, :collection => ["Justin",]
+  #, :as => :autocomplete, :url => autocomplete_brand_name_products_path
+end
+%>
+<%#= form_tag do %>
+    <%#=text_field_tag :name, '', :autocomplete => autocomplete_brand_name_products_path %>
+<% #end%>
+
+<%
+   semantic_form_for @product do |f|
+     f.inputs
+     #f.autocomplete_field :brand_name, autocomplete_brand_name_products_path
+     f.autocomplete_field :name, autocomplete_brand_name_products_path
+   end
+%>
+<%#form_for do %>
+<%#=autocomplete_field_tag 'name', '', autocomplete_brand_name_products_path, :size => 75 %>
+    <%#=text_field_tag :name, '', :autocomplete => autocomplete_brand_name_products_path %>
+<%#end%>
+</body>
+</html>

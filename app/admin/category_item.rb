@@ -14,6 +14,9 @@ ActiveAdmin.register CategoryItem do
   #  permitted
   # end
 
+  controller do
+  end
+
   permit_params :parent_id, :name, image_attributes: [:id, :image, :_destroy]
 
   form do |f|

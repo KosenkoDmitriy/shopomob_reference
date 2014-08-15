@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<%#= form_for(@product, url:"") do |f| %>
+    <%#= f.autocomplete_field :artist, autocomplete_artist_name_reviews_path %>
+    <%#= f.autocomplete_field :category_items, autocomplete_category_items_name_products_path %>
+    <%#= f.input :brand, as: :autocomplete, url: autocomplete_brand_name_products_path %>
+<%# end %>
+<%#=@products.name%>
+<%#=@products.first.brands.first.name%>
+<%#= semantic_form_for @products do |f|
+  #f.inputs
+  f.inputs :for => :brands do |b|
+    b.input :name #, :as => :autocomplete, :url => autocomplete_brand_name_products_path
+  end
+end %>
+<%
+#= form_tag do
+    #text_field_tag :name, '', :autocomplete => autocomplete_brand_name_products_path
+#end %>
+
+<%=semantic_form_for @products.first do |f| %>
+    <%=f.inputs :for => :brands do |b|%>
+    <%#=f.autocomplete_field :name, autocomplete_brand_name_products_path%>
+    <%=b.input :name, as: :autocomplete, :url => autocomplete_brand_name_products_path%>
+    <%end%>
+<%end%>
+
+</body>
+</html>

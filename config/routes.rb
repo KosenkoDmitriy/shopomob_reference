@@ -1,11 +1,24 @@
 Shopomob::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  namespace :admin do
+    resources :shops do
+      get :autocomplete_category_item_name, :on => :collection
+      get :autocomplete_shop_name, :on => :collection
+    end
+  end
   ActiveAdmin.routes(self)
-  #scope ":locale", :path_prefix => '/:locale' do
-  #  ActiveAdmin.routes(self)
-  #end
 
+  # start for testing rails4-autocomplete gem
+  resources :brands
+  resources :products do
+    get :autocomplete_brand_name, :on => :collection
+  end
+  ##get 'autocomplete_category_item_name' => 'home#index'
+  # ending for testing rails4-autocomplete gem
+
+
+  # sart apis
   namespace :api, :defaults => {:format => :json}  do
     namespace :v1 do
       resources :category
@@ -15,6 +28,7 @@ Shopomob::Application.routes.draw do
       get 'online' => 'shops#online'
     end
   end
+  # finish apis
 
   root 'home#index'
   #resources :category
@@ -40,6 +54,8 @@ Shopomob::Application.routes.draw do
   get 'cats/:id' => 'home#cats'
 
   get 'serve/:filename/:extension' => 'home#serve'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

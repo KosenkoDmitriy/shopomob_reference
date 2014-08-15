@@ -6,8 +6,12 @@ ActiveAdmin.register Shop do
 
   #belongs_to :status
 
+  #collection_action :autocomplete_category_item_name, :method => :get
 
   controller do
+    autocomplete :category_item, :name, :full => true
+    autocomplete :shop, :name, :full => true
+
     def create
       #@shop = Shop.create(shop_params)
       @shop = Shop.new (shop_params)
@@ -45,29 +49,33 @@ ActiveAdmin.register Shop do
       #@shop = Shop.update(params['id'], shop_params)
 
       @shop = Shop.find(params['id']) #update (params['id'], shop_params)
-      @shop.attributes = shop_params
-      @shop.categories.delete_all
-      ids = params[:shop][:category_ids]
-      ids.shift
-      ids.each do |ci|
-        #@shop.categories << Category.find(ci.to_i)
-        #if (ci.to_i > )
-        if ci.to_i > 0
-          c = Category.find(ci.to_i)
-          if c
-            @shop.categories.append(c)
+      @shop.attributes = shop_params #@shop.update_attributes(shop_params)
+      if (params[:shop][:category_ids].present?)
+        @shop.categories.delete_all
+        ids = params[:shop][:category_ids]
+        ids.shift
+        ids.each do |ci|
+          #@shop.categories << Category.find(ci.to_i)
+          #if (ci.to_i > )
+          if ci.to_i > 0
+            c = Category.find(ci.to_i)
+            if c
+              @shop.categories.append(c)
+            end
           end
         end
       end
 
-      @shop.category_items.delete_all
-      ids = params[:shop][:category_item_ids]
-      ids.shift
-      ids.each do |id|
-        if id.to_i > 0
-          c = CategoryItem.find(id.to_i)
-          if c
-            @shop.category_items.append(c)
+      if (params[:shop][:category_item_ids].present?)
+        @shop.category_items.delete_all
+        ids = params[:shop][:category_item_ids]
+        ids.shift
+        ids.each do |id|
+          if id.to_i > 0
+            c = CategoryItem.find(id.to_i)
+            if c
+              @shop.category_items.append(c)
+            end
           end
         end
       end
@@ -114,11 +122,46 @@ ActiveAdmin.register Shop do
       #      c.input :_destroy, :as => :boolean, :required => false, :label => 'Remove'
       #    #end
       #end
-      f.input :categories, :multiple => true, member_label: :name, :as => :select
-      f.input :category_items, :multiple => true, member_label: :name
+
+      f.input :categories, :label => I18n.t("cats"), :multiple => true, member_label: :name, :as => :select
+      #f.input :category_items, :multiple => true, member_label: :name
+      #f.input :category_items, :multiple => true, member_label: :name, :as => :select
+
+      f.has_many :category_items do |category_item|
+        #category_item.inputs do |ci|
+        #  category_item.autocomplete_field :name, :label=>I18n.t("activerecord.models.category_item.one"), :url => autocomplete_category_item_name_admin_shops_path
+        #end
+        if !category_item.object.nil?
+          category_item.input :name, :as => :autocomplete, :url => autocomplete_category_item_name_admin_shops_path, label: I18n.t("activerecord.models.category_item.one")
+          category_item.input :_destroy, :as => :boolean, :required => false, :label => I18n.t("remove")
+        else
+          #category_item.input :name, :as => :autocomplete, :url => autocomplete_category_item_name_admin_shops_path, collections: CategoryItem.all
+        end
+
+        #category_item.input :name, :as => :autocomplete, :url => '/admin/shops/autocomplete_category_item_name','data-delimiter' => ',', :multiple => true
+
+      end
+      #f.autocomplete_field :category_items, :url => autocomplete_shop_category_items_path, :as => :autocomplete
+      #f.autocomplete_field :category_items, :url => autocomplete_shop_category_items_admin_shops_path, :as => :autocomplete
+      #f.autocomplete_field :category_items, :url => autocomplete_category_items_value_admin_shops_path, :as => :autocomplete
+      #f.autocomplete_field :category_items, :url => autocomplete_category_items_value_path, :as => :autocomplete
+      #f.autocomplete_field :category_items, autocomplete_category_items_value_admin_shops_path, 'data-delimiter' => ',', :multiple => true
+      #f.autocomplete_field :category_items, autocomplete_category_item_name_admin_shops_path, :as => :autocomplete
+      #f.autocomplete_field :category_items, autocomplete_category_item_name_admin_shops_path, 'data-delimiter' => ',', :multiple => true
+      #f.input :category_items, :as => :autocomplete#, :url => autocomplete_category_items_name_admin_shops_path
 
       #f.input :category_items, :label => 'TCategories', :as => :select, :collection => CategoryItem.all.map{|u| ["#{u.id}, #{u.name}", u.id]}
       #f.input :categories, as: :check_boxes, :multiple => true, member_label: :name
+
+      #f.input :category_items, :input_html => { :class => "chosen-input" } # other model with has_many relation ship
+      #f.input :category_items, :input_html => { :class => "chosen-select" } # other model with has_many relation ship
+      #f.input :category_items, as: :select, :collection => CategoryItem.all.map { |u| [u.name, u.id] }, :input_html => { include_blank: true, class: 'chosen-select' }
+      #f.input :category_items, as: :chosen, create_option: true, :input_html => { include_blank: true, class: 'chosen-select' }
+
+      #f.association :category_items,
+      #              collection: CategoryItem.all,
+      #              include_blank: true,
+      #              input_html: { class: 'chosen-select' }
     end
 
     f.inputs I18n.t("contacts") do

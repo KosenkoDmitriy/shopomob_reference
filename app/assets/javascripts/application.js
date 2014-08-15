@@ -13,8 +13,16 @@
 
 //= require jquery
 //= require jquery.turbolinks
-
 //= require jquery_ujs
+
+//= require jquery-ui
+//= require autocomplete-rails
+
+// require autocomplete
+// require chosen-jquery
+// require scaffold
+
 //= require home
 
 //= require turbolinks
+

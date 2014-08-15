@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'#, '2.3.0'
+#gem 'jquery-rails'#, '2.3.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks' # don't work correctly with map
@@ -75,3 +75,10 @@ gem 'jquery-turbolinks'
 gem 'nokogiri'
 gem "handle_invalid_percent_encoding_requests"
 #gem 'gabba' #for google analytics
+
+gem 'jquery-rails', '~> 2.1'
+gem 'rails4-autocomplete'
+#gem 'rails4-autocomplete', github: 'KosenkoDmitriy/rails4-autocomplete'
+#gem 'rails4-autocomplete', path:"../rails4-autocomplete" # github: 'KosenkoDmitriy/rails4-autocomplete'
+#gem 'rails4-autocomplete', github: 'bfpi/rails4-autocomplete' #https://github.com/bfpi/rails4-autocomplete.git
+#gem 'chosen-rails'
