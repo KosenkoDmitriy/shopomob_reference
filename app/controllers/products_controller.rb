@@ -7,6 +7,5 @@ autocomplete :brand, :name, :full => true
   def show
     @product = Product.first
     @brand = Brand.first
-
   end
 end

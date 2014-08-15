@@ -15,7 +15,7 @@
   <%#= stylesheet_link_tag    "application", media: "all" %>
   <%#= javascript_include_tag  "application" %>
 
-  <%= favicon_link_tag 'favicon.ico' %>
+  <%= favicon_link_tag 'favicon' %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -38,12 +38,12 @@
       ga('send', 'pageview');
       console.log("ga send pageview ");
 
-
 //      $(document).ready(ready);
 //      $.getScript("You js file path",function(){
 //          $(document).ready(ready);
 //      });
   </script>
+  <%#= yield(:custom_js) if content_for?(:custom_js) %>
   <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=ru"></script>-->
 </footer>
 

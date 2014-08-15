@@ -14,36 +14,30 @@ var map;
 ready = function() {
     console.log("onready");
     if (typeof google == "undefined") {
-        jQuery.getScript("https://maps.googleapis.com/maps/api/js?language=ru;callback=initialize");
+        jQuery.getScript("https://maps.googleapis.com/maps/api/js?language=ru&callback=initialize");
         // no success callback necessary, google can load our stuff-todo-function
     } else {
         // if gmaps already loaded, we can just continue whatever else we want to do
         initialize();
     }
-//    initialize();
-//    loadScript();
 //google.maps.event.addDomListener(window, 'load', initialize);
 };
 //$(document).ready(ready);
-//$(document).on('page:load', onload);
-//$(document).on('page:change', onchange);
 //$(document).on('ready page:load page:change', ready);
 //$(document).on('click', '.btn.btn-primary.btn-lg', ready);
-//$(document).on('click', '.btn.btn-primary.btn-lg', initialize);
 
 $(document).on('page:change', ready);
+//$(document).on('page:load', ready);
 
-loadScript = function() {
-//    console.log("loadScript");
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?language=ru&' + 'callback=initialize';
-    document.body.appendChild(script);
-    console.log("loadScript finished");
-}
-////$.getScript("https://maps.googleapis.com/maps/api/js?language=ru",function(){
-//    $(document).ready(loadScript);
-////});
+//loadScript = function() {
+////    console.log("loadScript");
+//    var script = document.createElement('script');
+//    script.type = 'text/javascript';
+//    script.src = 'https://maps.googleapis.com/maps/api/js?language=ru&' + 'callback=initialize';
+//    document.body.appendChild(script);
+//    console.log("loadScript finished");
+//}
+//window.onload = loadScript;
 
 function initialize() {
     console.log("initialize map");
@@ -60,7 +54,6 @@ function initialize() {
 
     codeAddressTo();
     calcRoute();
-
 }
 
 function codeAddressTo() {
