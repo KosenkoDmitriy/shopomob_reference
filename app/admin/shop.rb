@@ -90,7 +90,7 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:status_id, :shop_id, :description, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+      params.require(:shop).permit(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
     end
   end
 
@@ -108,6 +108,7 @@ ActiveAdmin.register Shop do
       f.input :tags, label: I18n.t("company.tags"), hint: I18n.t("company.keywords_space")
       #f.input :status_id, label: I18n.t("company.status.title"), hint: I18n.t("company.status.text")
       f.input :status, label: I18n.t("company.status.title"), hint: I18n.t("company.status.text")
+      f.input :comments
     end
 
     f.inputs I18n.t("cats") + "/" + I18n.t("tcats") do
