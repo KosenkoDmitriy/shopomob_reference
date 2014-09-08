@@ -1,7 +1,8 @@
 ActiveAdmin.register Shop do
   menu :label => proc{ I18n.t("companies") }, :priority => 0
 
-  #permit_params :shop, :name, :domain, :www, :email, :postal_code, :parent_id, :address, :time_work, :favorite, :rated, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
+  #permit_params(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+
   config.sort_order = 'id_asc'
 
   #belongs_to :status
@@ -9,35 +10,68 @@ ActiveAdmin.register Shop do
   #collection_action :autocomplete_category_item_name, :method => :get
 
   controller do
-    autocomplete :category_item, :name, :full => true
-    autocomplete :shop, :name, :full => true
+    #autocomplete :category_item, :name, :full => true
+    #autocomplete :shop, :name, :full => true
 
     def create
       #@shop = Shop.create(shop_params)
-      @shop = Shop.new (shop_params)
-      ids = params[:shop][:category_ids]
-      ids.shift
-      ids.each do |id|
-        #@shop.categories << Category.find(ci.to_i)
-        if id.to_i > 0
-          c = Category.find(id.to_i)
-          if c
-            @shop.categories.append(c)
-          end
-        end
-      end
-      ids = params[:shop][:category_item_ids]
-      ids.shift
-      ids.each do |id|
-        if id.to_i > 0
-          c = CategoryItem.find(id.to_i)
-          if c
-            @shop.category_items.append(c)
-          end
-        end
 
+      #ids = params[:shop][:category_ids]
+      #ids.shift
+      #ids.each do |id|
+      #  #@shop.categories << Category.find(ci.to_i)
+      #  if id.to_i > 0
+      #    c = Category.find(id.to_i)
+      #    if c
+      #      @shop.categories.append(c)
+      #    end
+      #  end
+      #end
+      #
+      #ids = params[:shop][:category_item_ids]
+      #ids.shift
+      #ids.each do |id|
+      #  if id.to_i > 0
+      #    c = CategoryItem.find(id.to_i)
+      #    if c
+      #      @shop.category_items.append(c)
+      #    end
+      #  end
+      #end
+
+      @shop = Shop.new (shop_params.except(:category_items_attributes, :categories_attributes))
+
+      ci_attrs = params[:shop][:categories_attributes]
+      if ci_attrs
+        ci_attrs.each do |ids|
+          ids.each do |id|
+            id = id["id"].to_i
+            if id > 0
+              c = Category.find(id)
+              if c
+                @shop.category_items.append(c)
+              end
+            end
+          end
+        end
       end
-      if @shop.save
+
+      ci_attrs = params[:shop][:category_items_attributes]
+      if ci_attrs
+        ci_attrs.each do |ids|
+          ids.each do |id|
+            id = id["id"].to_i
+            if id > 0
+              c = CategoryItem.find(id)
+              if c
+                @shop.category_items.append(c)
+              end
+            end
+          end
+        end
+      end
+
+      if @shop.save!
         redirect_to action: "index"
       else
         render "new"
@@ -97,6 +131,7 @@ ActiveAdmin.register Shop do
 
   form do |f|
     f.inputs I18n.t("company.label") do
+      #f.input :id, label: I18n.t("company.id")
       f.input :name, label: I18n.t("company.name")
       f.input :postal_code, label: I18n.t("company.postal_code")
       f.input :address, label: I18n.t("company.address")
@@ -151,7 +186,7 @@ ActiveAdmin.register Shop do
       #f.input :category_items, as: :select, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name, u.id] }, :input_html => { include_blank: true, class: 'chosen-select' }
       f.has_many :category_items do |ci|
         if !ci.object.nil?
-          ci.input :name, :as => :select, :selected => ci.object.id, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name+" "+u.id.to_s, u.id] }, :label => I18n.t('activerecord.models.category_item.one')
+          ci.input :id, :as => :select, :selected => ci.object.id, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name+" "+u.id.to_s, u.id] }, :label => I18n.t('activerecord.models.category_item.one')
           ci.input :_destroy, :as=>:boolean, :required => false, :label => I18n.t('remove')
         end
       end
