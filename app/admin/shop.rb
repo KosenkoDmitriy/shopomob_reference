@@ -119,7 +119,7 @@ ActiveAdmin.register Shop do
       #
       f.has_many :categories, :heading => I18n.t('activerecord.models.category.other') do |c|
           if !c.object.nil?
-            c.input :id, :as => :select, :collection => Category.order(:name).map{|u| ["#{u.name} #{u.id}", u.id]}, :label => I18n.t('activerecord.models.category.one')
+            c.input :id, :as => :select, :selected => c.object.id, :collection => Category.order(:name).map{|u| ["#{u.name} #{u.id}", u.id]}, :label => I18n.t('activerecord.models.category.one')
             c.input :_destroy, :as => :boolean, :required => false, :label => 'Remove'
           end
       end
@@ -151,7 +151,7 @@ ActiveAdmin.register Shop do
       #f.input :category_items, as: :select, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name, u.id] }, :input_html => { include_blank: true, class: 'chosen-select' }
       f.has_many :category_items do |ci|
         if !ci.object.nil?
-          ci.input :name, :as => :select, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name+" "+u.id.to_s, u.id] }, :label => I18n.t('activerecord.models.category_item.one')
+          ci.input :name, :as => :select, :selected => ci.object.id, :collection => CategoryItem.where("parent_id!=0").order(:name).map { |u| [u.name+" "+u.id.to_s, u.id] }, :label => I18n.t('activerecord.models.category_item.one')
           ci.input :_destroy, :as=>:boolean, :required => false, :label => I18n.t('remove')
         end
       end
