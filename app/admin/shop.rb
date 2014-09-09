@@ -58,9 +58,9 @@ ActiveAdmin.register Shop do
       if @shop.update_attributes(shop_params.except(:category_items_attributes, :categories_attributes))
         attrs = params[:shop][:category_items_attributes]
         if attrs
+          @shop.category_items.delete_all
           params[:shop][:category_items_attributes].each do |ci_ids|
             if ci_ids.present?
-              @shop.category_items.delete_all
               ci_ids.each do |ci_id|
                 cid = ci_id["id"].to_i
                 destroy = ci_id["_destroy"].to_i
@@ -81,9 +81,9 @@ ActiveAdmin.register Shop do
 
         attrs = params[:shop][:categories_attributes]
         if attrs
+          @shop.categories.delete_all
           params[:shop][:categories_attributes].each do |ci_ids|
             if ci_ids.present?
-              @shop.categories.delete_all
               ci_ids.each do |ci_id|
                 cid = ci_id["id"].to_i
                 destroy = ci_id["_destroy"].to_i
