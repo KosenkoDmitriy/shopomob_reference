@@ -14,33 +14,7 @@ ActiveAdmin.register Shop do
     #autocomplete :shop, :name, :full => true
 
     def create
-      #@shop = Shop.create(shop_params)
-
-      #ids = params[:shop][:category_ids]
-      #ids.shift
-      #ids.each do |id|
-      #  #@shop.categories << Category.find(ci.to_i)
-      #  if id.to_i > 0
-      #    c = Category.find(id.to_i)
-      #    if c
-      #      @shop.categories.append(c)
-      #    end
-      #  end
-      #end
-      #
-      #ids = params[:shop][:category_item_ids]
-      #ids.shift
-      #ids.each do |id|
-      #  if id.to_i > 0
-      #    c = CategoryItem.find(id.to_i)
-      #    if c
-      #      @shop.category_items.append(c)
-      #    end
-      #  end
-      #end
-
       @shop = Shop.new (shop_params.except(:category_items_attributes, :categories_attributes))
-
       ci_attrs = params[:shop][:categories_attributes]
       if ci_attrs
         ci_attrs.each do |ids|
@@ -71,7 +45,7 @@ ActiveAdmin.register Shop do
         end
       end
 
-      if @shop.save!
+      if @shop.save
         redirect_to action: "index"
       else
         render "new"
@@ -80,9 +54,33 @@ ActiveAdmin.register Shop do
     end
 
     def update
-      #@shop = Shop.update(params['id'], shop_params)
+      @shop = Shop.find(params['id'])
+      if @shop.update_attributes(shop_params.except(:category_items_attributes, :categories_attributes))
+        params[:shop][:category_items_attributes].each do |ci_ids|
+          ci_ids.each do |ci_id|
+            cid = ci_id["id"].to_i
+            destroy = ci_id["_destroy"].to_i
+            ci = CategoryItem.find_by_id(cid)
+            if ci
+              if destroy == 0
+                @shop.category_items.append(ci)
+              else
+                @shop.category_items.delete(ci)
+              end
+              @shop.save
+            end
+          end
+        end
+        redirect_to action: "index"
+      else
+        render "new"
+      end
+    end
 
+    def update_for_autocomplete #unused
+      #@shop = Shop.update(params['id'], shop_params)
       @shop = Shop.find(params['id']) #update (params['id'], shop_params)
+
       @shop.attributes = shop_params #@shop.update_attributes(shop_params)
       if (params[:shop][:category_ids].present?)
         @shop.categories.delete_all

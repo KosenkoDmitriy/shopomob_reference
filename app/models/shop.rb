@@ -9,6 +9,15 @@ class Shop < ActiveRecord::Base
   has_many :category_items_shops
   has_many :category_items, through: :category_items_shops
   accepts_nested_attributes_for :category_items, :allow_destroy => true
+  #attr_accessor :category_items_ids
+  #before_save :assign_categories
+  #
+  #private
+  #def assign_categories
+  #  category_items_ids.each do |cid|
+  #    self.category_items.build(category_item_id: cid )
+  #  end
+  #end
 
   has_many :contact_items, dependent: :destroy
   accepts_nested_attributes_for :contact_items, :allow_destroy => true
