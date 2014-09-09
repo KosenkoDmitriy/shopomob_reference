@@ -79,7 +79,7 @@ ActiveAdmin.register Shop do
           end
         end
 
-        attrs = params[:shop][:category_items_attributes]
+        attrs = params[:shop][:categories_attributes]
         if attrs
           params[:shop][:categories_attributes].each do |ci_ids|
             if ci_ids.present?
