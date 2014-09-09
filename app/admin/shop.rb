@@ -75,6 +75,23 @@ ActiveAdmin.register Shop do
             end
           end
         end
+
+        params[:shop][:categories_attributes].each do |ci_ids|
+          if ci_ids.present?
+            @shop.categories.delete_all
+            ci_ids.each do |ci_id|
+              cid = ci_id["id"].to_i
+              destroy = ci_id["_destroy"].to_i
+              ci = Category.find_by_id(cid)
+              if ci
+                if destroy == 0
+                  @shop.categories.append(ci)
+                end
+                @shop.save!
+              end
+            end
+          end
+        end
         redirect_to action: "index"
       else
         render "new"
