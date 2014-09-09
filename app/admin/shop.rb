@@ -56,38 +56,44 @@ ActiveAdmin.register Shop do
     def update
       @shop = Shop.find(params['id'])
       if @shop.update_attributes(shop_params.except(:category_items_attributes, :categories_attributes))
-        params[:shop][:category_items_attributes].each do |ci_ids|
-          if ci_ids.present?
-            @shop.category_items.delete_all
-            ci_ids.each do |ci_id|
-              cid = ci_id["id"].to_i
-              destroy = ci_id["_destroy"].to_i
-              ci = CategoryItem.find_by_id(cid)
-              if ci
-                if destroy == 0
-                  @shop.category_items.append(ci)
-                #else
-                #  @shop.category_items.delete(ci)
+        attrs = params[:shop][:category_items_attributes]
+        if attrs
+          params[:shop][:category_items_attributes].each do |ci_ids|
+            if ci_ids.present?
+              @shop.category_items.delete_all
+              ci_ids.each do |ci_id|
+                cid = ci_id["id"].to_i
+                destroy = ci_id["_destroy"].to_i
+                ci = CategoryItem.find_by_id(cid)
+                if ci
+                  if destroy == 0
+                    @shop.category_items.append(ci)
+                  #else
+                  #  @shop.category_items.delete(ci)
+                  end
+                  #@shop.category_items = @shop.category_items.uniq
+                  @shop.save!
                 end
-                #@shop.category_items = @shop.category_items.uniq
-                @shop.save!
               end
             end
           end
         end
 
-        params[:shop][:categories_attributes].each do |ci_ids|
-          if ci_ids.present?
-            @shop.categories.delete_all
-            ci_ids.each do |ci_id|
-              cid = ci_id["id"].to_i
-              destroy = ci_id["_destroy"].to_i
-              ci = Category.find_by_id(cid)
-              if ci
-                if destroy == 0
-                  @shop.categories.append(ci)
+        attrs = params[:shop][:category_items_attributes]
+        if attrs
+          params[:shop][:categories_attributes].each do |ci_ids|
+            if ci_ids.present?
+              @shop.categories.delete_all
+              ci_ids.each do |ci_id|
+                cid = ci_id["id"].to_i
+                destroy = ci_id["_destroy"].to_i
+                ci = Category.find_by_id(cid)
+                if ci
+                  if destroy == 0
+                    @shop.categories.append(ci)
+                  end
+                  @shop.save!
                 end
-                @shop.save!
               end
             end
           end
