@@ -123,6 +123,7 @@ GEM
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
+    pg (0.17.1)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -141,6 +142,11 @@ GEM
       sprockets-rails (~> 2.0.0)
     rails4-autocomplete (1.1.0)
       rails (>= 3.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.1)
       actionpack (= 4.0.1)
       activesupport (= 4.0.1)
@@ -229,8 +235,10 @@ DEPENDENCIES
   nokogiri
   paperclip (~> 4.1)
   passenger
+  pg
   rails (= 4.0.1)
   rails4-autocomplete
+  rails_12factor
   russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc

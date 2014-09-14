@@ -84,3 +84,4 @@ gem 'rails4-autocomplete'
 #gem 'rails4-autocomplete', path:"../rails4-autocomplete" # github: 'KosenkoDmitriy/rails4-autocomplete'
 #gem 'rails4-autocomplete', github: 'bfpi/rails4-autocomplete' #https://github.com/bfpi/rails4-autocomplete.git
 #gem 'chosen-rails'
+#ruby "2.0.0"
