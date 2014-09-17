@@ -39,4 +39,11 @@ class Shop < ActiveRecord::Base
       duplicates.each{|double| double.destroy} # duplicates can now be destroyed
     end
   end
+
+  #attr_accessible :title, :content
+  #has_seo_meta :title
+  #has_seo_meta :field, nested: true
+  belongs_to :seo
+  accepts_nested_attributes_for :seo, :allow_destroy => true#, :reject_if => :all_blank
+
 end

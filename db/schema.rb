@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901170450) do
+ActiveRecord::Schema.define(version: 20140917172726) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(version: 20140901170450) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "active_admin_seo_meta", force: true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.string   "description"
+    t.string   "keywords"
+    t.string   "og_title"
+    t.string   "og_type"
+    t.string   "og_image_uid"
+    t.string   "og_url"
+    t.integer  "seoable_id"
+    t.string   "seoable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "og_description"
+    t.string   "og_site_name"
+  end
+
+  add_index "active_admin_seo_meta", ["seoable_id", "seoable_type"], name: "active_admin_seo_meta_seoable"
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -58,10 +77,7 @@ ActiveRecord::Schema.define(version: 20140901170450) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "product_id"
   end
-
-  add_index "brands", ["product_id"], name: "index_brands_on_product_id"
 
   create_table "brands_products", id: false, force: true do |t|
     t.integer "brand_id"
@@ -152,6 +168,14 @@ ActiveRecord::Schema.define(version: 20140901170450) do
     t.datetime "updated_at"
   end
 
+  create_table "seos", force: true do |t|
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.text     "seo_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", force: true do |t|
     t.string   "title"
     t.string   "url"
@@ -162,6 +186,7 @@ ActiveRecord::Schema.define(version: 20140901170450) do
   end
 
   create_table "shops", force: true do |t|
+    t.decimal  "slug"
     t.string   "name"
     t.string   "domain"
     t.datetime "created_at"
@@ -172,16 +197,17 @@ ActiveRecord::Schema.define(version: 20140901170450) do
     t.string   "time_work"
     t.string   "email"
     t.string   "www"
-    t.integer  "favorite",    default: 0, null: false
-    t.integer  "rated",       default: 0, null: false
+    t.integer  "favorite"
+    t.integer  "rated"
     t.integer  "_id"
     t.string   "tags"
     t.text     "description"
     t.integer  "status_id"
     t.text     "comments"
+    t.integer  "seo_id"
   end
 
-  add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"
+  add_index "shops", ["seo_id"], name: "index_shops_on_seo_id"
 
   create_table "statuses", force: true do |t|
     t.integer  "no"

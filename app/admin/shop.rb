@@ -13,8 +13,21 @@ ActiveAdmin.register Shop do
     #autocomplete :category_item, :name, :full => true
     #autocomplete :shop, :name, :full => true
 
+    def new
+      @shop = Shop.new
+      @shop.build_seo
+    end
+
+    def edit
+      @shop = Shop.find(params['id'])
+      if @shop.seo_id.nil?
+        @shop.build_seo
+      end
+    end
+
     def create
       @shop = Shop.new (shop_params.except(:category_items_attributes, :categories_attributes))
+
       ci_attrs = params[:shop][:categories_attributes]
       if ci_attrs
         ci_attrs.each do |ids|
@@ -55,6 +68,7 @@ ActiveAdmin.register Shop do
 
     def update
       @shop = Shop.find(params['id'])
+
       if @shop.update_attributes(shop_params.except(:category_items_attributes, :categories_attributes))
         attrs = params[:shop][:category_items_attributes]
         if attrs
@@ -149,8 +163,9 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy])
+      params.require(:shop).permit(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy], seo_attributes: [:seo_id, :seo_title, :seo_description, :seo_keywords, :_destroy])
     end
+
   end
 
 
@@ -247,6 +262,11 @@ ActiveAdmin.register Shop do
       end
     end
 
+    f.inputs I18n.t("seo") do  # Настройка полей SEO
+      f.semantic_fields_for :seo do |j|
+        j.inputs :seo_title, :seo_keywords, :seo_description
+      end
+    end
     f.actions
   end
 

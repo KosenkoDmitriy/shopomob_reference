@@ -80,8 +80,12 @@ gem "handle_invalid_percent_encoding_requests"
 
 gem 'jquery-rails', '~> 2.1'
 gem 'rails4-autocomplete'
+
 #gem 'rails4-autocomplete', github: 'KosenkoDmitriy/rails4-autocomplete'
 #gem 'rails4-autocomplete', path:"../rails4-autocomplete" # github: 'KosenkoDmitriy/rails4-autocomplete'
 #gem 'rails4-autocomplete', github: 'bfpi/rails4-autocomplete' #https://github.com/bfpi/rails4-autocomplete.git
 #gem 'chosen-rails'
 #ruby "2.0.0"
+
+#gem 'activeadmin-seo', github: 'nebirhos/activeadmin-seo', branch: 'master'
+#gem "activeadmin-dragonfly", github: "stefanoverna/activeadmin-dragonfly"
