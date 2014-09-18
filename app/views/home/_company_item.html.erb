@@ -1,4 +1,5 @@
 <% if (@shop.present?) %>
+    <% title @shop.try(:seo).try(:seo_title) %>
     <header>
       <h2><%= @shop.name %></h2>
     </header>

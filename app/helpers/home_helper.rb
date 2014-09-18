@@ -1,4 +1,5 @@
 module HomeHelper
+
   def format_phone(phone, is_home)
     if (phone.include?("-") or (phone.include?("/")))
       #already formatted
