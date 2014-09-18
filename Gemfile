@@ -6,7 +6,8 @@ gem 'rails', '4.0.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: :production
+#gem 'pg', group: :production #for heroku
+gem 'sqlite3', group: :production
 
 gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.0", :group => :assets, :platform => :ruby, :require => "v8"
