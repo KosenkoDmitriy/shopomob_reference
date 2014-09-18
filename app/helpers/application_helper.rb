@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def title(title = nil)
     if title.present?
       content_for :title, title
@@ -6,6 +7,24 @@ module ApplicationHelper
       content_for?(:title) ? content_for(:title)  + ' | ' + I18n.t('head.title'): I18n.t('head.title')
     end
   end
+
+  def meta_keywords(tags = nil)
+    if tags.present?
+      content_for :meta_keywords, tags
+    else
+      content_for?(:meta_keywords) ? content_for(:meta_keywords) : I18n.t("head.meta.keywords")
+      #content_for?(:meta_keywords) ? [content_for(:meta_keywords), I18n.t("head.meta.keywords")].join(', ') : I18n.t("head.meta.keywords")
+    end
+  end
+
+  def meta_description(desc = nil)
+    if desc.present?
+      content_for :meta_description, desc
+    else
+      content_for?(:meta_description) ? content_for(:meta_description) : I18n.t("head.meta.description") #APP_CONFIG['meta_description']
+    end
+  end
+
 
   def example(options={}, &block)
     out = render :partial => 'home/header', :locals => {:options => options}
