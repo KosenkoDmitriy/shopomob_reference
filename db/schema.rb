@@ -186,7 +186,6 @@ ActiveRecord::Schema.define(version: 20140917172726) do
   end
 
   create_table "shops", force: true do |t|
-    t.decimal  "slug"
     t.string   "name"
     t.string   "domain"
     t.datetime "created_at"
@@ -197,8 +196,8 @@ ActiveRecord::Schema.define(version: 20140917172726) do
     t.string   "time_work"
     t.string   "email"
     t.string   "www"
-    t.integer  "favorite"
-    t.integer  "rated"
+    t.integer  "favorite",    default: 0, null: false
+    t.integer  "rated",       default: 0, null: false
     t.integer  "_id"
     t.string   "tags"
     t.text     "description"
@@ -207,6 +206,7 @@ ActiveRecord::Schema.define(version: 20140917172726) do
     t.integer  "seo_id"
   end
 
+  add_index "shops", ["parent_id"], name: "index_shops_on_parent_id"
   add_index "shops", ["seo_id"], name: "index_shops_on_seo_id"
 
   create_table "statuses", force: true do |t|
