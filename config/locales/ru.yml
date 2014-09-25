@@ -46,6 +46,7 @@ ru:
       call_to_action: "Требует действия"
 
   contacts:
+    department: "Отдел"
     additional: "Другие контакты"
     types: "Типы контактов"
     one: "Контакт"

@@ -163,7 +163,7 @@ ActiveAdmin.register Shop do
 
     private
     def shop_params
-      params.require(:shop).permit(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy], seo_attributes: [:seo_id, :seo_title, :seo_description, :seo_keywords, :_destroy])
+      params.require(:shop).permit(:status_id, :shop_id, :description, :comments, :tags, :category_ids, :category_item_ids, :id, :parent_id, :image, :name, :domain, :postal_code, :address, :time_work, :email, :www, :favorite, :rated, images_attributes: [:id, :image, :_destroy], contact_items_attributes: [:id, :value, :department, :contact_type_id, :_destroy], category_items_attributes: [:id, :name, :_destroy], categories_attributes: [:id, :name, :_destroy], seo_attributes: [:seo_id, :seo_title, :seo_description, :seo_keywords, :_destroy])
     end
 
   end
@@ -250,6 +250,7 @@ ActiveAdmin.register Shop do
       f.has_many :contact_items do |ci|
         ci.input :value
         ci.input :contact_type
+        ci.input :department, :label => I18n.t("contacts.department")
         #ci.input :value, :label => "category_item"
         ci.input :_destroy, :as=>:boolean, :required => false, :label => I18n.t('remove')
       end
