@@ -10,6 +10,7 @@
     contact_type = contact.try(:contact_type)#.try(:value)
     #contact_value = "12313"
     contact_values = []
+   time_works = []
     if (!contact_value.blank?)
       (contact_type.name == "address") ? contact_values << contact_value : contact_values = contact_value.split(',')
     end
@@ -20,6 +21,11 @@
         if (contact_type.name == "address")
           isAddress = true
           addresses << cv
+        end
+
+        if (contact_type.name == "time_work")
+          isTimeWork = true
+          time_works << cv
         end
 
         if (contact_type.name == "url")
@@ -52,22 +58,28 @@ end %>
 
 <% if (!phones.blank?) %>
     <% phones.each do |item| %>
-        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:false, isPhone:true, isHome:true }) || t('contacts.empty') %>
+        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:false, isPhone:true, isHome:true, isTimeWork: false }) || t('contacts.empty') %>
     <% end %>
 <% end %>
 <!--<% if (!emails.blank?) %>-->
     <!--<% emails.each do |item| %>-->
-        <!--<%= render(:partial=> 'home/contact_item', locals: {contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:true, isPhone:false, isHome:false }) || t('contacts.empty') %>-->
+        <!--<%= render(:partial=> 'home/contact_item', locals: {contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:true, isPhone:false, isHome:false, isTimeWork: false }) || t('contacts.empty') %>-->
     <!--<% end %>-->
 <!--<% end %>-->
 <% if (!addresses.blank?) %>
     <% addresses.each do |item| %>
-        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:true, isEmail:false, isPhone:false, isHome:false }) || t('contacts.empty') %>
+        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:true, isEmail:false, isPhone:false, isHome:false, isTimeWork: false }) || t('contacts.empty') %>
     <% end %>
 <% end %>
 <% if (!urls.blank?) %>
     <% urls.each do |item| %>
-        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: true, isAddress:false, isEmail:false, isPhone:false, isHome:false }) || t('contacts.empty') %>
+        <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: true, isAddress:false, isEmail:false, isPhone:false, isHome:false, isTimeWork: false }) || t('contacts.empty') %>
     <% end %>
+<% end %>
+
+<% if (!time_works.blank?) %>
+  <% time_works.each do |item| %>
+      <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:false, isPhone:false, isHome:false, isTimeWork: true  }) || t('contacts.empty') %>
+  <% end %>
 <% end %>
 </ul>

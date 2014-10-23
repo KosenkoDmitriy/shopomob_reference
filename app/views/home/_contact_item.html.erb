@@ -10,6 +10,7 @@
     <%=image_tag("contacts/contacts_www.png", class:"media-object list-icon") if isUrl %>
     <%=image_tag("contacts/contacts_call.png", class:"media-object list-icon") if isPhone %>
     <%=image_tag("contacts/contacts_map.png", class:"media-object list-icon") if isAddress %>
+    <%=image_tag("contacts/contacts_time_work2.png", class:"media-object list-icon") if isTimeWork %>
   </a>
   <div class="media-body">
 
@@ -22,5 +23,7 @@
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
     <%=t('contacts.address') if isAddress %>
+    <%#=t('contacts.time_work') +': '+ contact_phone_department if isTimeWork %>
+    <%=contact_phone_department if isTimeWork %>
   </div>
 </li>
