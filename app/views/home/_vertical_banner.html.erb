@@ -19,7 +19,10 @@
       <div class="carousel-inner">
         <div class="item active">
           <% banner = @banners.first %>
-          <% url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}" %>
+          <%
+             #url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}"
+             url = "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
+          %>
           <a href="<%= url %>">
             <%= (!banner.try(:image).try(:image_url).blank?) ? image_tag( (banner.try(:image).try(:image_url)), :class => "img-thumbnails") : image_tag( 'missing.png', :class => "img-thumbnails" ) %>
 
@@ -74,7 +77,10 @@
       <div class="carousel-inner">
         <% i=0
            @banners.reverse.each do |banner| %>
-            <% url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}" %>
+            <%
+               #url = (controller.action_name == "shops") ? "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}" : "#{controller.action_name}?shop_id=#{banner.shop_id}"
+               url = "#{shops_path}/#{banner.shop_id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
+            %>
 
             <div class="item <%= (i==0) ? "active" : "" %>">
               <!--<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="...">-->

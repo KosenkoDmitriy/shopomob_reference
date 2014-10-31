@@ -11,6 +11,8 @@ class HomeController < ApplicationController
   end
 
   def services
+    #if (params[:shop_id].present?)
+    #end
     @services = Service.all.order(order_id: :asc, title: :asc)
   end
 
@@ -92,41 +94,26 @@ class HomeController < ApplicationController
 
     tcid = params[:id].to_i
     shop_id = params[:shop_id].to_i
-
-    #@tcats = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-    @tcats = CategoryItem.all.order(name: :asc)
-    if (!@tcats.blank?)
-      tcid = (tcid > 0) ? tcid : @tcats.first.id if @tcats.first
-      shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
-
-      @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-
-      begin
-        @shop = @shops.find( shop_id ) if shop_id > 0
-      rescue => ex
-        @shop = @shops.first
-      end
-
-    end
-    #@shop = Shop.find( shop_id )
-    #@shops = CategoryItem.find( shop_id ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-
-    #@items = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
-    #@sub_items = CategoryItem.all.order(name: :asc)
-    #
-    #if (@items.count>0)
-    #  tsubid = (tcid > 0) ? tcid : @items.first.id
-    #  if (@items.where(parent_id:tsubid).count > 0)
-    #    #@sub_items = CategoryItem.where(parent_id:tsubid).order(name: :asc)
-    #    @shops = CategoryItem.find(tsubid).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
-    #    if (@shops.count > 0 && shop_id <= 0)
-    #      @shop = @shops.first
-    #    elsif (shop_id > 0)
-    #      @shop = Shop.find(shop_id)
-    #    end
-    #  end
+    #if !params[:id].present? && params[:shop_id].present?
+    #  @shop = Shop.find(shop_id)
+    #  #tcid = @shop.try(:category_items).(:first)
+    #  #if (tcid > 0)
+    #  #  @sub_cat = CategoryItem.find(tcid)
+    #  #end
+    #  @tcats = CategoryItem.all.order(name: :asc)
     #else
-
+      #@tcats = CategoryItem.where(parent_id:0).order(name: :asc)#.paginate(:page => params[:page], :per_page => 10) #Shop.all#[0..3]
+      @tcats = CategoryItem.all.order(name: :asc)
+      if (!@tcats.blank?)
+        tcid = (tcid > 0) ? tcid : @tcats.first.id if @tcats.first
+        shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
+        @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+        begin
+          @shop = @shops.find( shop_id ) if shop_id > 0
+        rescue => ex
+          @shop = @shops.first
+        end
+      end
     #end
 
   end
