@@ -18,10 +18,10 @@
           # : "#{controller.action_name}?shop_id=#{item.id}"
           url = ""
           if (controller.action_name == "shops")
-            url = "/#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
+            url = "#{shops_path}/#{item.id}?query=#{ (params[:query].blank?) ? params[:squery] : params[:query]}&page=#{ (params[:page].blank?) ? "1" : params[:page]}"
           end
           if (controller.action_name == "tcats")
-            url = "/#{controller.action_name}/#{params[:id]}/?shop_id=#{item.id}"
+            url = "#{tcats_path}/#{params[:id]}/?shop_id=#{item.id}"
           end
         %>
 
