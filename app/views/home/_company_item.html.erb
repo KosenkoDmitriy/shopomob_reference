@@ -7,7 +7,7 @@
     </header>
     <p>
       <% if @shop.try(:tags).present?
-         @shop.try(:tags).split(" ").each do |shop| %>
+         @shop.try(:tags).split(",").each do |shop| %>
         <a href="<%="#{shops_path}/-1/#{shop}?page=1"%>"><%= shop %></a>
           <% end %>
       <% end %>

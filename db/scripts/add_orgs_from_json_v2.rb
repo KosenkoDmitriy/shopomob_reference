@@ -25,54 +25,79 @@ def self.parse_item name, cat_item
 
   orgs = parsed_json["vpage"]["data"]["businesses"]["GeoObjectCollection"]["features"]#[0]["properties"]["CompanyMetaData"]["name"]
   items = []
+  emails = []
   orgs.each do |org|
     #item = org["properties"]["CompanyMetaData"]
     item = org["properties"]["CompanyMetaData"] || org["properties"]["PSearchObjectMetaData"]
-    s = Shop.new
-    s.name = item["name"].gsub('"', '') if item && item["name"].present?
-    s.address = item["address"].gsub(" (Дзæуджыхъæу)", "") if item && item["address"].present?
-    s.www = item["url"] if item && item["url"].present?
-    s.email = item["InternalCompanyInfo"]["emails"].join(",") if item.present? && item["InternalCompanyInfo"].present? && item["InternalCompanyInfo"]["emails"].present?
-    s.time_work = item["Hours"]["text"] if item && item["Hours"].present? && item["Hours"]["text"].present?
-    s.tags += "#{Unicode::downcase(name)}," if s.tags.present?
-    s.tags = Unicode::downcase(name) if s.tags.blank?
-    #shop = Shop.find_or_initialize_by_name(s.name)
-    #if (shop.new_record?)
-    #
-    #end
-    phones = item["Phones"] if item && item["Phones"].present?
-    if (!phones.blank?)
-      phones.each do |phone|
-        contactItem = ContactItem.find_or_create_by(value:phone["formatted"], contact_type:ct_phone)
-        s.contact_items.append( contactItem )
+    #s = Shop.new
+    cname = item["name"].gsub('"', '') if item && item["name"].present?
+    caddress = item["address"].gsub(" (Дзæуджыхъæу)", "") if item && item["address"].present?
+
+
+      if cname.present? && caddress.present? && caddress.split(',').count >= 3
+        s = Shop.find_or_create_by(name:cname, address:caddress)
+        s.name = cname
+        s.address = caddress
+        s.www = item["url"] if item && item["url"].present?
+        s.email = item["InternalCompanyInfo"]["emails"].join(",") if item.present? && item["InternalCompanyInfo"].present? && item["InternalCompanyInfo"]["emails"].present?
+        s.time_work = item["Hours"]["text"] if item && item["Hours"].present? && item["Hours"]["text"].present?
+        s.tags += "#{Unicode::downcase(name)}," if s.tags.present?
+        s.tags = Unicode::downcase(name) if s.tags.blank?
+        #shop = Shop.find_or_initialize_by_name(s.name)
+        #if (shop.new_record?)
+        #
+        #end
+
+        puts "new: #{s.name} | #{s.address} | #{s.email} | #{s.www}"
+        phones = item["Phones"] if item && item["Phones"].present?
+        if (!phones.blank?)
+          phones.each do |phone|
+            phone = phone["formatted"]
+            if (phone.present?)
+              puts "Phone: #{phone}"
+              contactItem = ContactItem.find_or_create_by(value:phone, contact_type:ct_phone)
+              s.contact_items.append( contactItem )
+            end
+          end
+        end
+        s.category_items.append( cat_item )
+        s.save!# if s.contact_items.count > 0
+
+        #searchName = s.name
+        #shops = Shop.where("name like ? or name like ? or name like ? or name like ?", searchName, Unicode::downcase(searchName), Unicode::upcase(searchName), Unicode::capitalize(searchName))
+        #if (shops.blank?)
+        #puts "new: #{s.name} | #{shops.count}"
+        #else
+        #  shops.each do |shop|
+        #    puts "finded: #{shop.name} | #{s.name}"
+        #    #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
+        #    ci = ContactItem.find_or_create_by(value:s.address, contact_type:ct_address)
+        #    shop.contact_items << ci if (s.address != shop.address)
+        #    shop.contact_items = (shop.contact_items).uniq
+        #    #shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at')) if (!s.name.blank?)
+        #    shop.save
+        #
+        #    s = shop
+        #  end
+        #end
+        items << s
+        emails << s.email if s.email.present?
+
       end
-    end
-    s.category_items.append( cat_item )
-    #shop = Shop.find_or_create_by(name:s.name)
-    if (!s.name.blank?)
-      searchName = s.name
-      #shops = Shop.where("name like ? or name like ? or name like ? or name like ?", searchName, Unicode::downcase(searchName), Unicode::upcase(searchName), Unicode::capitalize(searchName))
-      #if (shops.blank?)
-      puts "new: #{s.name}"
-      #puts "new: #{s.name} | #{shops.count}"
-        s.save! if s.name.present?
-      #else
-      #  shops.each do |shop|
-      #    puts "finded: #{shop.name} | #{s.name}"
-      #    #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
-      #    ci = ContactItem.find_or_create_by(value:s.address, contact_type:ct_address)
-      #    shop.contact_items << ci if (s.address != shop.address)
-      #    shop.contact_items = (shop.contact_items).uniq
-      #    #shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at')) if (!s.name.blank?)
-      #    shop.save
-      #
-      #    s = shop
-      #  end
-      #end
-      items << s
-    end
   end
   cat_item.shops = (items+cat_item.shops).uniq()
+  puts "emails count = #{emails.count} | emails uniq = #{emails.uniq().count}"
+  emails_uniq= emails.uniq()
+  puts "emails"
+  emails.each do |email|
+    puts "#{email},"
+  end
+  puts "emails uniq"
+  emails_uniq.each do |email|
+    puts "#{email},"
+  end
+
+
 end
 
 update_shops()

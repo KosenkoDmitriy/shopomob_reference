@@ -23,11 +23,13 @@ AdminUser.create!(:email => 'shopomob@shopomob.ru', :password => 'shopomobpass',
 #Status.create(no: 5, title: 'approved', text: 'Одобрен/Опубликован/Подтвержден')
 
 Status.find_or_create_by(no: 1, title: 'не отвечает на звонок', text: '')
-Status.find_or_create_by(no: 2, title: 'удалена', text: '')
-Status.find_or_create_by(no: 3, title: 'просит перезвонить', text: '')
-Status.find_or_create_by(no: 4, title: 'ожидаем актуальной информации', text: '')
-Status.find_or_create_by(no: 5, title: 'ожидаем оплаты', text: '')
-Status.find_or_create_by(no: 6, title: 'подтверждена', text: '')
+Status.find_or_create_by(no: 2, title: 'подтверждена', text: '')
+Status.find_or_create_by(no: 3, title: 'отправлено коммерческое предложение', text: '')
+Status.find_or_create_by(no: 4, title: 'просит перезвонить', text: '')
+Status.find_or_create_by(no: 5, title: 'ожидаем актуальной информации', text: '')
+Status.find_or_create_by(no: 6, title: 'ожидаем оплаты', text: '')
+Status.find_or_create_by(no: 7, title: 'удалена', text: '')
+
 
 ct_mail = ContactType.find_or_create_by(name:'email', value:'@')
 ct_url = ContactType.find_or_create_by(name:'url', value:'веб-сайт')
@@ -38,29 +40,29 @@ require 'csv'
 path_to_app = Rails.root.join('db', 'csv') #File.dirname(__FILE__)+'/csv/'
 path_to_img = Rails.root.join('db', 'images') #File.dirname(__FILE__)+'/images/'
 
-#file_path = "#{path_to_app}/services.csv"
-#puts file_path
-#CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
-#  item = Service.find_or_create_by( order_id: row['order_id'].to_i, title: row['title'], text: row['text'], url: row['url'])
-#  if (!row['image'].blank?)
-#    img_path = path_to_img + row['image']
-#    if (File.exists?(img_path))
-#      item.image = Image.create(:image=>File.open(img_path))
-#    end
-#  end
-#end
-#
-#file_path = "#{path_to_app}/banners.csv"
-#puts file_path
-#CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
-#  item = Banner.find_or_create_by(shop_id: row['shop_id'].to_i, title: row['title'], url: row['url'])
-#  if (!row['image'].blank?)
-#    img_path = path_to_img + row['image']
-#    if (File.exists?(img_path))
-#      item.image = Image.create(:image=>File.open(img_path))
-#    end
-#  end
-#end
+file_path = "#{path_to_app}/services.csv"
+puts file_path
+CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
+  item = Service.find_or_create_by( order_id: row['order_id'].to_i, title: row['title'], text: row['text'], url: row['url'])
+  if (!row['image'].blank?)
+    img_path = path_to_img + row['image']
+    if (File.exists?(img_path))
+      item.image = Image.create(:image=>File.open(img_path))
+    end
+  end
+end
+
+file_path = "#{path_to_app}/banners.csv"
+puts file_path
+CSV.foreach(file_path, :headers => true, :col_sep => ',') do |row|
+  item = Banner.find_or_create_by(shop_id: row['shop_id'].to_i, title: row['title'], url: row['url'])
+  if (!row['image'].blank?)
+    img_path = path_to_img + row['image']
+    if (File.exists?(img_path))
+      item.image = Image.create(:image=>File.open(img_path))
+    end
+  end
+end
 
 file_path = "#{path_to_app}/tcats.csv"
 puts file_path
