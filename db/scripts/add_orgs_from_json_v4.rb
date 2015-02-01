@@ -1,3 +1,16 @@
+def is_phone_exist item
+  phones = item["Phones"] if item && item["Phones"].present?
+  if (!phones.blank?)
+    phones.each do |phone|
+      phone = phone["formatted"]
+      if (phone.present?)
+        return true
+      end
+    end
+  end
+  return false
+end
+
 def self.update_shops
   #key_words = ["Отдых","развлечения", "Магазины", "Красота", "здоровье", "Услуги", "Спорт","фитнес", "Авто", "Образование", "Туризм", "Недвижимость","строительство", "Финансы", "Транспорт", "Связь", "Домашние животные", "Государство","общество", "Бильярд", "Боулинг", "Дворцы и дома культуры", "Зоопарки", "Кинотеатры", "Музеи", "Ночные клубы", "Парки", "Парки культуры и отдыха", "Развлекательные центры", "Рестораны", "кафе", "бары", "Театры", "Танцы", "Школы танцев", "Гипермаркеты", "Детские магазины", "Книжные магазины", "Компьютерные магазины", "Мебель","Магазины мебели", "одежда", "обувь", "Магазины одежды и обуви", "продукты","Магазины продуктов", "ткань", "Магазины ткани", "хозтовары","Магазины хозтоваров", "электроника","Магазины электроники", "Музыкальные магазины", "Парфюмерные магазины", "Охота","Рыбалка","Охотничьи и рыболовные магазины", "Рынки", "Спортивные магазины", "Супермаркеты", "Торговые центры", "Ювелирные магазины", "Аптеки", "Больницы", "Женские консультации", "Клиники", "Медицинские центры", "Парикмахерские", "Поликлиники", "Родильные дома", "Салоны красоты", "Скорая помощь", "Солярии", "СПА-салоны", "Стоматология", "Травмпункты", "Аварийные службы", "Ателье по пошиву одежды", "Коммунальные службы", "Ломбарды", "Нотариус", "Нотариальные услуги", "Полиграфия", "Полиграфические услуги", "Прачечные", "Такси", "Фотоуслуги", "Химчистки", "Юристы", "Архитектура", "дизайн", "Архитектура и дизайн", "Бани", "сауны", "Бани и сауны", "Бассейны", "Спортивные комплексы", "Стадионы", "Фитнес-клубы", "Автозапчасти", "Автомагазины", "Автомойки", "Автосалоны", "Автосервисы", "автотехцентры", "Автосервисы, автотехцентры","Автостоянки", "Автостоянки, паркинги", "Автошколы", "АЗС", "ГАИ, ГИБДД", "МРЭО", "Шиномонтаж", "Библиотеки", "Вузы", "Детские сады", "Школы", "Авиа- и ж/д билеты", "Авиа билеты", "ж/д билеты", "Гостиницы", "Оформление виз", "Посольства, консульства", "Туроператоры", "Турфирмы", "Агентства недвижимости", "Аренда квартир и офисов", "Двери, дверные блоки", "Окна", "Строительные компании", "Строительные магазины", "Банки", "Банкоматы", "Обмен валют", "Автовокзалы", "Аэропорты", "Железнодорожные вокзалы", "Интернет-кафе", "Операторы сотовой связи", "Почта, телеграф", "Провайдеры", "Салоны связи", "Ветпомощь на дому", "Ветеринарные аптеки", "Ветеринарные клиники", "Зоосалоны, зоопарикмахерские", "Зоосалоны", "зоопарикмахерские", "Аптеки", "Автосервисы, автотехцентры", "Автосалоны", "Автозапчасти", "Автомагазины", "Авиа- и ж/д билеты", "Салоны связи", "Строительные магазины", "Военкоматы, комиссариаты", "ЗАГСы", "Налоговые инспекции, службы", "Органы власти", "Отделения милиции", "Паспортно-визовые службы", "Пенсионные фонды", "Религиозные учреждения", "Санэпидемстанции", "Суды", "Судебные приставы", "Центры занятости"]
   #CategoryItem.where("parent_id>0")[0..5].each do |ci|
@@ -87,80 +100,81 @@ def self.parse_item name, cat_item
       curl = internal["url"] if internal && internal["url"].present?
     end
 
-      if cname.present? && addressLine.present? && addressLine.size > 11 #addressLine.split(',').count >= 3
-        addressLine = addressLine.gsub(" улица", "").gsub("улица ", "ул. ").gsub("проспект ", "пр. ").gsub("просп. ", "пр. ").gsub("пр-т. ", "пр. ").gsub("переулок ", "пер. ").gsub(" переулок", "")
-        addressSplittedLine = addressLine.split(',') if addressLine.present?
-        if addressSplittedLine.present?
-          addressLine1 = addressSplittedLine[0..-2].join(",").rstrip # before home no
-          addressLine2 = addressSplittedLine[-1..-1].join(",").lstrip # home no/last part of address line
-          addressLine = addressLine1 + " " + addressLine2
-          posCity = addressSplittedLine[-5..-5].join(",").strip if addressSplittedLine[-5..-5].present? #city/town
-          posState = addressSplittedLine[-4..-4].join(",").strip if addressSplittedLine[-4..-4].present? #region/area
-          posStreet = addressSplittedLine[-3..-3].join(",").strip if addressSplittedLine[-3..-3].present? #region
-          posStreet = addressSplittedLine[-2..-2].join(",").strip if addressSplittedLine[-2..-2].present? #region
-          posNo = addressSplittedLine[-1..-1].join(",").strip if addressSplittedLine[-1..-1].present? #region
-        end
-        s = Shop.find_or_create_by(name:cname, address:addressLine)
-        s.name = cname
-        s.address = addressLine
-        s.www = curl # item["url"] if item && item["url"].present?
-        s.email = cemail #item["InternalCompanyInfo"]["emails"].join(",") if item.present? && item["InternalCompanyInfo"].present? && item["InternalCompanyInfo"]["emails"].present?
-        s.time_work = item["Hours"]["text"] if item && item["Hours"].present? && item["Hours"]["text"].present?
-        s.tags += ",#{Unicode::downcase(name)}" if s.tags.present?
-        s.tags = "#{Unicode::downcase(name)}" if s.tags.blank?
-        s.tags = s.tags.split(",").uniq().join(",")
-        #shop = Shop.find_or_initialize_by_name(s.name)
-        #if (shop.new_record?)
-        #
-        #end
-
-        puts "new: #{s.name} | #{s.address} | #{s.email} | #{s.www}"
-        phones = item["Phones"] if item && item["Phones"].present?
-        if (!phones.blank?)
-          phones.each do |phone|
-            phone = phone["formatted"]
-            if (phone.present?)
-              puts "Phone: #{phone}"
-              contactItem = ContactItem.find_or_create_by(value:phone, contact_type:ct_phone)
-              s.contact_items.append( contactItem )
-            end
-          end
-        end
-        links = item["Links"] if item && item["Links"].present?
-        if (!links.blank?)
-          links.each do |link|
-            link = link["href"]
-            if (link.present?)
-              puts "Link: #{link}"
-              contactItem = ContactItem.find_or_create_by(value:link, contact_type:ct_url)
-              s.contact_items.append( contactItem )
-            end
-          end
-        end
-        s.category_items.append( cat_item )
-        s.save!# if s.contact_items.count > 0
-
-        #searchName = s.name
-        #shops = Shop.where("name like ? or name like ? or name like ? or name like ?", searchName, Unicode::downcase(searchName), Unicode::upcase(searchName), Unicode::capitalize(searchName))
-        #if (shops.blank?)
-        #puts "new: #{s.name} | #{shops.count}"
-        #else
-        #  shops.each do |shop|
-        #    puts "finded: #{shop.name} | #{s.name}"
-        #    #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
-        #    ci = ContactItem.find_or_create_by(value:s.address, contact_type:ct_address)
-        #    shop.contact_items << ci if (s.address != shop.address)
-        #    shop.contact_items = (shop.contact_items).uniq
-        #    #shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at')) if (!s.name.blank?)
-        #    shop.save
-        #
-        #    s = shop
-        #  end
-        #end
-        items << s
-        emails << s.email if s.email.present?
-
+    if cname.present?
+    if ((addressLine.present? && addressLine.split(',').count >= 3) || is_phone_exist(item))
+      addressLine = addressLine.gsub(" улица", "").gsub("Улица ", "ул. ").gsub("улица ", "ул. ").gsub("проспект ", "пр. ").gsub("просп. ", "пр. ").gsub("пр-т. ", "пр. ").gsub("переулок ", "пер. ").gsub(" переулок", "")
+      addressSplittedLine = addressLine.split(',') if addressLine.present?
+      if addressSplittedLine.present?
+        addressLine1 = addressSplittedLine[0..-2].join(",").rstrip # before home no
+        addressLine2 = addressSplittedLine[-1..-1].join(",").lstrip # home no/last part of address line
+        addressLine = addressLine1 + " " + addressLine2
+        posCity = addressSplittedLine[-5..-5].join(",").strip if addressSplittedLine[-5..-5].present? #city/town
+        posState = addressSplittedLine[-4..-4].join(",").strip if addressSplittedLine[-4..-4].present? #region/area
+        posStreet = addressSplittedLine[-3..-3].join(",").strip if addressSplittedLine[-3..-3].present? #region
+        posStreet = addressSplittedLine[-2..-2].join(",").strip if addressSplittedLine[-2..-2].present? #region
+        posNo = addressSplittedLine[-1..-1].join(",").strip if addressSplittedLine[-1..-1].present? #region
       end
+      s = Shop.find_or_create_by(name:cname.strip, address:addressLine.strip)
+      s.name = cname
+      s.address = addressLine
+      s.www = curl # item["url"] if item && item["url"].present?
+      s.email = cemail #item["InternalCompanyInfo"]["emails"].join(",") if item.present? && item["InternalCompanyInfo"].present? && item["InternalCompanyInfo"]["emails"].present?
+      s.time_work = item["Hours"]["text"] if item && item["Hours"].present? && item["Hours"]["text"].present?
+      s.tags += ",#{Unicode::downcase(name)}" if s.tags.present?
+      s.tags = "#{Unicode::downcase(name)}" if s.tags.blank?
+      s.tags = s.tags.split(",").uniq().join(",")
+      #shop = Shop.find_or_initialize_by_name(s.name)
+      #if (shop.new_record?)
+      #
+      #end
+
+      puts "new: #{s.name} | #{s.address} | #{s.email} | #{s.www}"
+      phones = item["Phones"] if item && item["Phones"].present?
+      if (!phones.blank?)
+        phones.each do |phone|
+          phone = phone["formatted"]
+          if (phone.present?)
+            puts "Phone: #{phone}"
+            contactItem = ContactItem.find_or_create_by(value:phone, contact_type:ct_phone)
+            s.contact_items.append( contactItem )
+          end
+        end
+      end
+      links = item["Links"] if item && item["Links"].present?
+      if (!links.blank?)
+        links.each do |link|
+          link = link["href"]
+          if (link.present?)
+            puts "Link: #{link}"
+            contactItem = ContactItem.find_or_create_by(value:link, contact_type:ct_url)
+            s.contact_items.append( contactItem )
+          end
+        end
+      end
+      s.category_items.append( cat_item )
+      s.save!# if s.contact_items.count > 0
+
+      #searchName = s.name
+      #shops = Shop.where("name like ? or name like ? or name like ? or name like ?", searchName, Unicode::downcase(searchName), Unicode::upcase(searchName), Unicode::capitalize(searchName))
+      #if (shops.blank?)
+      #puts "new: #{s.name} | #{shops.count}"
+      #else
+      #  shops.each do |shop|
+      #    puts "finded: #{shop.name} | #{s.name}"
+      #    #ci = ContactItem.find_or_create_by(fio:"", department:"", value:address, shop:shop, contact_type:ct_address)
+      #    ci = ContactItem.find_or_create_by(value:s.address, contact_type:ct_address)
+      #    shop.contact_items << ci if (s.address != shop.address)
+      #    shop.contact_items = (shop.contact_items).uniq
+      #    #shop.update_attributes(s.attributes.except('id', 'updated_at', 'created_at')) if (!s.name.blank?)
+      #    shop.save
+      #
+      #    s = shop
+      #  end
+      #end
+      items << s
+      emails << s.email if s.email.present?
+    end
+    end
   end
   cat_item.shops = (items+cat_item.shops).uniq()
   puts "emails count = #{emails.count} | emails uniq = #{emails.uniq().count}"
