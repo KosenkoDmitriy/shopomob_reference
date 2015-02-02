@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#load Rails.root.join('db', 'scripts', 'main_init.rb') # main init
+load Rails.root.join('db', 'scripts', 'main_init.rb') # main init
 
 #load Rails.root.join('db', 'scripts', 'add_orgs_from_json.rb') #load orgs from csv file
 #load Rails.root.join('db', 'scripts', 'add_orgs_from_csv.rb') #load orgs from csv file
@@ -17,7 +17,7 @@
 #load Rails.root.join('db', 'scripts', 'add_orgs_from_csv_v4.rb') #load orgs from csv file
 #load Rails.root.join('db', 'scripts', 'add_orgs_from_json_v4.rb') #load orgs from csv file
 
-#load Rails.root.join('db', 'scripts', 'add_orgs_from_csv_v5.rb') #load orgs from csv file
+load Rails.root.join('db', 'scripts', 'add_orgs_from_csv_v5.rb') #load orgs from csv file
 load Rails.root.join('db', 'scripts', 'add_orgs_from_json_v4.rb') #load orgs from csv file
 
 #remove duplicates

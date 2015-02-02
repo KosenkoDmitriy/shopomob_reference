@@ -108,11 +108,11 @@ def self.parse_item name, cat_item
         addressLine1 = addressSplittedLine[0..-2].join(",").rstrip # before home no
         addressLine2 = addressSplittedLine[-1..-1].join(",").lstrip # home no/last part of address line
         addressLine = addressLine1 + " " + addressLine2
-        posCity = addressSplittedLine[-5..-5].join(",").strip if addressSplittedLine[-5..-5].present? #city/town
-        posState = addressSplittedLine[-4..-4].join(",").strip if addressSplittedLine[-4..-4].present? #region/area
-        posStreet = addressSplittedLine[-3..-3].join(",").strip if addressSplittedLine[-3..-3].present? #region
-        posStreet = addressSplittedLine[-2..-2].join(",").strip if addressSplittedLine[-2..-2].present? #region
-        posNo = addressSplittedLine[-1..-1].join(",").strip if addressSplittedLine[-1..-1].present? #region
+        #posCity = addressSplittedLine[-5..-5].join(",").strip if addressSplittedLine[-5..-5].present? #city/town
+        #posState = addressSplittedLine[-4..-4].join(",").strip if addressSplittedLine[-4..-4].present? #region/area
+        #posStreet = addressSplittedLine[-3..-3].join(",").strip if addressSplittedLine[-3..-3].present? #region
+        #posStreet = addressSplittedLine[-2..-2].join(",").strip if addressSplittedLine[-2..-2].present? #region
+        #posNo = addressSplittedLine[-1..-1].join(",").strip if addressSplittedLine[-1..-1].present? #region
       end
       s = Shop.find_or_create_by(name:cname.strip, address:addressLine.strip)
       s.name = cname

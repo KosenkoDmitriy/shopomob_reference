@@ -1,0 +1,2115 @@
+{"request": {
+    "args": {
+        "page": "index",
+        "text": " жалюзи",
+        "sll": "44.680171999999985,43.01867800002452",
+        "sspn": "1.0848999023437322,0.16951489115989204",
+        "source": "catalog",
+        "results": "1000",
+        "key": "yedfee39fb517acdc890d464e5f6abb10",
+        "output": "json"
+    },
+    "argArrays": {
+        "page": ["index"],
+        "text": [" жалюзи"],
+        "sll": ["44.680171999999985,43.01867800002452"],
+        "sspn": ["1.0848999023437322,0.16951489115989204"],
+        "source": ["catalog"],
+        "results": ["1000"],
+        "key": ["yedfee39fb517acdc890d464e5f6abb10"],
+        "output": ["json"]
+    }
+}, "title": " жалюзи", "map": {
+    "bounds": [
+        [44.62657855, 43.01768248],
+        [44.69957565, 43.06267355]
+    ]
+}, "vpage": {
+    "name": "serp",
+    "data": {
+        "hint": "",
+        "mode": "bizfinder",
+        "reqid": "142280822179863100",
+        "serpid": "142280822179863100",
+        "businesses": {
+            "request": {
+                "experimental_test-ids": "",
+                "experimental_alternative_verticals": "1",
+                "direct": "page:131",
+                "dump": false,
+                "experimental_distinguish_layers": "1",
+                "experimental_extended_global_search": "1",
+                "experimental_maxadv": "200",
+                "experimental_tld": "ru",
+                "geocoder_geometry": "1",
+                "geocoder_sco": "latlong",
+                "geocoder_pin": "0",
+                "lang": "ru_RU",
+                "origin": "maps-catalog",
+                "results": 1000,
+                "skip": 0,
+                "snippets": "router/1.x,panoramas/1.x,masstransit/1.x,business/1.x,businessrating/2.x,photos/1.x",
+                "source": "catalog",
+                "test_buckets": "",
+                "type": "biz,geo,psearch,web",
+                "yabs": "page:144",
+                "yandex_gid": "33",
+                "text": " жалюзи",
+                "ll": "44.680171999999985,43.01867800002452",
+                "spn": "1.0848999023437322,0.16951489115989204"
+            },
+            "GeoObjectCollection": {
+                "type": "FeatureCollection",
+                "properties": {
+                    "Attribution": {
+                        "Sources": {
+                            "yandex": {
+                                "id": "yandex",
+                                "authors": [
+                                    {
+                                        "name": "Яндекс",
+                                        "uri": "http://www.yandex.ru"
+                                    }
+                                ]
+                            },
+                            "sm": {
+                                "id": "sm",
+                                "authors": [
+                                    {
+                                        "name": "Желтые страницы Юга России",
+                                        "uri": "http://sam5.ru"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "ResponseMetaData": {
+                        "SearchRequest": {
+                            "request": " жалюзи",
+                            "results": 1000,
+                            "skip": 0,
+                            "boundedBy": [
+                                [44.13772436, 42.93386506],
+                                [45.22261972, 43.10337274]
+                            ]
+                        },
+                        "SearchResponse": {
+                            "found": 15,
+                            "Sort": {
+                                "type": "rank"
+                            },
+                            "Point": {
+                                "type": "Point",
+                                "coordinates": [44.6630771, 43.04018217]
+                            },
+                            "boundedBy": [
+                                [44.62657855, 43.01768248],
+                                [44.69957565, 43.06267355]
+                            ],
+                            "SourceMetaDataList": {
+                                "SourceMetaData": {
+                                    "ResponseMetaData": {
+                                        "BusinessSearchRequest": {
+                                            "request": "жалюзи",
+                                            "results": 500,
+                                            "boundedBy": [
+                                                [44.137724, 42.933865],
+                                                [45.22262, 43.103373]
+                                            ]
+                                        },
+                                        "BusinessSearchResponse": {
+                                            "sort": "rank",
+                                            "found": 15,
+                                            "Categories": [
+                                                {
+                                                    "name": "Жалюзи",
+                                                    "InternalCategoryInfo": {
+                                                        "AppleData": {
+                                                            "acid": "yandex_184107989",
+                                                            "level": "2"
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "Point": {
+                                                "type": "Point",
+                                                "coordinates": [44.663077, 43.03984]
+                                            },
+                                            "boundedBy": [
+                                                [44.627926, 43.017986],
+                                                [44.698228, 43.061686]
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "InternalResponseInfo": {
+                                "display": "multiple",
+                                "context": "BQAAAAEA0tNH4A9XRkBIoWsKZIJFQLD///+/W/E/AL7b+KmyxT8AAAAAyAAAAAAAAAAAAAAAAAAAAAANKwAAAQ==",
+                                "reqid": "142280822179863100",
+                                "serpid": "142280822179863100",
+                                "Banners": [
+                                    {
+                                        "title": "Жалюзи Welcome",
+                                        "text": "Жалюзи во Владикавказе.",
+                                        "extra": "рулонные шторы, жалюзи горизонтальные, вертикальные.",
+                                        "url": "http://yabs.yandex.ru/count/Msy_Sxc6BrG40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog0QMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL",
+                                        "domain": "welcome15.ru",
+                                        "counter": "http://yabs.yandex.ru/count/Msy_Sn664Vu40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog1wMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL?wmode=3",
+                                        "Links": [
+                                            {
+                                                "type": "vcard",
+                                                "href": "http://yabs.yandex.ru/count/Msy_Sn664Vu40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog1wMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL"
+                                            }
+                                        ],
+                                        "Sitelinks": [],
+                                        "ContactInfo": {
+                                            "companyName": "Жалюзи Welcome",
+                                            "address": "Куйбышева, д. 100",
+                                            "phone": "+7 (8672) 49-91-50",
+                                            "email": "genawelcome@list.ru",
+                                            "hours": "пн-пт 9:00-18:00"
+                                        }
+                                    },
+                                    {
+                                        "title": "Жалюзи во Владикавказе",
+                                        "text": "Купить жалюзи во Владикавказе",
+                                        "extra": "Производство, продажа, установка различных видов жалюзи (горизонтальные, вертикальные, рулонные), в нашем ассортименте представлены жалюзи разнообразных цветов и материалов.",
+                                        "url": "http://yabs.yandex.ru/count/Msy_So7l1NW40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge1fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0",
+                                        "counter": "http://yabs.yandex.ru/count/Msy_SudlEz840WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge7fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0?wmode=3",
+                                        "Links": [
+                                            {
+                                                "type": "vcard",
+                                                "href": "http://yabs.yandex.ru/count/Msy_SudlEz840WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge7fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0"
+                                            }
+                                        ],
+                                        "Sitelinks": [],
+                                        "ContactInfo": {
+                                            "companyName": "ООО \"ИНТЕРЛЮКС\"",
+                                            "address": "Калинина, д. 2а",
+                                            "phone": "+7 (988) 831-76-66",
+                                            "email": "region15chuba@gmail.com",
+                                            "hours": "пн-сб 9:00-21:00",
+                                            "Point": {
+                                                "type": "Point",
+                                                "coordinates": [44.655594, 43.043193]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1132496676",
+                                "name": "Аврора",
+                                "address": "Владикавказ, ул. Первомайская, 27",
+                                "postalCode": "362003",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Первомайская, 27",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "Владикавказ город",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "Первомайская улица",
+                                                    "Premise": {
+                                                        "PremiseNumber": "27",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362003"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://aurora-doorhan.ru",
+                                "urls": ["http://aurora-doorhan.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-42-28",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "444228"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 52-58-52",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "525852"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "13:00:00"
+                                                },
+                                                {
+                                                    "from": "14:00:00",
+                                                    "to": "17:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 10:00-17:00, перерыв 13:00-14:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1132496676"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1132496676"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Первомайская, 27",
+                            "name": "Аврора",
+                            "boundedBy": [
+                                [44.65237816, 43.01497326],
+                                [44.6688353, 43.02704848]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.660603, 43.021008]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1227373407",
+                                "name": "Благо, ИП",
+                                "address": "Владикавказ, ул. Иристонская, 27",
+                                "postalCode": "362000",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Иристонская, 27",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Иристонская",
+                                                    "Premise": {
+                                                        "PremiseNumber": "27",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362000"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Металлические заборы и ограждения",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107713",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (918) 827-27-86",
+                                        "country": "7",
+                                        "prefix": "918",
+                                        "number": "8272786"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 067-85-82",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "0678582"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (960) 402-65-89",
+                                        "country": "7",
+                                        "prefix": "960",
+                                        "number": "4026589"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 97-27-86",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "972786"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1227373407", "1257118176"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1227373407"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Иристонская, 27",
+                            "name": "Благо, ИП",
+                            "boundedBy": [
+                                [44.65666313, 43.05528274],
+                                [44.67312026, 43.06734997]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.664892, 43.061317]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1097817774",
+                                "name": "Салон Адель",
+                                "address": "Владикавказ, просп. Мира, 50",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, просп. Мира, 50",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "Мира проспект",
+                                                    "Premise": {
+                                                        "PremiseNumber": "50"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://www.shtory-adel.ru",
+                                "urls": ["http://www.shtory-adel.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Шторы, карнизы",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "shopping",
+                                                "level": "1"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Текстиль",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184108045",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-39-38",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "443938"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 53-12-12",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "531212"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 53-26-64",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "532664"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Everyday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "19:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "ежедневно, 10:00-19:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1097817774"],
+                                    "geoid": "33",
+                                    "emails": ["salon-adel@yandex.ru"]
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1097817774"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, просп. Мира, 50",
+                            "name": "Салон Адель",
+                            "boundedBy": [
+                                [44.6721411, 43.02793161],
+                                [44.68859824, 43.04000426]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.68037, 43.033968]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1024957642",
+                                "name": "Океан, ИП",
+                                "address": "Владикавказ, ул. Цоколаева, 13",
+                                "postalCode": "362047",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Цоколаева, 13",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "Владикавказ город",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Цоколаева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "13а, ТЦ Весна",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362047"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 91-23-23",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "912323"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 61-01-11",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "610111"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 70-07-20",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "700720"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "17:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-17:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1024957642"],
+                                    "geoid": "33",
+                                    "emails": ["ocean1780@mail.ru"]
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1024957642"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Цоколаева, 13",
+                            "name": "Океан, ИП",
+                            "boundedBy": [
+                                [44.6225002, 43.03340809],
+                                [44.63895733, 43.04547965]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.630729, 43.039444]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1057153808",
+                                "name": "Комфорт, ИП",
+                                "address": "Владикавказ, ул. Генерала Плиева (Орджон), 36",
+                                "postalCode": "362008",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Генерала Плиева (Орджон), 36",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "Владикавказ город",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "Генерала Плиева (Орджон) улица",
+                                                    "Premise": {
+                                                        "PremiseNumber": "36",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362008"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://komfort-osetiy.ucoz.ru",
+                                "urls": ["http://komfort-osetiy.ucoz.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 686-95-10",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "6869510"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 93-63-83",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "936383"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "19:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-19:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1057153808"],
+                                    "geoid": "33",
+                                    "emails": ["komfort-osetia@mail.ru"]
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1057153808"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Генерала Плиева (Орджон), 36",
+                            "name": "Комфорт, ИП",
+                            "boundedBy": [
+                                [44.67194347, 43.01263968],
+                                [44.68840061, 43.02471535]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.680172, 43.018677]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1121972125",
+                                "name": "Компания Welcome",
+                                "address": "Владикавказ, ул. Куйбышева, 100",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Куйбышева, 100",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Куйбышева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "100"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://welcome15.ru",
+                                "urls": ["http://welcome15.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 49-91-50",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "499150"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (901) 497-91-50",
+                                        "country": "7",
+                                        "prefix": "901",
+                                        "number": "4979150"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 262-91-50",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "2629150"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-пт 10:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1121972125"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1121972125"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Куйбышева, 100",
+                            "name": "Компания Welcome",
+                            "boundedBy": [
+                                [44.66846699, 43.02998123],
+                                [44.70132736, 43.03236687]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.6849, 43.031174]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1235217184",
+                                "name": "Терра",
+                                "address": "Владикавказ, ул. Леваневского, 277а",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Леваневского, 277а",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Леваневского",
+                                                    "Premise": {
+                                                        "PremiseNumber": "277а"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Изделия из камня",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107687",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-17-18",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "441718"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "15:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-пт 10:00-18:00; сб 10:00-15:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "Features": [
+                                    {
+                                        "id": "sale",
+                                        "type": "bool",
+                                        "name": "продажа",
+                                        "value": true
+                                    }
+                                ],
+                                "InternalCompanyInfo": {
+                                    "ids": ["1235217184", "1195319108"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1235217184"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Леваневского, 277а",
+                            "name": "Терра",
+                            "boundedBy": [
+                                [44.63911903, 43.04699502],
+                                [44.65557617, 43.05906389]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.647348, 43.05303]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1034163340",
+                                "name": "Стелла",
+                                "address": "Владикавказ, ул. Астана Кесаева, 34",
+                                "postalCode": "362043",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Астана Кесаева, 34",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Астана Кесаева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "34",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362043"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://stella15.ru",
+                                "urls": ["http://stella15.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Кондиционеры",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107463",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 95-48-47",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "954847"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 072-88-82",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "0728882"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "exact"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1034163340"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1034163340"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Астана Кесаева, 34",
+                            "name": "Стелла",
+                            "boundedBy": [
+                                [44.61971542, 43.03923332],
+                                [44.63617256, 43.05130372]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.627944, 43.045269]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1162852250",
+                                "name": "Жалюзи Rolliton",
+                                "address": "Владикавказ, ул. Джанаева, 14",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Джанаева, 14",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Джанаева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "14"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://www.rolliton.ru",
+                                "urls": ["http://www.rolliton.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 49-32-37",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "493237"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (901) 497-32-37",
+                                        "country": "7",
+                                        "prefix": "901",
+                                        "number": "4973237"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 493-53-33",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "4935333"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "16:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-пт 09:00-18:00; сб 09:00-16:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "Features": [
+                                    {
+                                        "id": "sale",
+                                        "type": "bool",
+                                        "name": "продажа",
+                                        "value": true
+                                    },
+                                    {
+                                        "id": "installation",
+                                        "type": "bool",
+                                        "name": "установка",
+                                        "value": true
+                                    }
+                                ],
+                                "InternalCompanyInfo": {
+                                    "ids": ["1162852250", "1084532805"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1162852250"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Джанаева, 14",
+                            "name": "Жалюзи Rolliton",
+                            "boundedBy": [
+                                [44.67280585, 43.02648827],
+                                [44.68926299, 43.0385612]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.681034, 43.032525]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1037469503",
+                                "name": "Милора, ИП",
+                                "address": "Владикавказ, ул. Митькина, 31",
+                                "postalCode": "362008",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Митькина, 31",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "Владикавказ город",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Митькина",
+                                                    "Premise": {
+                                                        "PremiseNumber": "31",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362008"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-20-26",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "442026"
+                                    },
+                                    {
+                                        "type": "fax",
+                                        "formatted": "+7 (8672) 25-33-20",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "253320"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 10:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1037469503"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1037469503"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Митькина, 31",
+                            "name": "Милора, ИП",
+                            "boundedBy": [
+                                [44.66599662, 43.01424155],
+                                [44.68245376, 43.02631691]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.674225, 43.02028]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1016799004",
+                                "name": "Юлдуз",
+                                "address": "Владикавказ, ул. Куйбышева, 27, ТЦ Космос, 3 -й эт. маг. 18",
+                                "postalCode": "362019",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Куйбышева, 27, ТЦ Космос, 3 -й эт. маг. 18",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Куйбышева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "27, ТЦ Космос, 3 -й эт. маг. 18",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362019"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Шторы, карнизы",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "shopping",
+                                                "level": "1"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 93-60-60",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "936060"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (961) 824-97-19",
+                                        "country": "7",
+                                        "prefix": "961",
+                                        "number": "8249719"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Everyday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "ежедневно, 10:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1016799004"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1016799004"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Куйбышева, 27, ТЦ Космос, 3 -й эт. маг. 18",
+                            "name": "Юлдуз",
+                            "boundedBy": [
+                                [44.68293885, 43.02615214],
+                                [44.69939599, 43.03822514]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.691167, 43.032189]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1118182913",
+                                "name": "Гранд-Окна",
+                                "address": "Владикавказ, ул. Братьев Газдановых, 67",
+                                "postalCode": "362003",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Братьев Газдановых, 67",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "Владикавказ город",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Братьев Газдановых",
+                                                    "Premise": {
+                                                        "PremiseNumber": "67",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362003"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Окна",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107727",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-60-70",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "446070"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 93-05-04",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "930504"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1118182913"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1118182913"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Братьев Газдановых, 67",
+                            "name": "Гранд-Окна",
+                            "boundedBy": [
+                                [44.65304292, 43.01827573],
+                                [44.66950005, 43.03035029]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.661271, 43.024313]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1115275770",
+                                "name": "Кайзер, ИП",
+                                "address": "Владикавказ, ул. Цоколаева, 11",
+                                "postalCode": "362043",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Цоколаева, 11",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Цоколаева",
+                                                    "Premise": {
+                                                        "PremiseNumber": "11",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362043"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Металлические заборы и ограждения",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107713",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 91-66-55",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "916655"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (928) 562-00-00",
+                                        "country": "7",
+                                        "prefix": "928",
+                                        "number": "5620000"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 49-49-47",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "494947"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Saturday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-сб 09:00-18:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1115275770"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1115275770"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Цоколаева, 11",
+                            "name": "Кайзер, ИП",
+                            "boundedBy": [
+                                [44.6225002, 43.03340809],
+                                [44.63895733, 43.04547965]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.630729, 43.039444]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1154512022",
+                                "name": "Алюмкрас",
+                                "address": "Владикавказ, ул. Промышленная 1-я, 3",
+                                "postalCode": "362013",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Промышленная 1-я, 3",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "Locality": {
+                                                "LocalityName": "город Владикавказ",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Промышленная 1-я",
+                                                    "Premise": {
+                                                        "PremiseNumber": "3",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "362013"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "url": "http://www.alumkras.ru",
+                                "urls": ["http://www.alumkras.ru"],
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Металлоконструкции",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184106658",
+                                                "level": "2"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (901) 497-63-33",
+                                        "country": "7",
+                                        "prefix": "901",
+                                        "number": "4976333"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 49-63-33",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "496333"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Monday": true,
+                                            "Tuesday": true,
+                                            "Wednesday": true,
+                                            "Thursday": true,
+                                            "Friday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "09:00:00",
+                                                    "to": "13:00:00"
+                                                },
+                                                {
+                                                    "from": "14:00:00",
+                                                    "to": "18:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "пн-пт 09:00-18:00, перерыв 13:00-14:00"
+                                },
+                                "Geo": {
+                                    "precision": "near"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1154512022", "1028089517"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1154512022"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Промышленная 1-я, 3",
+                            "name": "Алюмкрас",
+                            "boundedBy": [
+                                [44.68998164, 43.05563847],
+                                [44.70643878, 43.06770563]
+                            ],
+                            "attributions": ["#sm", "#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.69821, 43.061672]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "CompanyMetaData": {
+                                "id": "1030977002",
+                                "name": "Салон Гард",
+                                "address": "Владикавказ, ул. Барбашова, 2а",
+                                "postalCode": "362003",
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Владикавказ, ул. Барбашова, 2а",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Республика Северная Осетия - Алания",
+                                            "SubAdministrativeArea": {
+                                                "SubAdministrativeAreaName": "городской округ Владикавказ",
+                                                "Locality": {
+                                                    "LocalityName": "город Владикавказ",
+                                                    "Thoroughfare": {
+                                                        "ThoroughfareName": "улица Барбашова",
+                                                        "Premise": {
+                                                            "PremiseNumber": "2а",
+                                                            "PostalCode": {
+                                                                "PostalCodeNumber": "362003"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Categories": [
+                                    {
+                                        "name": "Жалюзи",
+                                        "nameHighlight": [
+                                            [0, 6]
+                                        ],
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "yandex_184107989",
+                                                "level": "2"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Шторы, карнизы",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "shopping",
+                                                "level": "1"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Магазин ткани",
+                                        "InternalCategoryInfo": {
+                                            "AppleData": {
+                                                "acid": "shopping",
+                                                "level": "1"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "Phones": [
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 44-29-07",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "442907"
+                                    },
+                                    {
+                                        "type": "phone",
+                                        "formatted": "+7 (8672) 97-45-24",
+                                        "country": "7",
+                                        "prefix": "8672",
+                                        "number": "974524"
+                                    }
+                                ],
+                                "Hours": {
+                                    "Availabilities": [
+                                        {
+                                            "Everyday": true,
+                                            "Intervals": [
+                                                {
+                                                    "from": "10:00:00",
+                                                    "to": "19:00:00"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "text": "ежедневно, 10:00-19:00"
+                                },
+                                "Geo": {
+                                    "precision": "street"
+                                },
+                                "InternalCompanyInfo": {
+                                    "ids": ["1030977002"],
+                                    "geoid": "33"
+                                }
+                            },
+                            "URIMetaData": {
+                                "URI": {
+                                    "uri": "ymapsbm1://org?oid=1030977002"
+                                }
+                            },
+                            "Router": {
+                                "types": ["mt", "auto"]
+                            },
+                            "BusinessRating": {
+                                "ratings": 0,
+                                "reviews": 0
+                            },
+                            "description": "Владикавказ, ул. Барбашова, 2а",
+                            "name": "Салон Гард",
+                            "boundedBy": [
+                                [44.64541622, 43.0249658],
+                                [44.66751478, 43.03019871]
+                            ],
+                            "attributions": ["#yandex"]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [44.656465, 43.027582]
+                        }
+                    }
+                ]
+            },
+            "found": 15
+        },
+        "direct": {
+            "Banners": [
+                {
+                    "title": "Жалюзи Welcome",
+                    "text": "Жалюзи во Владикавказе.",
+                    "extra": "рулонные шторы, жалюзи горизонтальные, вертикальные.",
+                    "url": "http://yabs.yandex.ru/count/Msy_Sxc6BrG40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog0QMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL",
+                    "domain": "welcome15.ru",
+                    "counter": "http://yabs.yandex.ru/count/Msy_Sn664Vu40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog1wMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL?wmode=3",
+                    "Links": [
+                        {
+                            "type": "vcard",
+                            "href": "http://yabs.yandex.ru/count/Msy_Sn664Vu40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYYB6ehs03YRJAkr81c8qKdQisPn2cDOgcbMMflQpIrTog1wMgsNm2aRYQhDm7ao6YdR02cGL2Z9LrFRQGS1AraA0Fe9ipZA-LTJspaAKZj92W3vITa36dcRa2gAcitmMam0000801hl0mrA6bMWaE1R41ieGGkQisPn2xwtupIgWBSfx1__________yFmlNGkH4xE70i37aL"
+                        }
+                    ],
+                    "Sitelinks": [],
+                    "ContactInfo": {
+                        "companyName": "Жалюзи Welcome",
+                        "address": "Куйбышева, д. 100",
+                        "phone": "+7 (8672) 49-91-50",
+                        "email": "genawelcome@list.ru",
+                        "hours": "пн-пт 9:00-18:00"
+                    }
+                },
+                {
+                    "title": "Жалюзи во Владикавказе",
+                    "text": "Купить жалюзи во Владикавказе",
+                    "extra": "Производство, продажа, установка различных видов жалюзи (горизонтальные, вертикальные, рулонные), в нашем ассортименте представлены жалюзи разнообразных цветов и материалов.",
+                    "url": "http://yabs.yandex.ru/count/Msy_So7l1NW40WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge1fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0",
+                    "counter": "http://yabs.yandex.ru/count/Msy_SudlEz840WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge7fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0?wmode=3",
+                    "Links": [
+                        {
+                            "type": "vcard",
+                            "href": "http://yabs.yandex.ru/count/Msy_SudlEz840WW0gOA0Zhr9vKm5Mn2L0Pi1RaCYCeYt4ZOn0ecxQQus0fW7dQpo3HEc8eg_sE3M0RspasaU0ge7fQTWRGIHk9git0UJ8QATi0AP1KACcBmsjfnh4BMOwWsWbNKzhvYyDhEGe0-qcEeDb92d9wUKlmAegHycEwJ00000W06ky33KeQLQ2Gu5iG6oX32vhF8D4xlhVZDAg0jodi7__________m_2zT2v4JiuS2mCUnK0"
+                        }
+                    ],
+                    "Sitelinks": [],
+                    "ContactInfo": {
+                        "companyName": "ООО \"ИНТЕРЛЮКС\"",
+                        "address": "Калинина, д. 2а",
+                        "phone": "+7 (988) 831-76-66",
+                        "email": "region15chuba@gmail.com",
+                        "hours": "пн-сб 9:00-21:00",
+                        "Point": {
+                            "type": "Point",
+                            "coordinates": [44.655594, 43.043193]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}, "hotspots": ""}
