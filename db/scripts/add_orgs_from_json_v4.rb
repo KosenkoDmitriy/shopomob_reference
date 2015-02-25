@@ -16,9 +16,13 @@ def self.update_shops
   #CategoryItem.where("parent_id>0")[0..5].each do |ci|
   CategoryItem.where("parent_id>0").each do |ci|
     key_words = ci.tags.split(",") if ci.tags.present?
+    if (key_words.count > 0)
     key_words.each do |key_word|
       key_word = (key_word.include?("/")) ? key_word.gsub("/", "-") : key_word
       parse_item key_word, ci
+    end
+    else
+      puts "no keywords found for cat: #{ci.name}" if ci.name.present?
     end
   end
 end

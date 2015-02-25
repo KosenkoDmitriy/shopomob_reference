@@ -31,9 +31,9 @@ Status.find_or_create_by(no: 6, title: 'ожидаем оплаты', text: '')
 Status.find_or_create_by(no: 7, title: 'удалена', text: '')
 Status.find_or_create_by(no: 8, title: 'пропущена', text: '')
 Status.find_or_create_by(no: 9, title: 'ошибочный номер', text: '')
-#Status.find_or_create_by(no: 10, title: 'звонок 1', text: '')
-#Status.find_or_create_by(no: 11, title: 'звонок 2', text: '')
-#Status.find_or_create_by(no: 12, title: 'звонок 3', text: '')
+Status.find_or_create_by(no: 10, title: 'звонок 1', text: '')
+Status.find_or_create_by(no: 11, title: 'звонок 2', text: '')
+Status.find_or_create_by(no: 12, title: 'звонок 3', text: '')
 
 
 ct_mail = ContactType.find_or_create_by(name:'email', value:'@')
