@@ -42,6 +42,8 @@ def self.parse_item name, cat_item
 
   if (File.exists?(path_to_json))
     parsed_json = File.open(path_to_json, 'r').read()
+  else
+    return
   end
 
   begin
