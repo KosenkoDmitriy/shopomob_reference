@@ -43,8 +43,13 @@ def self.parse_item name, cat_item
   if (File.exists?(path_to_json))
     parsed_json = File.open(path_to_json, 'r').read()
   end
-  parsed_json = ActiveSupport::JSON.decode(parsed_json)#.load(parsed_json)#.encode(@parsed_json)
 
+  begin
+    parsed_json = ActiveSupport::JSON.decode(parsed_json)#.load(parsed_json)#.encode(@parsed_json)
+  rescue JSON::ParserError => exception
+    puts "JSON::ParserError"
+    return
+  end
   orgs = parsed_json['vpage']['data']['businesses']['GeoObjectCollection']['features'] if parsed_json.present? && parsed_json['vpage'].present? && parsed_json['vpage']['data'].present? && parsed_json['vpage']['data']['businesses'].present? && parsed_json['vpage']['data']['businesses']['GeoObjectCollection'].present? && parsed_json['vpage']['data']['businesses']['GeoObjectCollection']['features'].present?
 
   #parsed_json.try("vpage").try("data").try("businesses").try("GeoObjectCollection").try("features") #[0]["properties"]["CompanyMetaData"]["name"]

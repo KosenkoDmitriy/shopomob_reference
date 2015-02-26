@@ -13,13 +13,11 @@
     <%=image_tag("contacts/contacts_time_work2.png", class:"media-object list-icon") if isTimeWork %>
   </a>
   <div class="media-body">
-
     <h4 value="<%=item%>" class="<%="addressTo" if isAddress%> media-heading">
       <%= (isPhone) ? format_phone(item, isHome) : item %>
     </h4>
-
-    <%#=t('contacts.phone') if isPhone %>
-    <%=contact_phone_department if isPhone && contact_phone_department.present? %>
+    <%=(t('contacts.phone')) if isPhone %>
+    <%="("+contact_phone_department+")" if isPhone && contact_phone_department.present? %>
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
     <%=t('contacts.address') if isAddress %>
