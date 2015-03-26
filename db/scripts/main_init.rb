@@ -40,6 +40,7 @@ ct_mail = ContactType.find_or_create_by(name:'email', value:'@')
 ct_url = ContactType.find_or_create_by(name:'url', value:'веб-сайт')
 ct_phone = ContactType.find_or_create_by(name:'phone', value:'тел')
 ct_address = ContactType.find_or_create_by(name:'address', value:'адрес')
+ct_address = ContactType.find_or_create_by(name:'skype', value:'скайп')
 
 require 'csv'
 path_to_app = Rails.root.join('db', 'csv') #File.dirname(__FILE__)+'/csv/'

@@ -107,7 +107,7 @@ class HomeController < ApplicationController
       if (!@tcats.blank?)
         tcid = (tcid > 0) ? tcid : @tcats.first.id if @tcats.first
         shop_id = (shop_id > 0) ? shop_id : @tcats.first.shops.first.id if @tcats.first.shops.first
-        @shops = @tcats.find( tcid ).shops.order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
+        @shops = @tcats.find( tcid ).shops.group(:name, :address).order(favorite: :desc, rated: :desc, name: :asc).paginate(:page => params[:page], :per_page => 10)
         begin
           @shop = @shops.find( shop_id ) if shop_id > 0
         rescue => ex

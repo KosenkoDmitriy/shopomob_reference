@@ -3,11 +3,11 @@ class Shop < ActiveRecord::Base
 
   #has_and_belongs_to_many :categories # should use has_many :through if you need validations, callbacks, or extra attributes on the join model.
   has_many :categories_shops
-  has_many :categories, :through => :categories_shops
+  has_many :categories, :through => :categories_shops, :uniq => true
   accepts_nested_attributes_for :categories, :allow_destroy => true
 
   has_many :category_items_shops
-  has_many :category_items, through: :category_items_shops
+  has_many :category_items, through: :category_items_shops, :uniq => true
   accepts_nested_attributes_for :category_items, :allow_destroy => true
   #attr_accessor :category_items_ids
   #before_save :assign_categories
@@ -19,7 +19,7 @@ class Shop < ActiveRecord::Base
   #  end
   #end
 
-  has_many :contact_items, dependent: :destroy
+  has_many :contact_items, dependent: :destroy, :uniq => true
   accepts_nested_attributes_for :contact_items, :allow_destroy => true
 
   has_many :images, as: :imageable, dependent: :destroy
@@ -40,6 +40,34 @@ class Shop < ActiveRecord::Base
     end
   end
 
+  def self.dedupe_cats_contacts
+    Shop.all.each do |shop|
+      puts "sname: #{shop.name}"
+      if shop.category_items.present?
+        ci=shop.category_items.uniq!
+        if (ci.count > 0)
+          puts "cat: #{shop.category_items.count}"
+          shop.category_items.delete_all
+          #shop.save!
+          shop.category_items = ci
+          puts "ci : #{ci.count}"
+          puts "cat uniq before save: #{shop.category_items.count}"
+          shop.save!
+          puts "cat uniq: #{shop.category_items.count}"
+        end
+      end
+      if shop.contact_items.present?
+        c=shop.contact_items.uniq!
+        if c.count > 0
+          shop.contact_items.delete_all
+          #shop.save!
+          shop.contact_items = c
+          shop.save!
+        end
+      end
+    end
+  end
+
   def self.dedupe
     ct_phone = ContactType.find_or_create_by(name:'phone', value:'тел')
     ct_address = ContactType.find_or_create_by(name:'address', value:'адрес')
@@ -48,7 +76,7 @@ class Shop < ActiveRecord::Base
     #grouped = all.group_by{|model| [model.name] }
     grouped = all.group(:name).having("count(*) > 1")
     grouped.each do |shop_grouped|
-      duplicates = all.where(name:shop_grouped.name)
+      duplicates = all.where(name:shop_grouped.name, address:shop_grouped.address)
       #duplicates = Shop.where(name:"Princess Z")
       shop_first = duplicates.first
       duplicates[1..duplicates.count].each do |double|
@@ -90,6 +118,7 @@ class Shop < ActiveRecord::Base
         #  shop_first.category_items.delete_all
         #  shop_first.category_items=tcats
         #end
+
         shop_first.save!
         double.destroy! # duplicates can now be destroyed
       end
