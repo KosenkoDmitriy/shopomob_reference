@@ -28,7 +28,7 @@
           time_works << cv
         end
 
-        if (contact_type.name == "url")
+        if (contact_type.name == "email")
             isEmail = true
             emails << cv
             #isEmail = item.include?("@")
@@ -61,11 +61,7 @@ end %>
         <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:false, isPhone:true, isHome:true, isTimeWork: false }) || t('contacts.empty') %>
     <% end %>
 <% end %>
-<!--<% if (!emails.blank?) %>-->
-    <!--<% emails.each do |item| %>-->
-        <!--<%= render(:partial=> 'home/contact_item', locals: {contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:false, isEmail:true, isPhone:false, isHome:false, isTimeWork: false }) || t('contacts.empty') %>-->
-    <!--<% end %>-->
-<!--<% end %>-->
+
 <% if (!addresses.blank?) %>
     <% addresses.each do |item| %>
         <%= render(:partial=> 'home/contact_item', locals: { contact_phone_department: contact_phone_department, item: item, isUrl: false, isAddress:true, isEmail:false, isPhone:false, isHome:false, isTimeWork: false }) || t('contacts.empty') %>

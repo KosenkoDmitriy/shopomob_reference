@@ -1,0 +1,38 @@
+<% if images.count>0%>
+<div id="company_gallery" class="carousel slide" data-ride="carousel">
+  <!-- Индикаторы -->
+  <ol class="carousel-indicators">
+    <% i=0
+       images.each do |image|
+    %>
+        <li data-target="#company_gallery" data-slide-to="<%= i %>" class="<%= (i==0) ? "active" : "" %>"></li>
+        <!--<li data-target="#company_gallery" data-slide-to="2"></li>-->
+    <% i+=1
+       end %>
+  </ol>
+  <!-- Содержимое слайдера (Обёртка для слайдов)-->
+  <div class="carousel-inner">
+    <div class="item active">
+      <% image = images.first %>
+      <%= (!image.try(:image_url).blank?) ? image_tag((image.try(:image_url)), :class => "img-thumbnails") : image_tag('missing.png', :class => "img-thumbnails") %>
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <% images[1..images.count].each do |image| %>
+        <div class="item">
+          <!--<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="...">-->
+          <%= (!image.try(:image_url).blank?) ? image_tag((image.try(:image_url)), :class => "img-thumbnails") : image_tag('missing.png', :class => "img-thumbnails") %>
+          <div class="carousel-caption">
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <!-- Контролы -->
+  <a class="left carousel-control" href="#company_gallery" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left "></span>
+  </a>
+  <a class="right carousel-control" href="#company_gallery" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+<%end%>

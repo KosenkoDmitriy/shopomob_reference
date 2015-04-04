@@ -40,31 +40,32 @@ class Shop < ActiveRecord::Base
     end
   end
 
-  def self.dedupe_cats_contacts
+  def self.resave
     Shop.all.each do |shop|
-      puts "sname: #{shop.name}"
-      if shop.category_items.present?
-        ci=shop.category_items.uniq!
-        if (ci.count > 0)
-          puts "cat: #{shop.category_items.count}"
-          shop.category_items.delete_all
-          #shop.save!
-          shop.category_items = ci
-          puts "ci : #{ci.count}"
-          puts "cat uniq before save: #{shop.category_items.count}"
-          shop.save!
-          puts "cat uniq: #{shop.category_items.count}"
-        end
-      end
-      if shop.contact_items.present?
-        c=shop.contact_items.uniq!
-        if c.count > 0
-          shop.contact_items.delete_all
-          #shop.save!
-          shop.contact_items = c
-          shop.save!
-        end
-      end
+      shop.save!
+    #  puts "sname: #{shop.name}"
+    #  if shop.category_items.present?
+    #    ci=shop.category_items.uniq!
+    #    if (ci.count > 0)
+    #      puts "cat: #{shop.category_items.count}"
+    #      shop.category_items.delete_all
+    #      #shop.save!
+    #      shop.category_items = ci
+    #      puts "ci : #{ci.count}"
+    #      puts "cat uniq before save: #{shop.category_items.count}"
+    #      shop.save!
+    #      puts "cat uniq: #{shop.category_items.count}"
+    #    end
+    #  end
+    #  if shop.contact_items.present?
+    #    c=shop.contact_items.uniq!
+    #    if c.count > 0
+    #      shop.contact_items.delete_all
+    #      #shop.save!
+    #      shop.contact_items = c
+    #      shop.save!
+    #    end
+    #  end
     end
   end
 

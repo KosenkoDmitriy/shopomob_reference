@@ -1,7 +1,7 @@
 <!--<h2>-->
   <!--<%=t('contacts.phones') if isPhone %>-->
   <!--<%=t('contacts.emails') if isEmail %>-->
-  <!--<%=t('contacts.urls') if isUrl %>-->
+  <!--<%#=t('contacts.urls') if isUrl #%>-->
   <!--<%=t('contacts.addresses') if isAddress %>-->
 <!--</h2>-->
 <li class="media">
@@ -21,7 +21,11 @@
     <%=t('contacts.email') if isEmail %>
     <%=t('contacts.www') if isUrl %>
     <%=t('contacts.address') if isAddress %>
-    <%#=t('contacts.time_work') +': '+ contact_phone_department if isTimeWork %>
     <%=contact_phone_department if isTimeWork %>
+    <% if isUrl %>
+        <a href="<%=item%>">посетить</a>
+        <%="("+contact_phone_department+")" if contact_phone_department.present? %>
+
+  <% end %>
   </div>
 </li>

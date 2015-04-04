@@ -1,0 +1,148 @@
+<% if (@shop.present?) %>
+    <% title @shop.try(:seo).try(:seo_title) %>
+    <% meta_description @shop.try(:seo).try(:seo_description) %>
+    <% meta_keywords @shop.try(:seo).try(:seo_keywords) %>
+    <header>
+      <h2><%= @shop.name %></h2>
+    </header>
+    <p>
+      <% if @shop.try(:tags).present?
+         @shop.try(:tags).split(",").each do |shop| %>
+        <a href="<%="#{shops_path}/-1/#{shop}?page=1"%>"><%= shop %></a>
+          <% end %>
+      <% end %>
+    </p>
+    <% if (!@shop.try(:images).try(:first).try(:image_url).blank?) %>
+    <p>
+      <%= (!@shop.try(:images).try(:first).try(:image_url).blank?) ? image_tag( (@shop.try(:images).try(:first).try(:image).try(:image_url)), :class => "img-circle", :width => "100%") : image_tag( 'missing.png', :class => "img-circle", :width => "100%" ) %>
+    </p>
+    <% end %>
+    <p>
+      <% @shop.try(:images).each do |image| %>
+          <%#= image_tag (image.try(:image_url)) if (image != nil )  #%>
+      <% end %>
+    </p>
+
+    <% if (!@shop.try(:description).blank?) %>
+    <div class="media">
+      <a class="pull-left" href="#">
+        <% url = @shop.try(:images).try(:first).try(:image_url)
+           url = (!url.blank?) ? url : "missing.png"
+        %>
+        <%=image_tag(url, class:"media-object list-icon") %>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%=@shop.try(:description) || t("contacts.empty") %></h4>
+        <%=t('contacts.description') %>
+      </div>
+    </div>
+    <% end %>
+
+    <% if (!@shop.try(:time_work) .blank?) %>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <%=image_tag "contacts/contacts_time_work2.png", class:"media-object list-icon"%>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%=@shop.try(:time_work) || t("contacts.empty") %></h4>
+          <%=t('contacts.time_work') %>
+        </div>
+      </div>
+    <% end %>
+
+    <!--<% if (!@shop.try(:email) .blank?) %>-->
+      <!--<div class="media">-->
+        <!--<a class="pull-left" href="#">-->
+          <!--<%=image_tag "contacts/contacts_mail.png", class:"media-object list-icon"%>-->
+        <!--</a>-->
+        <!--<div class="media-body">-->
+          <!--<h4 class="media-heading"><%=@shop.try(:email) || t("contacts.empty") %></h4>-->
+          <!--<%=t('contacts.email') %>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--<% end %>-->
+
+    <% if (!@shop.try(:www) .blank?) %>
+      <div class="media">
+        <a class="pull-left" href="<%=@shop.try(:www)%>" rel="nofollow">
+          <%=image_tag "contacts/contacts_www.png", class:"media-object list-icon"%>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%=@shop.try(:www) || t("contacts.empty") %></h4>
+          <%=t('contacts.www') %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if (!@shop.try(:address) .blank?) %>
+        <div class="media">
+          <a class="pull-left" href="#">
+            <%=image_tag "contacts/contacts_map.png", class:"media-object list-icon"%>
+          </a>
+          <div class="media-body">
+            <h4 class="addressTo" value="<%=@shop.try(:address)%>" class="media-heading">
+              <%=@shop.try(:address) || t("contacts.empty") %></h4>
+            <%=t("contacts.address") %>
+
+          </div>
+        </div>
+    <% end %>
+
+    <h3><%=t("contacts.additional") if !@shop.try(:contact_items).blank?%></h3>
+    <% @shop.try(:contact_items).each do |contact|%>
+
+    <%= render(:partial=> 'home/contact_items', locals: { contact: contact }) || t('contacts.empty') %>
+    <% end %>
+
+    <div class="input-group">
+      <span class="input-group-addon"><%=t("default_address.your_pos")%></span>
+      <% addressFrom = "#{t("default_address.home")}, #{t("default_address.street")}, #{t("default_address.city")}" %>
+      <%= text_field_tag( :title, addressFrom, id:"addressFrom", class:"form-control") %>
+      <span class="input-group-btn">
+         <%= tag "input", { "type" => "button", "value" => t("calculate"), "onclick" => "initialize();return true;", class:"btn btn-default" } %>
+      </span>
+    </div><!-- /input-group -->
+    <div class="map_container">
+      <div id="map_canvas" class="map_canvas"></div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="initialize();return true;">-->
+      <!--<%=t("show_on_map")%>-->
+    <!--</button>-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel"><%=@shop.try(:name)%></h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon"><%=t("default_address.your_pos")%></span>
+              <% addressFrom = "#{t("default_address.home")}, #{t("default_address.street")}, #{t("default_address.city")}" %>
+              <%= text_field_tag( :title, addressFrom, id:"addressFrom", class:"form-control") %>
+              <span class="input-group-btn">
+                 <%= tag "input", { "type" => "button", "value" => t("calculate"), "onclick" => "initialize();return true;", class:"btn btn-default" } %>
+              </span>
+            </div><!-- /input-group -->
+
+            <!--<div class="map_container">-->
+              <!--<div id="map_canvas" class="map_canvas"></div>-->
+            <!--</div>-->
+          </div>
+          <!--<div class="modal-footer">-->
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+
+<% else %>
+    <p><%= t("no_shop_selected")%></p>
+<% end %>
+
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=ru"></script>-->
