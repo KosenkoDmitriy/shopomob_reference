@@ -16,4 +16,14 @@ class Image < ActiveRecord::Base
     image.url(:original)
   end
 
+  def url_thumb
+    image.url(:thumb)
+  end
+  def url
+    image.url(:medium)
+  end
+  def url_original
+    image.url(:original)
+  end
+
 end
